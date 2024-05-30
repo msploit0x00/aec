@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-29 11:40:37.475999",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "details_tab",
+  "date",
+  "product",
+  "targeted_country",
+  "column_break_dvkn3",
+  "market",
+  "arabic_name",
+  "english_name",
+  "attachments_section",
+  "images",
+  "market_attachment",
+  "details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "label": "Product",
+   "options": "Product"
+  },
+  {
+   "fieldname": "targeted_country",
+   "fieldtype": "Link",
+   "label": "Targeted Country",
+   "options": "Countries"
+  },
+  {
+   "fieldname": "column_break_dvkn3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "market",
+   "fieldtype": "Data",
+   "label": "Market"
+  },
+  {
+   "fieldname": "arabic_name",
+   "fieldtype": "Data",
+   "label": "Arabic Name"
+  },
+  {
+   "fieldname": "english_name",
+   "fieldtype": "Data",
+   "label": "English Name"
+  },
+  {
+   "fieldname": "attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "images",
+   "fieldtype": "Table",
+   "label": "Images",
+   "options": "Image"
+  },
+  {
+   "fieldname": "market_attachment",
+   "fieldtype": "Table",
+   "label": "Market Attachment",
+   "options": "Market Attachment"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Text",
+   "label": "Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Market Product",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-05-30 08:38:03.650035",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Market Product",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

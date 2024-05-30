@@ -116,9 +116,13 @@
   {
    "link_doctype": "Product",
    "link_fieldname": "custom_market"
+  },
+  {
+   "link_doctype": "Market Product",
+   "link_fieldname": "market"
   }
  ],
- "modified": "2024-05-28 12:51:59.246412",
+ "modified": "2024-05-29 12:59:27.992575",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market",
