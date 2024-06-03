@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-05-28 08:55:51.392151",
  "default_view": "List",
@@ -13,6 +14,10 @@
   "column_break_vhgcr",
   "image",
   "section_break_e9xhd",
+  "more_than_country",
+  "country",
+  "country_name",
+  "clusters",
   "geographcal_clusters",
   "channel",
   "market_information",
@@ -58,6 +63,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.more_than_country == true",
    "fieldname": "geographcal_clusters",
    "fieldtype": "Table",
    "label": "Geographcal Clusters",
@@ -108,21 +114,53 @@
    "options": "Market",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.more_than_country == false",
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Countries"
+  },
+  {
+   "depends_on": "eval:doc.more_than_country == false",
+   "fetch_from": "country.arabic_name",
+   "fieldname": "country_name",
+   "fieldtype": "Data",
+   "label": "Country Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.more_than_country == false",
+   "fetch_from": "country.geographical_clusters_name",
+   "fieldname": "clusters",
+   "fieldtype": "Data",
+   "label": "Clusters",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "more_than_country",
+   "fieldtype": "Check",
+   "label": "More Than Country"
   }
  ],
- "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [
   {
-   "link_doctype": "Product",
-   "link_fieldname": "custom_market"
+   "link_doctype": "Market Product",
+   "link_fieldname": "market"
   },
   {
-   "link_doctype": "Market Product",
+   "link_doctype": "Market Follow Up",
+   "link_fieldname": "market"
+  },
+  {
+   "link_doctype": "Technical Delegations",
    "link_fieldname": "market"
   }
  ],
- "modified": "2024-05-29 12:59:27.992575",
+ "modified": "2024-06-03 13:40:42.554055",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market",
@@ -138,6 +176,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
