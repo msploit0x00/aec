@@ -1,0 +1,114 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-11 12:24:25.946217",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "start_date",
+  "description",
+  "column_break_3t7yu",
+  "end_date",
+  "agreement_attach",
+  "status",
+  "section_break_od28k",
+  "council_cost",
+  "entity_cost",
+  "entities",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_3t7yu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "agreement_attach",
+   "fieldtype": "Attach",
+   "label": "Agreement Attach"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nOpen\nIn Progress\nClosed"
+  },
+  {
+   "fieldname": "section_break_od28k",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "council_cost",
+   "fieldtype": "Currency",
+   "label": "Council Cost"
+  },
+  {
+   "fieldname": "entity_cost",
+   "fieldtype": "Currency",
+   "label": "Entity Cost"
+  },
+  {
+   "fieldname": "entities",
+   "fieldtype": "Link",
+   "label": "Entities",
+   "options": "Authority"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cooperation Agreements",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-11 16:26:28.951810",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Cooperation Agreements",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
