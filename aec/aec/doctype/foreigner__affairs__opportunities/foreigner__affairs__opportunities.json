@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-12 12:58:36.575707",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "member_code",
+  "company_code",
+  "ceo_name",
+  "committee",
+  "governorate",
+  "customer_status",
+  "member_info",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "member_code",
+   "fieldtype": "Link",
+   "label": "Member Code",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Data",
+   "label": "Company Code"
+  },
+  {
+   "fieldname": "ceo_name",
+   "fieldtype": "Data",
+   "label": "CEO Name"
+  },
+  {
+   "fieldname": "committee",
+   "fieldtype": "Link",
+   "label": "Committee",
+   "options": "Committee"
+  },
+  {
+   "fieldname": "governorate",
+   "fieldtype": "Link",
+   "label": "Governorate",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "customer_status",
+   "fieldtype": "Data",
+   "label": "Customer Status"
+  },
+  {
+   "fieldname": "member_info",
+   "fieldtype": "Table",
+   "label": "Member info",
+   "options": "Member info"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Foreigner  Affairs  Opportunities",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-23 08:27:12.409784",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Foreigner  Affairs  Opportunities",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

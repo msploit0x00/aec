@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-13 12:53:50.604427",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "mission_type",
+  "country",
+  "mission_start_date",
+  "mission_end_date",
+  "programme",
+  "number_of_arrivals",
+  "required_for_mission",
+  "status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "mission_type",
+   "fieldtype": "Select",
+   "label": "Mission Type",
+   "options": "\nExternal\nInternal"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country",
+   "options": "Countries"
+  },
+  {
+   "fieldname": "mission_start_date",
+   "fieldtype": "Date",
+   "label": "Mission Start Date"
+  },
+  {
+   "fieldname": "mission_end_date",
+   "fieldtype": "Date",
+   "label": "Mission End Date"
+  },
+  {
+   "fieldname": "programme",
+   "fieldtype": "Text",
+   "label": "Programme"
+  },
+  {
+   "fieldname": "number_of_arrivals",
+   "fieldtype": "Int",
+   "label": "Number of Arrivals"
+  },
+  {
+   "fieldname": "required_for_mission",
+   "fieldtype": "Table",
+   "label": "Required For Mission",
+   "options": "Material Request Item"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nOpen\nClosed"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Trade Missions",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-23 09:06:09.228249",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Trade Missions",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

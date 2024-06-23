@@ -1,0 +1,174 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-19 15:55:09.763983",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "details_tab",
+  "meeting_info_section",
+  "name1",
+  "meeting_type",
+  "council_entity",
+  "column_break_qzud4",
+  "date",
+  "meeting_location",
+  "status",
+  "section_break_scywy",
+  "description",
+  "buyers_section",
+  "send_to_buyers",
+  "buyers_info",
+  "members_section",
+  "send_to_members",
+  "members_info",
+  "tab_break_pxktu",
+  "required_by",
+  "requirement_items",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "meeting_info_section",
+   "fieldtype": "Section Break",
+   "label": "Meeting Info"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "meeting_type",
+   "fieldtype": "Select",
+   "label": "Meeting Type",
+   "options": "\nOnline\nOffline"
+  },
+  {
+   "fieldname": "council_entity",
+   "fieldtype": "Link",
+   "label": "Council Entity",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_qzud4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "meeting_location",
+   "fieldtype": "Link",
+   "label": "Meeting Location",
+   "options": "Location"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nOpen\nIn Progress\nClosed"
+  },
+  {
+   "fieldname": "section_break_scywy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "buyers_section",
+   "fieldtype": "Section Break",
+   "label": "Buyers"
+  },
+  {
+   "fieldname": "send_to_buyers",
+   "fieldtype": "Button",
+   "label": "Send To Buyers"
+  },
+  {
+   "fieldname": "buyers_info",
+   "fieldtype": "Table",
+   "label": "Buyers Info",
+   "options": "Buyers Info"
+  },
+  {
+   "fieldname": "members_section",
+   "fieldtype": "Section Break",
+   "label": "Members"
+  },
+  {
+   "fieldname": "send_to_members",
+   "fieldtype": "Button",
+   "label": "Send To Members"
+  },
+  {
+   "fieldname": "members_info",
+   "fieldtype": "Table",
+   "label": "Members Info",
+   "options": "Members Info"
+  },
+  {
+   "fieldname": "tab_break_pxktu",
+   "fieldtype": "Tab Break",
+   "label": "Requirements"
+  },
+  {
+   "fieldname": "required_by",
+   "fieldtype": "Date",
+   "label": " Required By"
+  },
+  {
+   "fieldname": "requirement_items",
+   "fieldtype": "Table",
+   "label": " Requirement items",
+   "options": "Material Request Item"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Business to Business Meetings",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-23 09:06:41.984253",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Business to Business Meetings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

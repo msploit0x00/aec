@@ -1,0 +1,93 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-12 13:05:20.640851",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "member_code",
+  "company_code",
+  "ceo_name",
+  "committees",
+  "export_value_in_egp",
+  "export_value_in_usd",
+  "export_volume",
+  "governorate",
+  "customer_status",
+  "ceo_mobile",
+  "email"
+ ],
+ "fields": [
+  {
+   "fieldname": "member_code",
+   "fieldtype": "Link",
+   "label": "Member Code",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Data",
+   "label": "Company Code"
+  },
+  {
+   "fieldname": "ceo_name",
+   "fieldtype": "Data",
+   "label": "CEO Name"
+  },
+  {
+   "fieldname": "committees",
+   "fieldtype": "Link",
+   "label": "Committees",
+   "options": "Committee"
+  },
+  {
+   "fieldname": "export_value_in_egp",
+   "fieldtype": "Data",
+   "label": "Export Value in EGP"
+  },
+  {
+   "fieldname": "export_value_in_usd",
+   "fieldtype": "Data",
+   "label": "Export Value in USD"
+  },
+  {
+   "fieldname": "export_volume",
+   "fieldtype": "Data",
+   "label": "Export Volume"
+  },
+  {
+   "fieldname": "governorate",
+   "fieldtype": "Link",
+   "label": "Governorate",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "customer_status",
+   "fieldtype": "Data",
+   "label": "Customer Status"
+  },
+  {
+   "fieldname": "ceo_mobile",
+   "fieldtype": "Data",
+   "label": "CEO Mobile"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-06-23 09:07:00.114115",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Member info",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
