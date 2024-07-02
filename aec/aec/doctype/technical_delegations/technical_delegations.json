@@ -10,6 +10,7 @@
  "field_order": [
   "details_tab",
   "market",
+  "market_product",
   "visit_date",
   "end_date_of_visit",
   "purpose",
@@ -90,12 +91,19 @@
    "options": "Technical Delegations",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "market_product",
+   "fieldtype": "Link",
+   "label": "Market Product",
+   "options": "Market Product",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-03 19:04:47.341750",
+ "modified": "2024-06-24 14:09:58.892507",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Technical Delegations",

@@ -9,10 +9,13 @@
  "field_order": [
   "member_code",
   "company_code",
+  "column_break_hgzke",
   "ceo_name",
   "committee",
+  "column_break_md7hh",
   "governorate",
   "customer_status",
+  "section_break_9hdtb",
   "member_info",
   "amended_from"
  ],
@@ -35,9 +38,8 @@
   },
   {
    "fieldname": "committee",
-   "fieldtype": "Link",
-   "label": "Committee",
-   "options": "Committee"
+   "fieldtype": "Data",
+   "label": "Committee"
   },
   {
    "fieldname": "governorate",
@@ -64,12 +66,23 @@
    "options": "Foreigner  Affairs  Opportunities",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hgzke",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_md7hh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_9hdtb",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2024-06-23 08:27:12.409784",
+ "modified": "2024-06-25 10:11:33.777458",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Foreigner  Affairs  Opportunities",

@@ -71,8 +71,9 @@
   },
   {
    "fieldname": "channel",
-   "fieldtype": "Data",
-   "label": "Channel"
+   "fieldtype": "Link",
+   "label": "Channel",
+   "options": "Channel"
   },
   {
    "fieldname": "market_information",
@@ -158,9 +159,21 @@
   {
    "link_doctype": "Technical Delegations",
    "link_fieldname": "market"
+  },
+  {
+   "link_doctype": "Cooperation Agreements",
+   "link_fieldname": "market"
+  },
+  {
+   "link_doctype": "External Achievements",
+   "link_fieldname": "market"
+  },
+  {
+   "link_doctype": "Protocol",
+   "link_fieldname": "market"
   }
  ],
- "modified": "2024-06-03 13:40:42.554055",
+ "modified": "2024-06-24 14:04:20.864467",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market",

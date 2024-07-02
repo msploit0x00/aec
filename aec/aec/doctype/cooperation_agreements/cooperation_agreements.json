@@ -18,6 +18,8 @@
   "council_cost",
   "entity_cost",
   "entities",
+  "market",
+  "market_product",
   "amended_from"
  ],
  "fields": [
@@ -84,12 +86,26 @@
    "options": "Cooperation Agreements",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "market",
+   "fieldtype": "Link",
+   "label": "Market",
+   "options": "Market",
+   "read_only": 1
+  },
+  {
+   "fieldname": "market_product",
+   "fieldtype": "Link",
+   "label": "Market Product",
+   "options": "Market Product",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-11 16:26:28.951810",
+ "modified": "2024-06-24 14:11:37.925607",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Cooperation Agreements",

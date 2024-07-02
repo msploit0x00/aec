@@ -7,7 +7,6 @@
  "engine": "InnoDB",
  "field_order": [
   "member_code",
-  "company_code",
   "ceo_name",
   "committees",
   "export_value_in_egp",
@@ -26,20 +25,14 @@
    "options": "Customer"
   },
   {
-   "fieldname": "company_code",
-   "fieldtype": "Data",
-   "label": "Company Code"
-  },
-  {
    "fieldname": "ceo_name",
    "fieldtype": "Data",
    "label": "CEO Name"
   },
   {
    "fieldname": "committees",
-   "fieldtype": "Link",
-   "label": "Committees",
-   "options": "Committee"
+   "fieldtype": "Data",
+   "label": "Committees"
   },
   {
    "fieldname": "export_value_in_egp",
@@ -58,9 +51,8 @@
   },
   {
    "fieldname": "governorate",
-   "fieldtype": "Link",
-   "label": "Governorate",
-   "options": "Territory"
+   "fieldtype": "Data",
+   "label": "Governorate"
   },
   {
    "fieldname": "customer_status",
@@ -81,7 +73,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-23 09:07:00.114115",
+ "modified": "2024-06-25 09:36:05.137386",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Member info",

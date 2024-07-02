@@ -105,8 +105,29 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2024-06-11 12:53:47.635292",
+ "links": [
+  {
+   "link_doctype": "Market Follow Up",
+   "link_fieldname": "market_product"
+  },
+  {
+   "link_doctype": "Technical Delegations",
+   "link_fieldname": "market_product"
+  },
+  {
+   "link_doctype": "Cooperation Agreements",
+   "link_fieldname": "market_product"
+  },
+  {
+   "link_doctype": "External Achievements",
+   "link_fieldname": "market_product"
+  },
+  {
+   "link_doctype": "Protocol",
+   "link_fieldname": "market_product"
+  }
+ ],
+ "modified": "2024-06-24 14:14:54.075655",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market Product",
@@ -122,6 +143,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
