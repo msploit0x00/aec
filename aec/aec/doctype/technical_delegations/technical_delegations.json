@@ -47,7 +47,7 @@
   },
   {
    "fieldname": "purpose",
-   "fieldtype": "Small Text",
+   "fieldtype": "Text Editor",
    "label": "Purpose"
   },
   {
@@ -103,7 +103,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-24 14:09:58.892507",
+ "modified": "2024-07-03 09:32:26.039420",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Technical Delegations",

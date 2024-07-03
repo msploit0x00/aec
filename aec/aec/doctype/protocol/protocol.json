@@ -35,7 +35,7 @@
   },
   {
    "fieldname": "description",
-   "fieldtype": "Text",
+   "fieldtype": "Text Editor",
    "label": "Description"
   },
   {
@@ -76,7 +76,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-24 14:13:54.150767",
+ "modified": "2024-07-03 09:37:01.020115",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Protocol",
