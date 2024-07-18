@@ -1,0 +1,155 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-26 13:25:27.801683",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "member",
+  "number_of_exhibitions",
+  "area",
+  "area_for_each_exhibitors",
+  "column_break_jrlrn",
+  "exhibitions",
+  "approved_company_name",
+  "status",
+  "section_break_hipwh",
+  "targeted_products",
+  "company_brief",
+  "contacts_section",
+  "name1",
+  "job_title",
+  "email_ids",
+  "contact_numbers",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "label": "Member",
+   "options": "Customer"
+  },
+  {
+   "description": "Number of exhibitions previously participated in",
+   "fieldname": "number_of_exhibitions",
+   "fieldtype": "Int",
+   "label": "Number of exhibitions",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "label": "Area"
+  },
+  {
+   "fetch_from": "exhibitions.area_for_each_exhibitors",
+   "fieldname": "area_for_each_exhibitors",
+   "fieldtype": "Data",
+   "label": "Area for Each Exhibitors",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_jrlrn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "exhibitions",
+   "fieldtype": "Link",
+   "label": "Exhibitions",
+   "options": "Exhibitions"
+  },
+  {
+   "description": "The name of the company approved by government agencies",
+   "fieldname": "approved_company_name",
+   "fieldtype": "Data",
+   "label": "Approved Company Name"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nPending\nUnder Investigation\nApproved\nNot Approved\nRequest to Edit\nWaiting list"
+  },
+  {
+   "fieldname": "section_break_hipwh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "targeted_products",
+   "fieldtype": "Table",
+   "label": "Targeted products",
+   "options": "Targeted products"
+  },
+  {
+   "fieldname": "company_brief",
+   "fieldtype": "Text",
+   "label": "Company Brief"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contacts_section",
+   "fieldtype": "Section Break",
+   "label": "Contacts"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "job_title",
+   "fieldtype": "Data",
+   "label": "Job Title"
+  },
+  {
+   "fieldname": "email_ids",
+   "fieldtype": "Table",
+   "label": "Email IDs",
+   "options": "Contact Email"
+  },
+  {
+   "fieldname": "contact_numbers",
+   "fieldtype": "Table",
+   "label": "Contact Numbers",
+   "options": "Contact Phone"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Exhibitors",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-07-18 15:52:14.675519",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Exhibitors",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
