@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-28 10:56:09.927125",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "topic_1",
+  "topic_2",
+  "topic_3",
+  "topic_4",
+  "topic_5",
+  "topic_6",
+  "topic_7",
+  "topic_8",
+  "topic_9",
+  "topic_10",
+  "topic_11",
+  "topic_12"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_1",
+   "fieldtype": "Data",
+   "label": "Topic 1"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_2",
+   "fieldtype": "Data",
+   "label": "Topic 2"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_3",
+   "fieldtype": "Data",
+   "label": "Topic 3"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_4",
+   "fieldtype": "Data",
+   "label": "Topic 4"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_5",
+   "fieldtype": "Data",
+   "label": "Topic 5"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_6",
+   "fieldtype": "Data",
+   "label": "Topic 6"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_7",
+   "fieldtype": "Data",
+   "label": "Topic 7"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_8",
+   "fieldtype": "Data",
+   "label": "Topic 8"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_9",
+   "fieldtype": "Data",
+   "label": "Topic 9"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_10",
+   "fieldtype": "Data",
+   "label": "Topic 10"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_11",
+   "fieldtype": "Data",
+   "label": "Topic 11"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "topic_12",
+   "fieldtype": "Data",
+   "label": "Topic 12"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-02 08:23:50.433270",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Program",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "show_preview_popup": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

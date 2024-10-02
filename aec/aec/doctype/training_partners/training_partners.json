@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-28 12:32:56.948466",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "partners",
+  "coordinator"
+ ],
+ "fields": [
+  {
+   "fieldname": "partners",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Partners",
+   "options": "Partners"
+  },
+  {
+   "fieldname": "coordinator",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Coordinator"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-10-02 08:23:50.254532",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Training Partners",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

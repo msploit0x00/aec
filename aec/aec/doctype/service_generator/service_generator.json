@@ -1,0 +1,142 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:service_name",
+ "creation": "2024-09-18 16:18:11.789831",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "service_name",
+  "pricing",
+  "service_items",
+  "allow_for_column",
+  "request",
+  "active",
+  "inactive",
+  "suspended",
+  "data_completion",
+  "section_break_nx3ky",
+  "allow_outstanding",
+  "show_committees",
+  "show_export_volume",
+  "repeated_service"
+ ],
+ "fields": [
+  {
+   "fieldname": "service_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Service Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "pricing",
+   "fieldtype": "Select",
+   "label": "Pricing",
+   "options": "\nFixed Price\nPrice list"
+  },
+  {
+   "fieldname": "service_items",
+   "fieldtype": "Table",
+   "label": "Service Items",
+   "options": "Service Items"
+  },
+  {
+   "bold": 1,
+   "fieldname": "allow_for_column",
+   "fieldtype": "Column Break",
+   "label": "Allow For",
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "request",
+   "fieldtype": "Check",
+   "label": "Request"
+  },
+  {
+   "default": "0",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "default": "0",
+   "fieldname": "inactive",
+   "fieldtype": "Check",
+   "label": "Inactive"
+  },
+  {
+   "default": "0",
+   "fieldname": "suspended",
+   "fieldtype": "Check",
+   "label": "Suspended"
+  },
+  {
+   "default": "0",
+   "fieldname": "data_completion",
+   "fieldtype": "Check",
+   "label": "Data Completion"
+  },
+  {
+   "fieldname": "section_break_nx3ky",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "description": "This option is allow members to get service even their have out standing balance",
+   "fieldname": "allow_outstanding",
+   "fieldtype": "Check",
+   "label": "Allow Outstanding"
+  },
+  {
+   "default": "0",
+   "description": "This option is showing committees that members are join",
+   "fieldname": "show_committees",
+   "fieldtype": "Check",
+   "label": "Show Committees"
+  },
+  {
+   "default": "0",
+   "description": "This option is showing Volume of exports for last 3 years",
+   "fieldname": "show_export_volume",
+   "fieldtype": "Check",
+   "label": "Show Export Volume"
+  },
+  {
+   "default": "0",
+   "description": "check if member can get this service more than one time in year",
+   "fieldname": "repeated_service",
+   "fieldtype": "Check",
+   "label": "Repeated Service"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-02 08:23:17.929691",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Service Generator",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

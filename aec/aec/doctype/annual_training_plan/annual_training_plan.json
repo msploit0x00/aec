@@ -1,0 +1,117 @@
+{
+ "actions": [],
+ "autoname": "naming_series:naming_series",
+ "creation": "2024-08-27 10:29:54.466455",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "training_name",
+  "training_type",
+  "column_break_4a8ut",
+  "date",
+  "section_break_vqmnd",
+  "column_break_7a2ei",
+  "location",
+  "annual_training_plan_section",
+  "training_plan",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "TR-PL-.YYYY.-"
+  },
+  {
+   "fieldname": "training_name",
+   "fieldtype": "Data",
+   "label": "Training Name"
+  },
+  {
+   "fieldname": "training_type",
+   "fieldtype": "Select",
+   "label": "Training Type",
+   "options": "\nFree\nPaid"
+  },
+  {
+   "fieldname": "column_break_4a8ut",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "section_break_vqmnd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_7a2ei",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "annual_training_plan_section",
+   "fieldtype": "Section Break",
+   "label": "Annual Training Plan"
+  },
+  {
+   "fieldname": "training_plan",
+   "fieldtype": "Table",
+   "in_filter": 1,
+   "options": "Training Plan Table"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Annual Training plan",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-10-02 08:23:49.169629",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Annual Training plan",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "naming_series",
+ "track_changes": 1
+}

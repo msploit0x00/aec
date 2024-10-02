@@ -173,9 +173,13 @@
   {
    "link_doctype": "Protocol",
    "link_fieldname": "market"
+  },
+  {
+   "link_doctype": "Issue",
+   "link_fieldname": "custom_market"
   }
  ],
- "modified": "2024-07-03 10:45:43.617660",
+ "modified": "2024-08-27 14:59:02.688556",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market",

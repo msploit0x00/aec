@@ -1,0 +1,173 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-18 20:02:27.619677",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "select_service",
+  "column_break_f7sum",
+  "year",
+  "member",
+  "section_break_7hbob",
+  "tax_id",
+  "company_name_in_arabic",
+  "ceo_name",
+  "membership_status",
+  "column_break_m0j4p",
+  "volume_of_exports",
+  "member_category",
+  "payment_status",
+  "section_break_cnt0d",
+  "committees",
+  "column_break_7xoot",
+  "last_3_years_volume",
+  "section_break_dfkzc",
+  "price_list"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "select_service",
+   "fieldtype": "Link",
+   "label": "Select Service",
+   "options": "Service Generator"
+  },
+  {
+   "fieldname": "column_break_f7sum",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "label": "Year"
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "label": "Member",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "section_break_7hbob",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "member.tax_id",
+   "fieldname": "tax_id",
+   "fieldtype": "Data",
+   "label": "Tax ID",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "member.customer_name",
+   "fieldname": "company_name_in_arabic",
+   "fieldtype": "Data",
+   "label": "Company Name In Arabic",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "member.custom_name_of_the_cioowner_of_the_company",
+   "fieldname": "ceo_name",
+   "fieldtype": "Data",
+   "label": "CEO Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "member.custom_customer_status",
+   "fieldname": "membership_status",
+   "fieldtype": "Data",
+   "label": "Membership Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_m0j4p",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "member.custom_volume_of__exports",
+   "fieldname": "volume_of_exports",
+   "fieldtype": "Float",
+   "label": "Volume Of Exports",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "member.customer_group",
+   "fieldname": "member_category",
+   "fieldtype": "Data",
+   "label": "Member Category",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "member.custom_membership_status",
+   "fieldname": "payment_status",
+   "fieldtype": "Data",
+   "label": "Payment Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_cnt0d",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "committees",
+   "fieldtype": "Table",
+   "label": "Committees",
+   "options": "Committees customer join",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_7xoot",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_3_years_volume",
+   "fieldtype": "Table",
+   "label": "last 3 years volume",
+   "options": "log Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_dfkzc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-02 08:23:10.326032",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Service Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
