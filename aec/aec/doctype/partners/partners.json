@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-28 12:24:31.405553",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "registration_date",
+  "end_date",
+  "ended",
+  "column_break_wx9sc",
+  "attach",
+  "image",
+  "amended_from",
+  "column_break_zdndd",
+  "partnership_letter_body",
+  "section_break_rnibb",
+  "print_partnership_letter",
+  "column_break_oetfm",
+  "send_email_to_company"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "registration_date",
+   "fieldtype": "Date",
+   "label": "Registration Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "ended",
+   "fieldtype": "Check",
+   "label": "Ended"
+  },
+  {
+   "fieldname": "column_break_wx9sc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attach",
+   "fieldtype": "Attach Image",
+   "label": "Attach"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Image",
+   "label": "image",
+   "options": "attach"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Partners",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_zdndd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "partnership_letter_body",
+   "fieldtype": "Text Editor",
+   "label": "Partnership Letter Body"
+  },
+  {
+   "fieldname": "section_break_rnibb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "print_partnership_letter",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Print Partnership Letter"
+  },
+  {
+   "fieldname": "column_break_oetfm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "send_email_to_company",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Send Email to Company"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-10-02 08:29:09.788899",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Partners",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
