@@ -21,12 +21,19 @@
   "volume_of_exports",
   "member_category",
   "payment_status",
+  "member_outstanding",
   "section_break_cnt0d",
   "committees",
   "column_break_7xoot",
   "last_3_years_volume",
   "section_break_dfkzc",
-  "price_list"
+  "price_list",
+  "member_data_section",
+  "committees_member_join",
+  "column_break_olfdl",
+  "member_export_volume",
+  "member_history_section",
+  "member_history"
  ],
  "fields": [
   {
@@ -144,11 +151,48 @@
    "fieldtype": "Link",
    "label": "Price List",
    "options": "Price List"
+  },
+  {
+   "fieldname": "member_outstanding",
+   "fieldtype": "Currency",
+   "label": "Member Outstanding"
+  },
+  {
+   "fieldname": "member_data_section",
+   "fieldtype": "Section Break",
+   "label": "Member Data"
+  },
+  {
+   "fieldname": "member_export_volume",
+   "fieldtype": "Table",
+   "label": "Member Export Volume",
+   "options": "log Sales Invoice"
+  },
+  {
+   "fieldname": "column_break_olfdl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "committees_member_join",
+   "fieldtype": "Table",
+   "label": "Committees Member Join",
+   "options": "Committees customer join"
+  },
+  {
+   "fieldname": "member_history_section",
+   "fieldtype": "Section Break",
+   "label": "Member History"
+  },
+  {
+   "fieldname": "member_history",
+   "fieldtype": "Table",
+   "label": "Member History",
+   "options": "Member History"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 08:23:10.326032",
+ "modified": "2024-10-11 18:43:18.185515",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",
