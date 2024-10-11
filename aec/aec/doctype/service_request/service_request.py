@@ -4,6 +4,7 @@
 import frappe
 from frappe.model.document import Document
 from erpnext.accounts.utils import get_balance_on
+from datetime import datetime
 
 class ServiceRequest(Document):
 	def validate(self):
@@ -11,6 +12,7 @@ class ServiceRequest(Document):
 		self.get_member_committees()
 		self.allow_outstanding()
 		self.show_export_volumes()
+		self.get_service_items()
 
 
 
@@ -93,6 +95,30 @@ class ServiceRequest(Document):
 					'quantity_in_tons': row.quantity_in_tons
 				})
 		
+	
+	def get_service_items(self):
+		service = self.select_service
+
+		service_data = frappe.get_doc("Service Generator", service)
+
+		items_data = service_data.service_items
+
+		self.set("items", [])
+
+		for row in items_data:
+
+			self.append('items',{
+				'item_code': row.item,
+				'item_name': row.item,
+				'qty': 1.0,
+				'rate': row.pricing,
+				'amount': 1.0 * row.pricing
+			})
 		
-		
-			
+	
+	def allow_repeated(self):
+		member = self.member
+		service = self.select_service
+
+		all_invoices = frappe.get_all('Sales Invoice', 
+								filters={'posting_date': datetime.now().year,'customer': member})

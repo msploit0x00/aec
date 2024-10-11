@@ -10,6 +10,7 @@
  "field_order": [
   "service_name",
   "pricing",
+  "price_list",
   "service_items",
   "allow_for_column",
   "request",
@@ -21,7 +22,9 @@
   "allow_outstanding",
   "show_committees",
   "show_export_volume",
-  "repeated_service"
+  "repeated_service",
+  "repeated_how_many",
+  "service_print_format"
  ],
  "fields": [
   {
@@ -36,7 +39,7 @@
    "fieldname": "pricing",
    "fieldtype": "Select",
    "label": "Pricing",
-   "options": "\nFixed Price\nPrice list"
+   "options": "\nFixed Price\nPrice List"
   },
   {
    "fieldname": "service_items",
@@ -112,11 +115,30 @@
    "fieldname": "repeated_service",
    "fieldtype": "Check",
    "label": "Repeated Service"
+  },
+  {
+   "fieldname": "service_print_format",
+   "fieldtype": "Link",
+   "label": "Service Print Format",
+   "options": "Print Format"
+  },
+  {
+   "depends_on": "eval:doc.pricing == 'Price List'",
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List"
+  },
+  {
+   "depends_on": "eval:doc.repeated_service == 1",
+   "fieldname": "repeated_how_many",
+   "fieldtype": "Int",
+   "label": "Repeated How Many"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 08:23:17.929691",
+ "modified": "2024-10-11 20:09:27.661943",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Generator",

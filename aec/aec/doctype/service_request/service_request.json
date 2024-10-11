@@ -28,6 +28,7 @@
   "last_3_years_volume",
   "section_break_dfkzc",
   "price_list",
+  "items",
   "member_data_section",
   "committees_member_join",
   "column_break_olfdl",
@@ -188,11 +189,17 @@
    "fieldtype": "Table",
    "label": "Member History",
    "options": "Member History"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "items",
+   "options": "Service Request Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-11 18:43:18.185515",
+ "modified": "2024-10-11 19:05:27.026124",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",

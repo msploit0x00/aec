@@ -32,5 +32,26 @@ frappe.ui.form.on('Service Request', {
 
 
 
+	},
+
+
+	items_add(frm,cdt, cdn) {
+		var row = frappe.get_doc(cdt, cdn);
+		this.frm.script_manager.copy_from_first_row("items", row, ["income_account", "discount_account", "cost_center"]);
 	}
+
+    // income_account: function(frm) {
+    //     erpnext.utils.copy_value_in_all_rows(frm.doc, null, null, "items", "income_account");
+    // },
+    
+    // expense_account: function(frm) {
+    //     erpnext.utils.copy_value_in_all_rows(frm.doc, null, null, "items", "expense_account");
+    // },
+    
+    // cost_center: function(frm) {
+    //     erpnext.utils.copy_value_in_all_rows(frm.doc, null, null, "items", "cost_center");
+    // }
+
+
+
 });
