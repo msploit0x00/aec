@@ -12,6 +12,7 @@ class ServiceRequest(Document):
 		self.get_member_committees()
 		self.allow_outstanding()
 		self.show_export_volumes()
+		self.allow_repeated()
 		self.get_service_items()
 
 
@@ -119,6 +120,15 @@ class ServiceRequest(Document):
 	def allow_repeated(self):
 		member = self.member
 		service = self.select_service
+		current_year = datetime.now().year
+
+		service_data = frappe.get_doc("Service Generator", service)
 
 		all_invoices = frappe.get_all('Sales Invoice', 
-								filters={'posting_date': datetime.now().year,'customer': member})
+								filters={'posting_date': str(current_year),'customer': member,'custom_service_group': service, 'docstatus': 1})
+
+		if(service_data.repeated_service):
+			if len(all_invoices) != service_data.repeated_how_many:
+				print("Allowed")
+			else:
+				frappe.throw("This Member is Not Allowed To take this service Again")
