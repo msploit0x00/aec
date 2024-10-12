@@ -29,6 +29,7 @@
   "section_break_dfkzc",
   "price_list",
   "items",
+  "total_amount",
   "member_data_section",
   "committees_member_join",
   "column_break_olfdl",
@@ -195,11 +196,18 @@
    "fieldtype": "Table",
    "label": "items",
    "options": "Service Request Item"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "ignore_user_permissions": 1,
+   "label": "Total Amount",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-11 19:05:27.026124",
+ "modified": "2024-10-12 17:51:16.354228",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",

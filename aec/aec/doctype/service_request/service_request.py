@@ -15,6 +15,8 @@ class ServiceRequest(Document):
 		self.allow_repeated()
 		self.get_service_items()
 
+	def before_save(self):
+		self.calc_total()
 
 
 	def validate_customer(self):
@@ -132,3 +134,209 @@ class ServiceRequest(Document):
 				print("Allowed")
 			else:
 				frappe.throw("This Member is Not Allowed To take this service Again")
+
+
+	def calc_total(self):
+		total = 0.0
+		for item in self.items:
+			total += item.amount
+		
+		self.total_amount = total
+
+
+
+	
+
+
+
+
+@frappe.whitelist(allow_guest=True)
+def create_sales_invoice(doc_name):
+	try:
+		request_doc = frappe.get_doc("Service Request", doc_name)
+		date = request_doc.date
+		service = request_doc.select_service
+		year = request_doc.year
+		tax_id = request_doc.tax_id
+		membership_status = request_doc.membership_status
+		volume_of_exports = request_doc.volume_of_exports
+		member_category = request_doc.member_category
+		payment_status = request_doc.payment_status
+		member_outstanding = request_doc.member_outstanding
+		member = request_doc.member
+
+		committees = frappe.get_all("Committees customer join", 
+							  filters={'parent': doc_name},
+							  fields=['committees','salutation'])
+		
+		vol = frappe.get_all("log Sales Invoice", 
+					   filters={'parent': doc_name},
+					   fields=['season','value','season_name','total_amount_in_usd','quantity_in_tons'])
+		
+
+		history = frappe.get_all("Member History", 
+						   filters={'parent': doc_name},
+						   fields=['*'])
+		
+
+		items = frappe.get_all("Service Request Item",
+						 filters={'parent': doc_name},
+						 fields=['*'])
+
+
+
+		new_invoice = frappe.get_doc({
+			'doctype': 'Sales Invoice',
+			'customer': member,
+			'posting_date': date,
+			'custom_service_group': service,
+			'custom_customer_outstanding_balance': member_outstanding,
+			'custom_customer_group': member_category,
+			'custom_volume_of_exports': volume_of_exports,
+			'custom_customer_membership_status': membership_status,
+			'custom_membership_status': payment_status,
+			'is_pos': 1,
+
+		})
+
+
+		if len(committees) > 0:
+			for comm in committees:
+				new_invoice.append('custom_committees_customer_joined_',{
+				'committees': comm['committees'],
+				'salutation': comm['salutation']
+			})
+
+		if len(vol) > 0:
+			for volumes in vol:
+				new_invoice.append('custom_log',{
+				'season': volumes['season'],
+				'value': volumes['value'],
+				'season_name': volumes['season_name'],
+				'total_amount_in_usd': volumes['total_amount_in_usd'],
+				'quantity_in_tons': volumes['quantity_in_tons']
+			})
+		
+		if len(history) > 0:
+			for his in history:
+				new_invoice.append('custom_member_history',{
+					'year': his['year'],
+					'season_name': his['season_name'],
+					'volume_of_exports': his['volume_of_exports'],
+					'member_categories': his['member_categories'],
+					'paid_amount': his['paid_amount'],
+					'outstanding_amount': his['outstanding_amount'],
+					'sales_invoice_ref': his['sales_invoice_ref']
+				})
+		
+		if len(items) > 0:
+			for item in items:
+				new_invoice.append('items',{
+					'item_code': item['item_code'],
+					'item_name': item['item_name'],
+					'qty': item['qty'],
+					'rate': item['rate'],
+					'amount': item['amount'],
+				})
+
+		new_invoice.append('payments',{
+			'mode_of_payment': 'Cash',
+			'amount': new_invoice.total
+		})
+
+		new_invoice.insert(ignore_permissions=True)
+
+
+		return new_invoice.name
+	
+	except Exception as e:
+		frappe.throw("Error in Creating Sales Invoice, Please Check all data in request")
+
+
+
+
+
+
+
+
+
+
+
+
+
+@frappe.whitelist(allow_guest=True)
+def create_fetch(doc_name):
+    try:
+        meeting_doc = frappe.get_doc('Meeting', doc_name)
+        committee = meeting_doc.committee
+        location = meeting_doc.location
+        subject = meeting_doc.subject.encode('utf-8')[:140].decode('utf-8')
+        date = meeting_doc.date
+        from_time = meeting_doc.from_time
+        to_time = meeting_doc.to_time
+
+        quality_meeting_agenda = frappe.get_all(
+            "Quality Meeting Agenda",
+            filters={"parent": doc_name},
+            fields=["agenda"]
+        )
+        
+        committee_members = frappe.get_all(
+            "Committee Members",
+            filters={"parent": doc_name},
+            fields=["member", "status","name1"]
+        )
+        
+        external_authorities = frappe.get_all(
+            "External Authority",
+            filters={"parent": doc_name},
+            fields=["name1", "email", "phone_number"]
+        )
+
+        council_entities = frappe.get_all("council entities",
+                                          filters={"parent":doc_name},
+                                          fields=["entity","designation","email","phone","status"])
+
+        new_minutes = frappe.get_doc({
+            'doctype': 'Minutes Of Meeting',
+            'committee': committee,
+            'location': location,
+            'subject': subject,
+            'date': date,
+            'from_time': from_time,
+            'to_time': to_time,
+	    'custom_meeting_reference': doc_name,
+        })
+
+        for agenda_item in quality_meeting_agenda:
+            new_minutes.append('meeting_agenda', {'agenda': agenda_item['agenda']})
+
+        for member in committee_members:
+            new_minutes.append('committee_member', {'member': member['member'], 'status': member['status'],'custom_ceo_name':member['name1']})
+
+        for authority in external_authorities:
+            new_minutes.append('external_authority', {'name1': authority['name1'], 'email': authority['email'], 'phone_number': authority['phone_number']})
+
+        for council in council_entities:
+            new_minutes.append('custom_council_entities',{'entity':council['entity'],'designation':council['designation'],'email':council['email'],'phone':council['phone'],'status':council['status']})    
+
+        new_minutes.insert()
+
+        return new_minutes.name
+    except Exception as e:
+        frappe.log_error(f"Error creating Minutes Of Meeting: {e}")
+        frappe.throw("Error creating Minutes Of Meeting")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
