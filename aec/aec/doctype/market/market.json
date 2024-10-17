@@ -15,6 +15,7 @@
   "status",
   "column_break_vhgcr",
   "image",
+  "image_view",
   "section_break_e9xhd",
   "more_than_country",
   "country",
@@ -155,6 +156,12 @@
    "fieldtype": "Data",
    "label": "Market Name",
    "unique": 1
+  },
+  {
+   "fieldname": "image_view",
+   "fieldtype": "Image",
+   "label": " Image view",
+   "options": "image"
   }
  ],
  "is_submittable": 1,
@@ -188,7 +195,7 @@
    "link_fieldname": "custom_market"
   }
  ],
- "modified": "2024-10-13 13:49:17.170072",
+ "modified": "2024-10-16 08:41:13.414947",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market",
