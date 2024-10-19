@@ -213,6 +213,7 @@ def create_sales_invoice(doc_name):
 		service = request_doc.select_service
 		year = request_doc.year
 		tax_id = request_doc.tax_id
+		custom_invoice_type = 'Members'
 		membership_status = request_doc.membership_status
 		volume_of_exports = request_doc.volume_of_exports
 		member_category = request_doc.member_category
@@ -245,6 +246,7 @@ def create_sales_invoice(doc_name):
 			'customer': member,
 			'posting_date': date,
 			'custom_service_group': service,
+			'custom_invoice_type': 'Members',
 			'custom_customer_outstanding_balance': member_outstanding,
 			'custom_customer_group': member_category,
 			'custom_volume_of_exports': volume_of_exports,

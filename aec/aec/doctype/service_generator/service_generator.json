@@ -24,7 +24,9 @@
   "show_export_volume",
   "repeated_service",
   "repeated_how_many",
-  "service_print_format"
+  "service_print_format",
+  "column_break_qvxol",
+  "service_price_list"
  ],
  "fields": [
   {
@@ -134,11 +136,21 @@
    "fieldname": "repeated_how_many",
    "fieldtype": "Int",
    "label": "Repeated How Many"
+  },
+  {
+   "fieldname": "column_break_qvxol",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "service_price_list",
+   "fieldtype": "Table",
+   "label": "Service Price List",
+   "options": "Service Price List"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-11 20:09:27.661943",
+ "modified": "2024-10-19 16:49:40.955026",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Generator",
