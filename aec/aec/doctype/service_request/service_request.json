@@ -155,6 +155,7 @@
    "options": "Price List"
   },
   {
+   "default": "0.0",
    "fieldname": "member_outstanding",
    "fieldtype": "Currency",
    "label": "Member Outstanding"
@@ -207,7 +208,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-12 17:51:16.354228",
+ "modified": "2024-10-12 18:31:05.020699",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",

@@ -14,9 +14,11 @@ class ServiceRequest(Document):
 		self.show_export_volumes()
 		self.allow_repeated()
 		self.get_service_items()
+		self.prod_member()
 
 	def before_save(self):
 		self.calc_total()
+		self.prod_count()
 
 
 	def validate_customer(self):
@@ -68,7 +70,8 @@ class ServiceRequest(Document):
 		outstanding = self.member_outstanding
 		service_data = frappe.get_doc("Service Generator", service)
 
-		if(service_data.allow_outstanding == 1 and outstanding > 0.0):
+		# if(outstanding != 0.00):
+		if(service_data.allow_outstanding == 1 ):
 			print("Allowed")
 		
 		else:
@@ -143,9 +146,61 @@ class ServiceRequest(Document):
 		
 		self.total_amount = total
 
+	##TEST
+	def prod_member(self):
+		service = self.select_service
+
+		service_data = frappe.get_doc("Service Generator", service).as_dict()
+
+		member_category = self.member_category
+
+		service_items = service_data.get("service_items")
+
+		if service == 'عضوية لجنة سلعية':
+			for items in service_items:
+				if member_category == items.category:
+					self.set("items",[])
+					self.append('items',{
+				'item_code': items.item,
+				'item_name': items.item,
+				'qty': 1.0,
+				'rate': items.pricing,
+				'amount': 1.0 * items.pricing
+			})
+
+		######################################TESTING######################
+	def prod_count(self):
+		count = frappe.db.count("Committees you would like to join",
+						  filters={'parenttype': 'Customer','parent':self.member,'salutation':'عضوية لجنة سلعية'})
+		
+		print(f"this is the count {count}")
+		return count
+
+	def wakeel_count(self):
+		count = frappe.db.count("Committees you would like to join",
+						  filters={'parenttype': 'Customer','parent':self.member,'salutation':'عضوية وكيل لجنة'})
+		
+		print(f"this is the count {count}")
+		return count		
 
 
-	
+	def ra2ees_count(self):
+		count = frappe.db.count("Committees you would like to join",
+						  filters={'parenttype': 'Customer','parent':self.member,'salutation':'عضوية رئيس لجنة'})
+		
+		print(f"this is the count {count}")
+		return count			
+
+
+	def serv_count(self):
+		count = frappe.db.count("Committees you would like to join",
+						  filters={'parenttype': 'Customer','parent':self.member,'salutation':'عضوية لجنة خدمية'})
+		
+		print(f"this is the count {count}")
+		return count	
+
+
+
 
 
 
@@ -256,6 +311,53 @@ def create_sales_invoice(doc_name):
 
 
 
+
+
+
+
+
+
+
+@frappe.whitelist()
+def volume_of_member_exports_three_years(tax_ids):
+    # Get the last 3 distinct years starting from the previous year (current year - 1)
+    years = frappe.db.sql("""
+        SELECT DISTINCT YEAR(`year`) 
+        FROM `tabVolume Of Member Exports`
+        WHERE YEAR(`year`) <= YEAR(CURDATE()) - 1
+        ORDER BY YEAR(`year`) DESC
+        LIMIT 3
+    """, as_list=1)
+    
+    # Flatten the list of years and ensure it's not empty
+    years = [y[0] for y in years if y[0] is not None]
+
+    if not years:
+        # Return an empty result if no valid years are found
+        return []
+
+    # Fetch export data for the selected years
+    data = frappe.db.sql("""
+        SELECT
+            `tax__number` AS `tax_id`,
+            `season__name` AS `season_name`,
+            `season` AS `season`,
+            SUM(`total_amount_in_egp`) AS `total`,
+            SUM(`total_amount_in_usd`) AS `total_amount_in_usd`,
+            SUM(`quantity_in_tons`) AS `quantity_in_tons`
+        FROM
+            `tabVolume Of Member Exports`
+        WHERE 
+            YEAR(`year`) IN (%s)
+            AND tax__number IN (%s)
+        GROUP BY
+            `tax__number`, `season__name`, `season`
+        """ % (','.join([str(year) for year in years]), ','.join(['%s'] * len(tax_ids))),
+        tuple(tax_ids),
+        as_dict=1
+    )
+    
+    return data
 
 
 
