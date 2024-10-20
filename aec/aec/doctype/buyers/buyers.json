@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:name1",
  "creation": "2024-06-13 10:06:14.016708",
  "default_view": "List",
  "doctype": "DocType",
@@ -17,7 +18,8 @@
   {
    "fieldname": "name1",
    "fieldtype": "Data",
-   "label": "Name"
+   "label": "Name",
+   "unique": 1
   },
   {
    "fieldname": "job_title",
@@ -53,10 +55,11 @@
    "link_fieldname": "custom_buyers"
   }
  ],
- "modified": "2024-06-23 09:06:51.070767",
+ "modified": "2024-10-19 17:57:53.170879",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Buyers",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

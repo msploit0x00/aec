@@ -205,10 +205,6 @@
    "link_fieldname": "market_product"
   },
   {
-   "link_doctype": "External Achievements",
-   "link_fieldname": "market_product"
-  },
-  {
    "link_doctype": "Protocol",
    "link_fieldname": "market_product"
   },
@@ -217,7 +213,7 @@
    "link_fieldname": "custom_market"
   }
  ],
- "modified": "2024-10-16 09:03:24.234893",
+ "modified": "2024-10-19 14:26:10.714836",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market Product",
