@@ -20,9 +20,12 @@
   "more_than_country",
   "country",
   "country_name",
-  "clusters",
-  "geographcal_clusters",
   "channel",
+  "column_break_nwtov",
+  "geographical_clusters_list",
+  "clusters_name",
+  "section_break_zvpfa",
+  "geographical_clusters",
   "market_information",
   "attachments_section",
   "images",
@@ -67,13 +70,6 @@
   {
    "fieldname": "section_break_e9xhd",
    "fieldtype": "Section Break"
-  },
-  {
-   "depends_on": "eval:doc.more_than_country == true",
-   "fieldname": "geographcal_clusters",
-   "fieldtype": "Table",
-   "label": "Geographcal Clusters",
-   "options": "Geographcal Clusters"
   },
   {
    "fieldname": "channel",
@@ -138,14 +134,6 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.more_than_country == false",
-   "fetch_from": "country.geographical_clusters_name",
-   "fieldname": "clusters",
-   "fieldtype": "Data",
-   "label": "Clusters",
-   "read_only": 1
-  },
-  {
    "default": "0",
    "fieldname": "more_than_country",
    "fieldtype": "Check",
@@ -162,6 +150,38 @@
    "fieldtype": "Image",
    "label": " Image view",
    "options": "image"
+  },
+  {
+   "depends_on": "eval:doc.more_than_country == false",
+   "fetch_from": "geographical_clusters_list.arabic_name",
+   "fieldname": "clusters_name",
+   "fieldtype": "Data",
+   "label": "Clusters Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.more_than_country == false",
+   "fetch_from": "country.custom_geographical_clusters",
+   "fetch_if_empty": 1,
+   "fieldname": "geographical_clusters_list",
+   "fieldtype": "Link",
+   "label": "Clusters",
+   "options": "Geographical Clusters List"
+  },
+  {
+   "fieldname": "column_break_nwtov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_zvpfa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.more_than_country == true",
+   "fieldname": "geographical_clusters",
+   "fieldtype": "Table",
+   "label": "Geographical Clusters",
+   "options": "Geographcal Clusters"
   }
  ],
  "is_submittable": 1,
@@ -191,7 +211,7 @@
    "link_fieldname": "custom_market"
   }
  ],
- "modified": "2024-10-19 14:27:16.050549",
+ "modified": "2024-10-20 16:56:48.112049",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market",

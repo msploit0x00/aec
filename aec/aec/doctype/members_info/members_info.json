@@ -7,7 +7,9 @@
  "engine": "InnoDB",
  "field_order": [
   "member",
-  "meeting_date",
+  "date",
+  "time_from",
+  "time_to",
   "ceo_name",
   "company_name",
   "email",
@@ -21,13 +23,6 @@
    "in_preview": 1,
    "label": "Member",
    "options": "Customer"
-  },
-  {
-   "fieldname": "meeting_date",
-   "fieldtype": "Datetime",
-   "in_list_view": 1,
-   "in_preview": 1,
-   "label": "Meeting Date"
   },
   {
    "fetch_from": "member.custom_name_of_the_cioowner_of_the_company",
@@ -58,12 +53,33 @@
    "in_preview": 1,
    "label": "Status",
    "options": "\nAttended\nAbsent"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "time_from",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Time From"
+  },
+  {
+   "fieldname": "time_to",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Time To"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-23 09:04:09.171039",
+ "modified": "2024-10-21 08:56:10.121481",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Members Info",

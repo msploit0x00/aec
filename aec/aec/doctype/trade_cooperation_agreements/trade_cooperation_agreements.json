@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-20 16:11:48.811932",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "country",
+  "cluster",
+  "column_break_by5w9",
+  "attach_file",
+  "description",
+  "section_break_x3kzd",
+  "trade_agreements_attachments"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Countries"
+  },
+  {
+   "fieldname": "cluster",
+   "fieldtype": "Link",
+   "label": "Cluster",
+   "options": "Geographical Clusters List"
+  },
+  {
+   "fieldname": "column_break_by5w9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attach_file",
+   "fieldtype": "Attach",
+   "label": "Attach File"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_x3kzd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "trade_agreements_attachments",
+   "fieldtype": "Table",
+   "label": "Trade Agreements Attachments",
+   "options": "Trade Agreements Attachments"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-21 14:12:47.988750",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Trade Cooperation Agreements",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

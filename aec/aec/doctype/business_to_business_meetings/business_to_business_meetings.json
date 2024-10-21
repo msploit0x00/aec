@@ -15,15 +15,26 @@
   "column_break_qzud4",
   "date",
   "meeting_location",
+  "meeting_link",
   "status",
   "section_break_scywy",
   "description",
   "buyers_section",
   "send_to_buyers",
   "buyers_info",
+  "buyer_email_info_section",
+  "sender_mail_for_buyers",
+  "subject",
+  "body_mail",
+  "attachments",
   "members_section",
   "send_to_members",
   "members_info",
+  "sender_mail_for_members_section",
+  "sender_mail_for_members",
+  "members_subject",
+  "body_email",
+  "attachment",
   "tab_break_pxktu",
   "required_by",
   "requirement_items",
@@ -67,6 +78,7 @@
    "label": "Date"
   },
   {
+   "depends_on": "eval:doc.meeting_type == 'Offline'",
    "fieldname": "meeting_location",
    "fieldtype": "Link",
    "label": "Meeting Location",
@@ -144,12 +156,74 @@
    "options": "Business to Business Meetings",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.meeting_type == 'Online'",
+   "fieldname": "meeting_link",
+   "fieldtype": "Data",
+   "label": "Meeting Link"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Buyers Subject"
+  },
+  {
+   "fieldname": "body_mail",
+   "fieldtype": "Text Editor",
+   "label": "Body Mail"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Newsletter Attachment"
+  },
+  {
+   "fieldname": "members_subject",
+   "fieldtype": "Data",
+   "label": "Members Subject"
+  },
+  {
+   "fieldname": "body_email",
+   "fieldtype": "Text Editor",
+   "label": "Body Email"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Table",
+   "label": "Attachment",
+   "options": "Newsletter Attachment"
+  },
+  {
+   "fieldname": "sender_mail_for_buyers",
+   "fieldtype": "Link",
+   "label": "Sender Mail for Buyers",
+   "options": "Email Account"
+  },
+  {
+   "fieldname": "sender_mail_for_members",
+   "fieldtype": "Link",
+   "label": "Sender Mail for Members",
+   "options": "Email Account"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "buyer_email_info_section",
+   "fieldtype": "Section Break",
+   "label": "Buyer Email Info"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sender_mail_for_members_section",
+   "fieldtype": "Section Break",
+   "label": "Sender Mail for Members"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-23 09:06:41.984253",
+ "modified": "2024-10-21 09:43:26.855136",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Business to Business Meetings",
