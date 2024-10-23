@@ -27,7 +27,11 @@
   "service_print_format",
   "column_break_qvxol",
   "is_free_service",
-  "service_price_list"
+  "service_price_list",
+  "service_print_formats_section",
+  "service_request_print_formats",
+  "column_break_kanwg",
+  "sales_invoice_print_formats"
  ],
  "fields": [
   {
@@ -41,6 +45,7 @@
   {
    "fieldname": "pricing",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Pricing",
    "options": "\nFixed Price\nPrice List"
   },
@@ -122,6 +127,7 @@
   {
    "fieldname": "service_print_format",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Service Print Format",
    "options": "Print Format"
   },
@@ -154,11 +160,32 @@
    "fieldname": "is_free_service",
    "fieldtype": "Check",
    "label": "Is Free Service"
+  },
+  {
+   "fieldname": "service_print_formats_section",
+   "fieldtype": "Section Break",
+   "label": "Service Print Formats"
+  },
+  {
+   "fieldname": "service_request_print_formats",
+   "fieldtype": "Table",
+   "label": "Service Request Print Formats",
+   "options": "Service Request Print Formats"
+  },
+  {
+   "fieldname": "column_break_kanwg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_invoice_print_formats",
+   "fieldtype": "Table",
+   "label": "Sales Invoice Print Formats",
+   "options": "Sales Invoice Print Formats"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-19 17:22:19.816448",
+ "modified": "2024-10-23 09:21:48.705759",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Generator",
