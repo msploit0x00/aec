@@ -93,7 +93,55 @@ frappe.ui.form.on('Service Request', {
 				}
 			});
 		}
+	},
+
+
+	
+	before_save(frm){
+		if(frm.doc.select_service){
+			frappe.call({
+				method: "frappe.client.get",
+				args: {
+					doctype: "Service Generator",
+					name: frm.doc.select_service,
+				},
+				callback(r) {
+					if(r.message) {
+						if(r.message.show_export_volume == 1){
+							frm.set_df_property('member_export_volume', 'hidden', 0);
+							console.log("Hidden Off");
+						}else{
+							console.log("Hidden On");
+						}
+
+
+						if(r.message.show_committees == 1){
+							frm.set_df_property('committees_member_join', 'hidden', 0);
+							console.log("Hidden Off 2");
+
+						}else{
+							console.log("Hidden On 2");
+						}
+
+
+
+
+					}
+				}
+			});
+
+
+
+
+		}
+
+
+
+
 	}
+
+
+
 	
 
 

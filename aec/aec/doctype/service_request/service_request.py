@@ -5,6 +5,19 @@ import frappe
 from frappe.model.document import Document
 from erpnext.accounts.utils import get_balance_on
 from datetime import datetime
+from frappe.utils import (
+	add_days,
+	cint,
+	create_batch,
+	cstr,
+	flt,
+	formatdate,
+	get_datetime,
+	get_number_format_info,
+	getdate,
+	now,
+	nowdate,
+)
 
 class ServiceRequest(Document):
 	def validate(self):
@@ -362,6 +375,8 @@ def volume_of_member_exports_three_years(tax_ids):
     return data
 
 
+# def get_memebr_exports(tax_id):
+# 	current = nowdate().year
 
 
 
