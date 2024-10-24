@@ -1,8 +1,35 @@
-// Copyright (c) 2024, ds and contributors
-// For license information, please see license.txt
-
 frappe.ui.form.on('Service Generator', {
-	// refresh: function(frm) {
+    validate: function(frm) {
+        let service_price_list = frm.doc.service_price_list;
+        let default_count = 0;
+        let default_row = null;
 
-	// }
+        for (let row of service_price_list) {
+            if (row.is_default == 1) {
+                default_count++;
+                default_row = row;
+            }
+
+            if (default_count > 1) {
+                frappe.throw(__('Only one service price list can be set as default.'));
+            }
+        }
+    }
+});
+
+frappe.ui.form.on('Service Price List', {
+    before_save: function(frm, cdt, cdn) {
+        let row = frappe.get_doc(cdt, cdn);
+        
+        if (row.is_default) {
+        
+            frm.doc.service_price_list.forEach(r => {
+                if (r.name !== row.name) {
+                    r.is_default = 0;
+                }
+            });
+
+            frm.refresh_field('service_price_list'); 
+        }
+    }
 });

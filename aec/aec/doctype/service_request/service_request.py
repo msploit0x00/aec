@@ -28,10 +28,15 @@ class ServiceRequest(Document):
 		self.allow_repeated()
 		self.get_service_items()
 		self.prod_member()
+		self.get_service_default_price_list()
 
 	def before_save(self):
-		self.calc_total()
+		# self.calc_total()
 		self.prod_count()
+		self.apply_price_list_rate()
+
+	# def after_save(self):
+	# 	self.calc_total()
 
 
 	def validate_customer(self):
@@ -130,8 +135,8 @@ class ServiceRequest(Document):
 				'item_code': row.item,
 				'item_name': row.item,
 				'qty': 1.0,
-				'rate': row.pricing,
-				'amount': 1.0 * row.pricing
+				# 'rate': row.pricing,
+				# 'amount': 1.0 * row.pricing
 			})
 		
 	
@@ -213,6 +218,43 @@ class ServiceRequest(Document):
 		return count	
 
 
+
+	def get_service_default_price_list(self):
+		service = self.select_service
+		if service:
+			service_data = frappe.get_doc("Service Generator", service)
+			if service_data:
+				price_list = service_data.service_price_list
+
+				for row in price_list:
+					if row.is_default == 1:
+						self.price_list = row.price_list
+					# else:
+					# 	frappe.throw("This Service Doesn't have default price list, please set default one")
+
+
+
+
+	def apply_price_list_rate(self):
+		if self.price_list:
+			items = self.items
+
+			if len(items) > 0:
+				for row in items:
+					item_price = frappe.get_list("Item Price", filters={'price_list': self.price_list, 'item_code': row.item_code})
+					
+					item_price_data = frappe.get_doc("Item Price", item_price)
+					
+					
+					print(f"AAAAAAAAAAAAAA {item_price}")
+					if item_price_data:
+						price_list_rate = item_price_data.price_list_rate
+
+						row.rate = price_list_rate
+						row.base_rate = price_list_rate
+						row.base_amount= row.qty * price_list_rate
+						row.amount = row.qty * price_list_rate
+			self.calc_total()
 
 
 

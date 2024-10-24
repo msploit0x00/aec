@@ -28,6 +28,7 @@
   {
    "fieldname": "pricing",
    "fieldtype": "Int",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Pricing"
   }
@@ -35,7 +36,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-10-02 08:23:27.545179",
+ "modified": "2024-10-24 12:17:43.158905",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Items",
