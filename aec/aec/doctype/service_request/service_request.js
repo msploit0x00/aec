@@ -138,12 +138,68 @@ frappe.ui.form.on('Service Request', {
 
 
 
+	},
+
+
+	refresh(frm) {
+		if (frm.doc.select_service) {
+			frm.call({
+				method: "get_service_print_format",
+				args: {
+					'serv': frm.doc.select_service,
+				},
+				callback: function(response) {
+					if (response.message) {
+						var prints = response.message;
+	
+			
+						frm.clear_custom_buttons();
+	
+						for (let row of prints) {
+				
+							frm.add_custom_button(__(row.print_button_name), function() {
+			
+								frappe.utils.print(
+									frm.doctype,            
+									frm.docname,            
+									row.print_format,      
+									// frm.doc.letter_head
+								);
+								__("Create")
+							});
+	
+							// Set the button group as primary
+							// frm.page.set_inner_btn_group_as_primary(__('Create'));
+						}
+					}
+				}
+			});
+		}
 	}
-
-
-
 	
 
 
 
 });
+
+
+
+// function print(print_format,label){
+
+
+
+
+// }
+
+		
+// if(doc.custom_supply_order_type === "Partial Supply Order" && doc.docstatus == 1){
+// 	//  cur_frm.page.set_inner_btn_group_as_primary(__('Create'));
+// 			  this.frm.add_custom_button(
+// 				  __("Create Sales Order"),
+// 				  () => this.make_sales_order(),
+// 				  __("Create")
+// 			  );
+	  
+// 	  cur_frm.page.set_inner_btn_group_as_primary(__('Create'));
+	  
+//   }

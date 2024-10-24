@@ -29,6 +29,7 @@ class ServiceRequest(Document):
 		self.get_service_items()
 		self.prod_member()
 		self.get_service_default_price_list()
+		# self.get_service_print_format() 
 
 	def before_save(self):
 		# self.calc_total()
@@ -258,6 +259,33 @@ class ServiceRequest(Document):
 
 
 
+	# @frappe.whitelist()
+	# def get_service_print_format(self):
+	# 	service = self.select_service
+
+	# 	all_prints = frappe.get_all("Service Request Print Formats",
+	# 						  filters={'parenttype':"Service Generator", 'parent': service},
+	# 						  fields=['print_format','print_button_name'])
+		
+
+
+	# 	# service_data = frappe.get_doc("Service Generator", service).as_dict()
+
+	# 	# service_print_format = service_data.get("service_request_print_formats")
+
+	# 	# prints = {}
+
+	# 	# for row in service_print_format:
+	# 	# 	if row.print_format:
+	# 	# 		prints = {
+	# 	# 			'print_format': row.print_format,
+	# 	# 			'label': row.print_button_name
+	# 	# 		}
+	# 	print(all_prints)
+
+	# 	return all_prints
+
+
 
 
 @frappe.whitelist(allow_guest=True)
@@ -365,8 +393,24 @@ def create_sales_invoice(doc_name):
 		frappe.throw("Error in Creating Sales Invoice, Please Check all data in request")
 
 
+@frappe.whitelist()
+def get_service_print_format(serv):
+	# service = self.select_service
+
+	all_prints = frappe.get_all("Service Request Print Formats",
+							  filters={'parenttype':"Service Generator", 'parent': serv},
+							  fields=['print_format','print_button_name'])
+	return all_prints
 
 
+@frappe.whitelist()
+def get_sales_invoice_print_format(serv):
+	# service = self.select_service
+
+	all_prints = frappe.get_all("Sales Invoice Print Formats",
+							  filters={'parenttype':"Service Generator", 'parent': serv},
+							  fields=['print_format','print_button_name'])
+	return all_prints
 
 
 
