@@ -35,6 +35,7 @@ class ServiceRequest(Document):
 		# self.calc_total()
 		self.prod_count()
 		self.apply_price_list_rate()
+		self.get_member_history()
 
 	# def after_save(self):
 	# 	self.calc_total()
@@ -260,76 +261,28 @@ class ServiceRequest(Document):
 
 
 
-
-	# def get_member_exportss(tax_id):
-	# 	all_data = frappe.get_all(
-	# 		"Volume Of Member Exports",
-	# 		filters={'tax__number': tax_id},
-	# 		fields=['year', 'total_amount_in_egp', 'total_amount_in_usd', 'quantity_in_tons'],
-	# 		order_by='year desc'
-	# 	)
-
-	# 	# Dictionary to accumulate totals for each year
-	# 	yearly_totals = {}
-	# 	for entry in all_data:
-	# 		year = entry['year']
-	# 		# Initialize the dictionary for a new year if not already present
-	# 		if year not in yearly_totals:
-	# 			yearly_totals[year] = {
-	# 				'total_amount_in_egp': 0,
-	# 				'total_amount_in_usd': 0,
-	# 				'quantity_in_tons': 0
-	# 			}
-			
-	# 		# Add values for the year
-	# 		yearly_totals[year]['total_amount_in_egp'] += entry['total_amount_in_egp']
-	# 		yearly_totals[year]['total_amount_in_usd'] += entry['total_amount_in_usd']
-	# 		yearly_totals[year]['quantity_in_tons'] += float(entry['quantity_in_tons'])
-
-	# 	# Print totals for each year
-	# 	for year in sorted(yearly_totals.keys(), reverse=True):
-	# 		totals = yearly_totals[year]
-	# 		print(f"Year: {year}")
-	# 		print(f"  Total Amount in EGP: {totals['total_amount_in_egp']}")
-	# 		print(f"  Total Amount in USD: {totals['total_amount_in_usd']}")
-	# 		print(f"  Quantity in Tons: {totals['quantity_in_tons']}\n")
-		
-	# 	return yearly_totals
+	def get_member_history(self):
+		service = self.select_service
+		if service == 'تجديد العضوية':
+			history = frappe.get_all("Sales Invoice",
+							filters={'custom_service_group':'تجديد العضوية','status': 'Paid'},
+							order_by="creation desc",
+							fields=['year','paid_amount','name','custom_volume_of_exports','custom_customer_group','outstanding_amount'])
 
 
+			if len(history) > 0:
+				self.set('member_history',[])
 
+				for row in history:
+					self.append("member_history",{
+						'year': row.year,
+						'paid_amount': row.paid_amount,
+						'sales_invoice_ref': row.name,
+						'member_categories': row.custom_customer_group,
+						'volume_of_exports': row.custom_volume_of_exports,
+						'outstanding_amount': row.outstanding_amount
+					})
 
-		all_data = frappe.get_all(
-			"Volume Of Member Exports",
-			filters={'tax__number': tax_id},
-			fields=['year', 'total_amount_in_egp', 'total_amount_in_usd', 'quantity_in_tons'],
-			order_by='year desc'
-		)
-
-		
-		unique_years = {}
-		for entry in all_data:
-			year = entry['year']
-			if year not in unique_years:
-				unique_years[year] = {
-					'total_amount_in_egp': entry['total_amount_in_egp'],
-					'total_amount_in_usd': entry['total_amount_in_usd'],
-					'quantity_in_tons': float(entry['quantity_in_tons'])
-				}
-		
-		
-		total_amount_in_egp = sum(year_data['total_amount_in_egp'] for year_data in unique_years.values())
-		total_amount_in_usd = sum(year_data['total_amount_in_usd'] for year_data in unique_years.values())
-		quantity_in_tons = sum(year_data['quantity_in_tons'] for year_data in unique_years.values())
-
-		result = {
-			'total_amount_in_egp': total_amount_in_egp,
-			'total_amount_in_usd': total_amount_in_usd,
-			'quantity_in_tons': quantity_in_tons
-		}
-		
-		print(result)
-		return result
 
 
 	# @frappe.whitelist()
