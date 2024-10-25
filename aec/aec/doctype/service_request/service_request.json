@@ -168,7 +168,6 @@
   {
    "fieldname": "member_export_volume",
    "fieldtype": "Table",
-   "hidden": 1,
    "label": "Member Export Volume",
    "options": "log Sales Invoice"
   },
@@ -179,7 +178,6 @@
   {
    "fieldname": "committees_member_join",
    "fieldtype": "Table",
-   "hidden": 1,
    "label": "Committees Member Join",
    "options": "Committees customer join"
   },
@@ -210,7 +208,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-23 08:45:53.702808",
+ "modified": "2024-10-25 13:44:02.167523",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",

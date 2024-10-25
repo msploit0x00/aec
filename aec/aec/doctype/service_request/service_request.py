@@ -259,6 +259,79 @@ class ServiceRequest(Document):
 
 
 
+
+
+	# def get_member_exportss(tax_id):
+	# 	all_data = frappe.get_all(
+	# 		"Volume Of Member Exports",
+	# 		filters={'tax__number': tax_id},
+	# 		fields=['year', 'total_amount_in_egp', 'total_amount_in_usd', 'quantity_in_tons'],
+	# 		order_by='year desc'
+	# 	)
+
+	# 	# Dictionary to accumulate totals for each year
+	# 	yearly_totals = {}
+	# 	for entry in all_data:
+	# 		year = entry['year']
+	# 		# Initialize the dictionary for a new year if not already present
+	# 		if year not in yearly_totals:
+	# 			yearly_totals[year] = {
+	# 				'total_amount_in_egp': 0,
+	# 				'total_amount_in_usd': 0,
+	# 				'quantity_in_tons': 0
+	# 			}
+			
+	# 		# Add values for the year
+	# 		yearly_totals[year]['total_amount_in_egp'] += entry['total_amount_in_egp']
+	# 		yearly_totals[year]['total_amount_in_usd'] += entry['total_amount_in_usd']
+	# 		yearly_totals[year]['quantity_in_tons'] += float(entry['quantity_in_tons'])
+
+	# 	# Print totals for each year
+	# 	for year in sorted(yearly_totals.keys(), reverse=True):
+	# 		totals = yearly_totals[year]
+	# 		print(f"Year: {year}")
+	# 		print(f"  Total Amount in EGP: {totals['total_amount_in_egp']}")
+	# 		print(f"  Total Amount in USD: {totals['total_amount_in_usd']}")
+	# 		print(f"  Quantity in Tons: {totals['quantity_in_tons']}\n")
+		
+	# 	return yearly_totals
+
+
+
+
+		all_data = frappe.get_all(
+			"Volume Of Member Exports",
+			filters={'tax__number': tax_id},
+			fields=['year', 'total_amount_in_egp', 'total_amount_in_usd', 'quantity_in_tons'],
+			order_by='year desc'
+		)
+
+		
+		unique_years = {}
+		for entry in all_data:
+			year = entry['year']
+			if year not in unique_years:
+				unique_years[year] = {
+					'total_amount_in_egp': entry['total_amount_in_egp'],
+					'total_amount_in_usd': entry['total_amount_in_usd'],
+					'quantity_in_tons': float(entry['quantity_in_tons'])
+				}
+		
+		
+		total_amount_in_egp = sum(year_data['total_amount_in_egp'] for year_data in unique_years.values())
+		total_amount_in_usd = sum(year_data['total_amount_in_usd'] for year_data in unique_years.values())
+		quantity_in_tons = sum(year_data['quantity_in_tons'] for year_data in unique_years.values())
+
+		result = {
+			'total_amount_in_egp': total_amount_in_egp,
+			'total_amount_in_usd': total_amount_in_usd,
+			'quantity_in_tons': quantity_in_tons
+		}
+		
+		print(result)
+		return result
+
+
 	# @frappe.whitelist()
 	# def get_service_print_format(self):
 	# 	service = self.select_service
@@ -461,11 +534,91 @@ def volume_of_member_exports_three_years(tax_ids):
     return data
 
 
+
+
+
+
 # def get_memebr_exports(tax_id):
 # 	current = nowdate().year
 
+# 	all_data = frappe.get_all("Volume Of Member Exports",
+# 						   filters={'tax__number': tax_id},
+# 						   fields=['year','total_amount_in_egp','total_amount_in_usd','quantity_in_tons'],
+# 						   order_by='year desc')
+# 	print(all_data)
+# @frappe.whitelist()
+# def get_member_exports(tax_id):
+#     all_data = frappe.get_all(
+#         "Volume Of Member Exports",
+#         filters={'tax__number': tax_id},
+#         fields=['year', 'total_amount_in_egp', 'total_amount_in_usd', 'quantity_in_tons'],
+#         order_by='year desc'
+#     )
+
+
+#     unique_years = {}
+#     for entry in all_data:
+#         year = entry['year']
+#         if year not in unique_years:
+#             unique_years[year] = {
+#                 'total_amount_in_egp': entry['total_amount_in_egp'],
+#                 'total_amount_in_usd': entry['total_amount_in_usd'],
+#                 'quantity_in_tons': float(entry['quantity_in_tons'])
+#             }
+    
+    
+#     total_amount_in_egp = sum(year_data['total_amount_in_egp'] for year_data in unique_years.values())
+#     total_amount_in_usd = sum(year_data['total_amount_in_usd'] for year_data in unique_years.values())
+#     quantity_in_tons = sum(year_data['quantity_in_tons'] for year_data in unique_years.values())
+
+#     result = {
+#         'total_amount_in_egp': total_amount_in_egp,
+#         'total_amount_in_usd': total_amount_in_usd,
+#         'quantity_in_tons': quantity_in_tons
+#     }
+    
+#     print(result)
+#     return result
 
 
 
+
+
+
+frappe.whitelist()
+def get_member_exportss(tax_id):
+    all_data = frappe.get_all(
+        "Volume Of Member Exports",
+        filters={'tax__number': tax_id},
+        fields=['year', 'total_amount_in_egp', 'total_amount_in_usd', 'quantity_in_tons'],
+        order_by='year desc'
+    )
+
+    
+    yearly_totals = {}
+    for entry in all_data:
+        year = entry['year']
+        
+        if year not in yearly_totals:
+            yearly_totals[year] = {
+                'total_amount_in_egp': 0,
+                'total_amount_in_usd': 0,
+                'quantity_in_tons': 0
+            }
+        
+        # Add values for the year
+        yearly_totals[year]['total_amount_in_egp'] += entry['total_amount_in_egp']
+        yearly_totals[year]['total_amount_in_usd'] += entry['total_amount_in_usd']
+        yearly_totals[year]['quantity_in_tons'] += float(entry['quantity_in_tons'])
+
+    # Print totals for each year
+    for year in sorted(yearly_totals.keys(), reverse=True):
+        totals = yearly_totals[year]
+        # print(f"Year: {year}")
+        # print(f"  Total Amount in EGP: {totals['total_amount_in_egp']}")
+        # print(f"  Total Amount in USD: {totals['total_amount_in_usd']}")
+        # print(f"  Quantity in Tons: {totals['quantity_in_tons']}\n")
+    
+    return yearly_totals
 
 
