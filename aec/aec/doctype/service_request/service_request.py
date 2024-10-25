@@ -106,17 +106,18 @@ class ServiceRequest(Document):
 
 		if(service_data.show_export_volume == 1):
 
-			volume = frappe.get_all("Volume Of Member Exports for Three Years", 
+			volume = frappe.get_all("Volume of Exports In Years", 
 						   filters={'parenttype': 'Customer', 'parent': member},
-						   fields=['season','season_name','value','total_amount_in_usd','quantity_in_tons'])
+						   order_by='year desc',
+						   limit=3,
+						   fields=['year','total_amount_in_usd','quantity_in_tons','total_amount_in_egp'])
 
 			self.set('member_export_volume',[])
 
 			for row in volume:
 				self.append("member_export_volume",{
-					'season': row.season,
-					'season_name':row.season_name,
-					'value': row.value,
+					'year': row.year,
+					'total_amount_in_egp': row.total_amount_in_egp,
 					'total_amount_in_usd': row.total_amount_in_usd,
 					'quantity_in_tons': row.quantity_in_tons
 				})
@@ -280,36 +281,13 @@ class ServiceRequest(Document):
 						'sales_invoice_ref': row.name,
 						'member_categories': row.custom_customer_group,
 						'volume_of_exports': row.custom_volume_of_exports,
-						'outstanding_amount': row.outstanding_amount
+						'outstanding_amount': row.outstanding_amount,
+						'season_name': self.member_export_volume[0].season_name
 					})
 
 
 
-	# @frappe.whitelist()
-	# def get_service_print_format(self):
-	# 	service = self.select_service
 
-	# 	all_prints = frappe.get_all("Service Request Print Formats",
-	# 						  filters={'parenttype':"Service Generator", 'parent': service},
-	# 						  fields=['print_format','print_button_name'])
-		
-
-
-	# 	# service_data = frappe.get_doc("Service Generator", service).as_dict()
-
-	# 	# service_print_format = service_data.get("service_request_print_formats")
-
-	# 	# prints = {}
-
-	# 	# for row in service_print_format:
-	# 	# 	if row.print_format:
-	# 	# 		prints = {
-	# 	# 			'print_format': row.print_format,
-	# 	# 			'label': row.print_button_name
-	# 	# 		}
-	# 	print(all_prints)
-
-	# 	return all_prints
 
 
 

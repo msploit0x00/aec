@@ -141,7 +141,7 @@
    "fieldname": "last_3_years_volume",
    "fieldtype": "Table",
    "label": "last 3 years volume",
-   "options": "log Sales Invoice",
+   "options": "Volume of Exports In Years",
    "read_only": 1
   },
   {
@@ -169,7 +169,7 @@
    "fieldname": "member_export_volume",
    "fieldtype": "Table",
    "label": "Member Export Volume",
-   "options": "log Sales Invoice"
+   "options": "Volume of Exports In Years"
   },
   {
    "fieldname": "column_break_olfdl",
@@ -208,7 +208,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-25 13:44:02.167523",
+ "modified": "2024-10-25 17:59:52.307182",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",
