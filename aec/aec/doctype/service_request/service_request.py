@@ -18,6 +18,7 @@ from frappe.utils import (
 	now,
 	nowdate,
 )
+from barcode_aec.update_mem_vol import get_customer_group
 
 class ServiceRequest(Document):
 	def validate(self):
@@ -36,6 +37,7 @@ class ServiceRequest(Document):
 		self.prod_count()
 		self.apply_price_list_rate()
 		self.get_member_history()
+		self.prepare_new_membership()
 
 	# def after_save(self):
 	# 	self.calc_total()
@@ -284,6 +286,117 @@ class ServiceRequest(Document):
 						'outstanding_amount': row.outstanding_amount,
 						# 'season_name': self.member_export_volume[0].season_name
 					})
+
+
+	def prepare_new_membership(self):
+		if self.select_service == 'تجديد العضوية':
+			# Fetch list of dictionaries with 'salutation' for each committee
+			member_comm = frappe.get_all(
+				"Committees you would like to join",
+				filters={'parenttype': 'Customer', 'parent': self.member},
+				fields=['salutation']
+			)
+
+			
+			print("Fetched Committees:", member_comm)
+
+			found_item = False
+			for comm in member_comm:
+				print("Processing Committee:", comm)
+
+				if comm['salutation'] == 'عضوية لجنة سلعية' and not found_item:
+					vol = self.volume_of_exports
+					price_list = self.price_list
+
+					# Check and call prod_count method if it exists
+					count = self.prod_count() if hasattr(self, 'prod_count') else 1
+
+					# Retrieve member category based on export volume
+					member_cat = get_customer_group(vol)
+					print(f"member cat   {member_cat}")
+					if member_cat:
+						member_cat_name = member_cat[0].get("name")
+						item_rate = frappe.get_all(
+							"Item Price",
+							filters={'custom_member_categories': member_cat_name, 'price_list': price_list},
+							fields=['item_code', 'item_name', 'price_list_rate'],
+							limit=1
+						)
+
+						if item_rate:
+                
+							row = item_rate[0]
+							self.append("items", {
+								'item_code': row.get('item_code'),
+								'item_name': row.get('item_name'),
+								'qty': count,
+								'rate': row.get('price_list_rate'),
+								'amount': count * row.get("price_list_rate")
+							})
+						found_item = True
+
+
+
+
+
+
+				if comm['salutation'] == 'عضوية رئيس لجنة':
+					item_rate2 = frappe.get_all(
+							"Item Price",
+							filters={'price_list': price_list,'item_code': 'عضوية رئيس لجنة'},
+							fields=['item_code', 'item_name', 'price_list_rate'],
+							limit=1
+						)
+					
+					print(f"item rate 2 {item_rate2}")
+					
+					count = self.ra2ees_count()
+
+					if item_rate2:
+						row2 = item_rate2[0]
+						self.append("items", {
+								'item_code': row2.get('item_code'),
+								'item_name': row2.get('item_name'),
+								'qty': count,
+								'rate': row2.get('price_list_rate'),
+								'amount': count * row2.get("price_list_rate")
+							})
+
+
+				if comm['salutation'] == 'عضوية لجنة خدمية':
+					item_rate3 = frappe.get_all(
+							"Item Price",
+							filters={'price_list': price_list,'item_code': 'عضوية لجنة خدمية'},
+							fields=['item_code', 'item_name', 'price_list_rate'],
+							limit=1
+						)
+					
+					print(f"item rate 2 {item_rate3}")
+					
+					count = self.serv_count()
+
+					if item_rate3:
+						row3 = item_rate2[0]
+						self.append("items", {
+								'item_code': row3.get('item_code'),
+								'item_name': row3.get('item_name'),
+								'qty': count,
+								'rate': row3.get('price_list_rate'),
+								'amount': count * row3.get("price_list_rate")
+							})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
