@@ -364,9 +364,9 @@ class ServiceRequest(Document):
 
 				# 	found_item2 = True
 
+##########################################################################################
 
-
-				# if comm['salutation'] == 'عضوية لجنة خدمية':
+				if comm['salutation'] == 'عضوية لجنة خدمية':
 					item_rate3 = frappe.get_all(
 							"Item Price",
 							filters={'price_list': price_list,'item_code': 'عضوية لجنة خدمية'},
