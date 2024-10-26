@@ -282,7 +282,7 @@ class ServiceRequest(Document):
 						'member_categories': row.custom_customer_group,
 						'volume_of_exports': row.custom_volume_of_exports,
 						'outstanding_amount': row.outstanding_amount,
-						'season_name': self.member_export_volume[0].season_name
+						# 'season_name': self.member_export_volume[0].season_name
 					})
 
 
@@ -312,9 +312,9 @@ def create_sales_invoice(doc_name):
 							  filters={'parent': doc_name},
 							  fields=['committees','salutation'])
 		
-		vol = frappe.get_all("log Sales Invoice", 
+		vol = frappe.get_all("Volume of Exports In Years", 
 					   filters={'parent': doc_name},
-					   fields=['season','value','season_name','total_amount_in_usd','quantity_in_tons'])
+					   fields=['year','total_amount_in_egp','total_amount_in_usd','quantity_in_tons'])
 		
 
 		history = frappe.get_all("Member History", 
@@ -354,9 +354,8 @@ def create_sales_invoice(doc_name):
 		if len(vol) > 0:
 			for volumes in vol:
 				new_invoice.append('custom_log',{
-				'season': volumes['season'],
-				'value': volumes['value'],
-				'season_name': volumes['season_name'],
+				'year': volumes['year'],
+				'total_amount_in_egp': volumes['total_amount_in_egp'],
 				'total_amount_in_usd': volumes['total_amount_in_usd'],
 				'quantity_in_tons': volumes['quantity_in_tons']
 			})
@@ -385,7 +384,7 @@ def create_sales_invoice(doc_name):
 
 		new_invoice.append('payments',{
 			'mode_of_payment': 'Cash',
-			'amount': new_invoice.total
+			'amount': request_doc.total_amount
 		})
 
 		new_invoice.insert(ignore_permissions=True)
