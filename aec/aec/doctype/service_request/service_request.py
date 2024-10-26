@@ -309,7 +309,7 @@ class ServiceRequest(Document):
 					price_list = self.price_list
 
 					# Check and call prod_count method if it exists
-					count = self.prod_count() if hasattr(self, 'prod_count') else 1
+					count1 = self.prod_count() if hasattr(self, 'prod_count') else 1
 
 					# Retrieve member category based on export volume
 					member_cat = get_customer_group(vol)
@@ -329,41 +329,44 @@ class ServiceRequest(Document):
 							self.append("items", {
 								'item_code': row.get('item_code'),
 								'item_name': row.get('item_name'),
-								'qty': count,
+								'qty': count1,
 								'rate': row.get('price_list_rate'),
-								'amount': count * row.get("price_list_rate")
+								'amount': count1 * row.get("price_list_rate")
 							})
 						found_item = True
 
 
+###############################################################################################
 
 
-
-
-				if comm['salutation'] == 'عضوية رئيس لجنة':
-					item_rate2 = frappe.get_all(
-							"Item Price",
-							filters={'price_list': price_list,'item_code': 'عضوية رئيس لجنة'},
-							fields=['item_code', 'item_name', 'price_list_rate'],
-							limit=1
-						)
+				# found_item2 = False
+				# if comm['salutation'] == 'عضوية رئيس لجنة' and not found_item2:
+				# 	item_rate2 = frappe.get_all(
+				# 			"Item Price",
+				# 			filters={'price_list': price_list,'item_code': 'عضوية رئيس لجنة'},
+				# 			fields=['item_code', 'item_name', 'price_list_rate'],
+				# 			limit=1
+				# 		)
 					
-					print(f"item rate 2 {item_rate2}")
+				# 	print(f"item rate 2 {item_rate2}")
 					
-					count = self.ra2ees_count()
+				# 	count2 = self.ra2ees_count()
 
-					if item_rate2:
-						row2 = item_rate2[0]
-						self.append("items", {
-								'item_code': row2.get('item_code'),
-								'item_name': row2.get('item_name'),
-								'qty': count,
-								'rate': row2.get('price_list_rate'),
-								'amount': count * row2.get("price_list_rate")
-							})
+				# 	if item_rate2:
+				# 		row2 = item_rate2[0]
+				# 		self.append("items", {
+				# 				'item_code': row2.get('item_code'),
+				# 				'item_name': row2.get('item_name'),
+				# 				'qty': count2,
+				# 				'rate': row2.get('price_list_rate'),
+				# 				'amount': count2 * row2.get("price_list_rate")
+				# 			})
+
+				# 	found_item2 = True
 
 
-				if comm['salutation'] == 'عضوية لجنة خدمية':
+
+				# if comm['salutation'] == 'عضوية لجنة خدمية':
 					item_rate3 = frappe.get_all(
 							"Item Price",
 							filters={'price_list': price_list,'item_code': 'عضوية لجنة خدمية'},
@@ -373,16 +376,16 @@ class ServiceRequest(Document):
 					
 					print(f"item rate 2 {item_rate3}")
 					
-					count = self.serv_count()
+					count3 = self.serv_count()
 
 					if item_rate3:
-						row3 = item_rate2[0]
+						row3 = item_rate3[0]
 						self.append("items", {
 								'item_code': row3.get('item_code'),
 								'item_name': row3.get('item_name'),
-								'qty': count,
+								'qty': count3,
 								'rate': row3.get('price_list_rate'),
-								'amount': count * row3.get("price_list_rate")
+								'amount': count3 * row3.get("price_list_rate")
 							})
 
 
