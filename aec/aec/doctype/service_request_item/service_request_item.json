@@ -221,6 +221,7 @@
   {
    "bold": 1,
    "columns": 2,
+   "default": "1",
    "fieldname": "qty",
    "fieldtype": "Float",
    "in_list_view": 1,
@@ -359,8 +360,7 @@
    "label": "Rate",
    "oldfieldname": "export_rate",
    "oldfieldtype": "Currency",
-   "options": "currency",
-   "reqd": 1
+   "options": "currency"
   },
   {
    "columns": 2,
@@ -371,8 +371,7 @@
    "oldfieldname": "export_amount",
    "oldfieldtype": "Currency",
    "options": "currency",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "item_tax_template",
@@ -887,7 +886,7 @@
  ],
  "istable": 1,
  "links": [],
- "modified": "2024-10-24 14:53:35.854598",
+ "modified": "2024-11-05 16:00:26.479343",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request Item",

@@ -22,12 +22,12 @@ from barcode_aec.update_mem_vol import get_customer_group
 
 class ServiceRequest(Document):
 	def validate(self):
-		self.validate_customer()
-		self.get_member_committees()
-		self.allow_outstanding()
-		self.show_export_volumes()
-		self.allow_repeated()
-		self.get_service_items()
+		self.validate_customer() ##
+		self.get_member_committees() ##
+		self.allow_outstanding() ##
+		self.show_export_volumes() ##
+		self.allow_repeated() ##
+		self.get_service_items() ##
 		self.prod_member()
 		self.get_service_default_price_list()
 		# self.get_service_print_format() 
@@ -35,11 +35,22 @@ class ServiceRequest(Document):
 	def before_save(self):
 		# self.calc_total()
 		self.prod_count()
-		self.apply_price_list_rate()
+		# self.get_service_items()
+
+		# self.apply_price_list_rate()
 		self.get_member_history()
 		self.prepare_new_membership()
 
-	# def after_save(self):
+	def after_save(self):
+		pass
+		# self.apply_price_list_rate()
+
+		# self.calc_total()
+		# self.calc_total()
+		# self.get_service_items()
+	# def on_update(self):
+	# 	self.apply_price_list_rate()
+
 	# 	self.calc_total()
 
 
@@ -139,11 +150,13 @@ class ServiceRequest(Document):
 			self.append('items',{
 				'item_code': row.item,
 				'item_name': row.item,
-				'qty': 1.0,
+				# 'qty': 1.0,
 				# 'rate': row.pricing,
 				# 'amount': 1.0 * row.pricing
 			})
-		
+		# self.apply_price_list_rate()
+		# self.calc_total()
+
 	
 	def allow_repeated(self):
 		member = self.member
@@ -365,8 +378,8 @@ class ServiceRequest(Document):
 				# 	found_item2 = True
 
 ##########################################################################################
-
-				if comm['salutation'] == 'عضوية لجنة خدمية':
+				added_membership = False
+				if comm['salutation'] == 'عضوية لجنة خدمية' and not added_membership:
 					item_rate3 = frappe.get_all(
 							"Item Price",
 							filters={'price_list': price_list,'item_code': 'عضوية لجنة خدمية'},
@@ -380,6 +393,7 @@ class ServiceRequest(Document):
 
 					if item_rate3:
 						row3 = item_rate3[0]
+						
 						self.append("items", {
 								'item_code': row3.get('item_code'),
 								'item_name': row3.get('item_name'),
@@ -387,9 +401,30 @@ class ServiceRequest(Document):
 								'rate': row3.get('price_list_rate'),
 								'amount': count3 * row3.get("price_list_rate")
 							})
+						added_membership=True
+						     
+################################################################################################
+				# if comm['salutation'] == 'عضوية رئيس لجنة':
+				# 	item_rate4 = frappe.get_all(
+				# 			"Item Price",
+				# 			filters={'price_list': price_list,'item_code': 'عضوية رئيس لجنة'},
+				# 			fields=['item_code', 'item_name', 'price_list_rate'],
+				# 			limit=1
+				# 		)
+					
+				# 	print(f"item rate 2 {item_rate4}")
+					
+				# 	count4 = self.serv_count()
 
-
-
+				# 	if item_rate4:
+				# 		row4 = item_rate4[0]
+				# 		self.append("items", {
+				# 				'item_code': row4.get('item_code'),
+				# 				'item_name': row4.get('item_name'),
+				# 				'qty': count4,
+				# 				'rate': row4.get('price_list_rate'),
+				# 				'amount': count4 * row4.get("price_list_rate")
+				# 			})
 
 
 
