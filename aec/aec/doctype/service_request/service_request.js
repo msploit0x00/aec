@@ -186,6 +186,36 @@ frappe.ui.form.on('Service Request', {
 
 
 
+frappe.ui.form.on('Service Request Item', {
+	qty(frm,cdt,cdn) {
+		
+		var row = locals[cdt][cdn];
+
+		// if(qty){
+
+			var rate = row.rate;
+			var amount = row.qty * rate;
+
+			frappe.model.set_value(cdt,cdn,'amount', amount);
+
+
+		// }
+
+
+
+	}
+})
+
+
+
+
+
+
+
+
+
+
+
 // function print(print_format,label){
 
 

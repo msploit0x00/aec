@@ -142,19 +142,24 @@ class ServiceRequest(Document):
 		service_data = frappe.get_doc("Service Generator", service)
 
 		items_data = service_data.service_items
+		current_items = {item.item_code: item for item in self.items}
+
 
 		self.set("items", [])
 
 		for row in items_data:
+			existing_item = current_items.get(row.item)
+
+			qty = existing_item.qty if existing_item else 1.0
 
 			self.append('items',{
 				'item_code': row.item,
 				'item_name': row.item,
-				# 'qty': 1.0,
+				'qty': qty,
 				# 'rate': row.pricing,
 				# 'amount': 1.0 * row.pricing
 			})
-		# self.apply_price_list_rate()
+		self.apply_price_list_rate()
 		# self.calc_total()
 
 	
