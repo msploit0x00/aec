@@ -318,7 +318,7 @@ class ServiceRequest(Document):
 				fields=['salutation']
 			)
 
-			
+			self.set('items', [])			
 			print("Fetched Committees:", member_comm)
 			self.perpare_new_membership_prod()
 			self.prep_wakeel()

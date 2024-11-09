@@ -35,7 +35,10 @@
   "column_break_olfdl",
   "member_export_volume",
   "member_history_section",
-  "member_history"
+  "member_history",
+  "recommendations_section",
+  "get_recommendation",
+  "recommendation_invoice"
  ],
  "fields": [
   {
@@ -204,11 +207,27 @@
    "ignore_user_permissions": 1,
    "label": "Total Amount",
    "read_only": 1
+  },
+  {
+   "fieldname": "recommendations_section",
+   "fieldtype": "Section Break",
+   "label": "Recommendations"
+  },
+  {
+   "fieldname": "recommendation_invoice",
+   "fieldtype": "Table",
+   "label": "Recommendation Invoice",
+   "options": "Recommendation Invoice"
+  },
+  {
+   "fieldname": "get_recommendation",
+   "fieldtype": "Button",
+   "label": "Get Recommendation"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-25 17:59:52.307182",
+ "modified": "2024-11-09 19:20:57.448453",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",
