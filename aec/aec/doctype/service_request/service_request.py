@@ -40,6 +40,8 @@ class ServiceRequest(Document):
 		# self.apply_price_list_rate()
 		self.get_member_history()
 		self.prepare_new_membership()
+		# self.perpare_new_membership2()
+
 
 	def after_save(self):
 		pass
@@ -137,29 +139,30 @@ class ServiceRequest(Document):
 		
 	
 	def get_service_items(self):
-		service = self.select_service
+		if self.select_service != 'تجديد العضوية':
+			service = self.select_service
 
-		service_data = frappe.get_doc("Service Generator", service)
+			service_data = frappe.get_doc("Service Generator", service)
 
-		items_data = service_data.service_items
-		current_items = {item.item_code: item for item in self.items}
+			items_data = service_data.service_items
+			current_items = {item.item_code: item for item in self.items}
 
 
-		self.set("items", [])
+			self.set("items", [])
 
-		for row in items_data:
-			existing_item = current_items.get(row.item)
+			for row in items_data:
+				existing_item = current_items.get(row.item)
 
-			qty = existing_item.qty if existing_item else 1.0
+				qty = existing_item.qty if existing_item else 1.0
 
-			self.append('items',{
-				'item_code': row.item,
-				'item_name': row.item,
-				'qty': qty,
-				# 'rate': row.pricing,
-				# 'amount': 1.0 * row.pricing
-			})
-		self.apply_price_list_rate()
+				self.append('items',{
+					'item_code': row.item,
+					'item_name': row.item,
+					'qty': qty,
+					# 'rate': row.pricing,
+					# 'amount': 1.0 * row.pricing
+				})
+			self.apply_price_list_rate()
 		# self.calc_total()
 
 	
@@ -317,127 +320,191 @@ class ServiceRequest(Document):
 
 			
 			print("Fetched Committees:", member_comm)
+			self.perpare_new_membership_prod()
+			self.prep_wakeel()
 
 			found_item = False
 			for comm in member_comm:
 				print("Processing Committee:", comm)
-
-				if comm['salutation'] == 'عضوية لجنة سلعية' and not found_item:
-					vol = self.volume_of_exports
-					price_list = self.price_list
-
-					# Check and call prod_count method if it exists
-					count1 = self.prod_count() if hasattr(self, 'prod_count') else 1
-
-					# Retrieve member category based on export volume
-					member_cat = get_customer_group(vol)
-					print(f"member cat   {member_cat}")
-					if member_cat:
-						member_cat_name = member_cat[0].get("name")
-						item_rate = frappe.get_all(
-							"Item Price",
-							filters={'custom_member_categories': member_cat_name, 'price_list': price_list},
-							fields=['item_code', 'item_name', 'price_list_rate'],
-							limit=1
-						)
-
-						if item_rate:
-                
-							row = item_rate[0]
-							self.append("items", {
-								'item_code': row.get('item_code'),
-								'item_name': row.get('item_name'),
-								'qty': count1,
-								'rate': row.get('price_list_rate'),
-								'amount': count1 * row.get("price_list_rate")
-							})
-						found_item = True
-
+				
 
 ###############################################################################################
 
 
-				# found_item2 = False
-				# if comm['salutation'] == 'عضوية رئيس لجنة' and not found_item2:
-				# 	item_rate2 = frappe.get_all(
-				# 			"Item Price",
-				# 			filters={'price_list': price_list,'item_code': 'عضوية رئيس لجنة'},
-				# 			fields=['item_code', 'item_name', 'price_list_rate'],
-				# 			limit=1
-				# 		)
-					
-				# 	print(f"item rate 2 {item_rate2}")
-					
-				# 	count2 = self.ra2ees_count()
+			found_item2 = False  # Flag to prevent duplicate appending
 
-				# 	if item_rate2:
-				# 		row2 = item_rate2[0]
-				# 		self.append("items", {
-				# 				'item_code': row2.get('item_code'),
-				# 				'item_name': row2.get('item_name'),
-				# 				'qty': count2,
-				# 				'rate': row2.get('price_list_rate'),
-				# 				'amount': count2 * row2.get("price_list_rate")
-				# 			})
+			if not found_item2:  # Check if the item has already been added
+				# Assuming this block is inside a loop for member_comm or another iteration
+				if comm['salutation'] == 'عضوية رئيس لجنة' and not found_item2:
+					item_rate2 = frappe.get_all(
+						"Item Price",
+						filters={'price_list': self.price_list, 'item_code': 'عضوية رئيس لجنة'},
+						fields=['item_code', 'item_name', 'price_list_rate'],
+						limit=1
+					)
 
-				# 	found_item2 = True
+					print(f"item rate 2 {item_rate2}")
+
+					count2 = self.ra2ees_count()
+
+					if item_rate2:
+						row2 = item_rate2[0]
+						self.append("items", {
+							'item_code': row2.get('item_code'),
+							'item_name': row2.get('item_name'),
+							'qty': count2,
+							'rate': row2.get('price_list_rate'),
+							'amount': count2 * row2.get("price_list_rate")
+						})
+
+						found_item2 = True  # Set flag to True after appending the item
+
 
 ##########################################################################################
-				added_membership = False
-				if comm['salutation'] == 'عضوية لجنة خدمية' and not added_membership:
-					item_rate3 = frappe.get_all(
+			added_membership = False
+			if not added_membership:  # Check the flag before processing any comms
+				for comm in member_comm:  # Assuming this loop is iterating over member_comm
+					if comm['salutation'] == 'عضوية لجنة خدمية' and not added_membership:
+						item_rate3 = frappe.get_all(
 							"Item Price",
-							filters={'price_list': price_list,'item_code': 'عضوية لجنة خدمية'},
+							filters={'price_list': self.price_list, 'item_code': 'عضوية لجنة خدمية'},
 							fields=['item_code', 'item_name', 'price_list_rate'],
 							limit=1
 						)
-					
-					print(f"item rate 2 {item_rate3}")
-					
-					count3 = self.serv_count()
 
-					if item_rate3:
-						row3 = item_rate3[0]
-						
-						self.append("items", {
+						print(f"item rate 2 {item_rate3}")
+
+						count3 = self.serv_count()
+
+						if item_rate3:
+							row3 = item_rate3[0]
+
+							self.append("items", {
 								'item_code': row3.get('item_code'),
 								'item_name': row3.get('item_name'),
 								'qty': count3,
 								'rate': row3.get('price_list_rate'),
 								'amount': count3 * row3.get("price_list_rate")
 							})
-						added_membership=True
-						     
+							added_membership = True  # Set the flag to True after appending the item
+		self.calc_total()
+					     
 ################################################################################################
-				# if comm['salutation'] == 'عضوية رئيس لجنة':
-				# 	item_rate4 = frappe.get_all(
-				# 			"Item Price",
-				# 			filters={'price_list': price_list,'item_code': 'عضوية رئيس لجنة'},
-				# 			fields=['item_code', 'item_name', 'price_list_rate'],
-				# 			limit=1
-				# 		)
-					
-				# 	print(f"item rate 2 {item_rate4}")
-					
-				# 	count4 = self.serv_count()
+			# added_membership2 = False  # Flag to prevent duplicate appending
 
-				# 	if item_rate4:
-				# 		row4 = item_rate4[0]
-				# 		self.append("items", {
-				# 				'item_code': row4.get('item_code'),
-				# 				'item_name': row4.get('item_name'),
-				# 				'qty': count4,
-				# 				'rate': row4.get('price_list_rate'),
-				# 				'amount': count4 * row4.get("price_list_rate")
-				# 			})
+			# # Check if the item has already been added for "عضوية وكيل لجنة"
+			# if not added_membership2:  
+			# 	if comm['salutation'] == 'عضوية وكيل لجنة':
+			# 		item_rate4 = frappe.get_all(
+			# 			"Item Price",
+			# 			filters={'price_list': self.price_list, 'item_code': 'عضوية وكيل لجنة'},
+			# 			fields=['item_code', 'item_name', 'price_list_rate'],
+			# 			limit=1
+			# 		)
+
+			# 		print(f"item rate 4 {item_rate4}")
+
+			# 		count4 = self.wakeel_count()
+
+			# 		if item_rate4:
+			# 			row4 = item_rate4[0]
+			# 			self.append("items", {
+			# 				'item_code': row4.get('item_code'),
+			# 				'item_name': row4.get('item_name'),
+			# 				'qty': count4,
+			# 				'rate': row4.get('price_list_rate'),
+			# 				'amount': count4 * row4.get("price_list_rate")
+			# 			})
+			# 			added_membership2 = True  # Set flag to True after appending the item
+
+
+###########################################################################################################
 
 
 
 
+	
 
 
 
+	def perpare_new_membership_prod(self):
+		if self.select_service == 'تجديد العضوية':
+			# Retrieve the relevant committee memberships for the member
+			member_comm = frappe.get_all(
+				"Committees you would like to join",
+				filters={'parenttype': 'Customer', 'parent': self.member},
+				fields=['salutation']
+			)
 
+			# Fetch the service items from the selected service
+			service_data = frappe.get_doc("Service Generator", self.select_service)
+			service_items = service_data.service_items
+			member_category = self.member_category
+
+			item_added = False  # Flag to check if item has been appended already
+
+			# Look for the specific item 'عضوية لجنة سلعية-4' once
+			for comm in member_comm:
+				if comm.salutation == 'عضوية لجنة سلعية' and not item_added:
+					# Find the first matching item in service items
+					for row in service_items:
+						if self.member_category == row.category:
+							# Prepare item details
+							qty = self.prod_count()
+							item_price = frappe.get_all(
+								"Item Price",
+								filters={'item_code': row.item, 'price_list': self.price_list},
+								fields=['price_list_rate']
+							)
+							if item_price:
+								item_code = row.item
+								rate = item_price[0].price_list_rate if item_price else 0
+
+								# Append the specific item and exit both loops immediately
+								self.append('items', {
+									'item_code': row.item,
+									'item_name': row.item,
+									'qty': qty,
+									'rate': rate,
+									'amount': rate * qty
+								})
+								item_added = True  # Set flag to True to prevent duplicate
+								break  # Exit the inner loop once the item is appended
+					break  # Exit the outer loop after the item has been added
+
+	
+	def prep_wakeel(self):
+		member_comm = frappe.get_all(
+				"Committees you would like to join",
+				filters={'parenttype': 'Customer', 'parent': self.member},
+				fields=['salutation']
+			)
+		added_membership2 = False  # Flag to prevent duplicate appending
+
+		for comm in member_comm:# Check if the item has already been added for "عضوية وكيل لجنة"
+			if not added_membership2:  
+				if comm['salutation'] == 'عضوية وكيل لجنة':
+					item_rate4 = frappe.get_all(
+							"Item Price",
+							filters={'price_list': self.price_list, 'item_code': 'عضوية وكيل لجنة'},
+							fields=['item_code', 'item_name', 'price_list_rate'],
+							limit=1
+						)
+
+					print(f"item rate 4 {item_rate4}")
+
+					count4 = self.wakeel_count()
+
+					if item_rate4:
+						row4 = item_rate4[0]
+						self.append("items", {
+								'item_code': row4.get('item_code'),
+								'item_name': row4.get('item_name'),
+								'qty': count4,
+								'rate': row4.get('price_list_rate'),
+								'amount': count4 * row4.get("price_list_rate")
+							})
+						added_membership2 = True  # Set flag to True after appending the item
 
 
 
