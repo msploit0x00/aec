@@ -228,12 +228,13 @@
   {
    "fieldname": "get_outstanding_invoices",
    "fieldtype": "Button",
+   "hidden": 1,
    "label": "Get Outstanding Invoices"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-11 11:37:29.412854",
+ "modified": "2024-11-11 15:37:18.777857",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",

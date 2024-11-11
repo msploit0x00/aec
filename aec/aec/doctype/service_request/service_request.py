@@ -5,6 +5,8 @@ import frappe
 from frappe.model.document import Document
 from erpnext.accounts.utils import get_balance_on
 from datetime import datetime
+import time
+from frappe import _
 from frappe.utils import (
 	add_days,
 	cint,
@@ -27,7 +29,7 @@ class ServiceRequest(Document):
 		self.allow_outstanding() ##
 		self.show_export_volumes() ##
 		self.allow_repeated() ##
-		self.get_service_items() ##
+		# self.get_service_items() ##
 		self.prod_member()
 		self.get_service_default_price_list()
 		# self.get_service_print_format() 
@@ -35,16 +37,19 @@ class ServiceRequest(Document):
 	def before_save(self):
 		# self.calc_total()
 		self.prod_count()
-		# self.get_service_items()
-
-		# self.apply_price_list_rate()
-		# self.get_member_history()
-		# self.prepare_new_membership()
+		self.get_service_items()
+		# self.calc_total()
+		self.apply_price_list_rate()
+		self.get_member_history()
+		self.prepare_new_membership()
+		# self.custom_prod_past_year()
 		# self.perpare_new_membership2()
 
 
 	def after_save(self):
+		# self.calc_total()
 		pass
+
 		# self.apply_price_list_rate()
 
 		# self.calc_total()
@@ -162,7 +167,7 @@ class ServiceRequest(Document):
 					# 'rate': row.pricing,
 					# 'amount': 1.0 * row.pricing
 				})
-			self.apply_price_list_rate()
+		self.apply_price_list_rate()
 		self.calc_total()
 
 	
@@ -185,8 +190,9 @@ class ServiceRequest(Document):
 
 	def calc_total(self):
 		total = 0.0
-		for item in self.items:
-			total += item.amount
+		if len(self.items) > 0:
+			for item in self.items:
+				total += item.amount
 		
 		self.total_amount = total
 
@@ -247,7 +253,8 @@ class ServiceRequest(Document):
 
 	def get_service_default_price_list(self):
 		service = self.select_service
-		if service:
+		current_year = datetime.now().year
+		if service and current_year == self.year:
 			service_data = frappe.get_doc("Service Generator", service)
 			if service_data:
 				price_list = service_data.service_price_list
@@ -260,7 +267,7 @@ class ServiceRequest(Document):
 
 
 
-
+	@frappe.whitelist()
 	def apply_price_list_rate(self):
 		if self.price_list:
 			items = self.items
@@ -289,9 +296,9 @@ class ServiceRequest(Document):
 		service = self.select_service
 		if service == 'تجديد العضوية':
 			history = frappe.get_all("Sales Invoice",
-							filters={'custom_service_group':'تجديد العضوية','status': ['in',['Unpaid','Overdue','Partly Paid']]},
+							filters={'custom_service_group':'تجديد العضوية','customer': self.member,'status': ['in',['Unpaid','Overdue','Partly Paid','Paid']]},
 							order_by="creation desc",
-							fields=['year','paid_amount','name','custom_volume_of_exports','custom_customer_group','outstanding_amount'])
+							fields=['year','paid_amount','name','custom_volume_of_exports','custom_customer_group','outstanding_amount','custom_service_group'])
 
 
 			if len(history) > 0:
@@ -307,10 +314,11 @@ class ServiceRequest(Document):
 						'outstanding_amount': row.outstanding_amount,
 						# 'season_name': self.member_export_volume[0].season_name
 					})
-
+			
+				
 
 	def prepare_new_membership(self):
-		if self.select_service == 'تجديد العضوية':
+		if self.select_service == 'تجديد العضوية' and self.year == datetime.now().year:
 			# Fetch list of dictionaries with 'salutation' for each committee
 			member_comm = frappe.get_all(
 				"Committees you would like to join",
@@ -581,6 +589,34 @@ class ServiceRequest(Document):
 
 
 
+	@frappe.whitelist()
+	def custom_prod_past_year(self,count):
+		if self.select_service == 'تجديد العضوية' and self.year != datetime.now().year:
+			exports = self.member_export_volume
+			year = self.year
+			
+			service_data = frappe.get_doc("Service Generator", self.select_service)
+			items = service_data.service_items
+
+			group_name = None  # Initialize group_name outside the loop
+			
+			for row in exports:
+				if row.year == year:
+					customer_group = get_customer_group(row.total_amount_in_egp)
+					group_name = customer_group[0].name  # Assign value to group_name
+
+				if group_name:  # Ensure group_name is not None
+					for row2 in items:
+						if row2.category == group_name:
+							self.append('items', {
+								'item_code': row2.item,
+								'item_name': row2.item,
+								'qty': count
+							})
+			# time.sleep(3)
+			# self.apply_price_list_rate()
+
+
 
 	
 
@@ -629,6 +665,7 @@ def create_sales_invoice(doc_name):
 			'doctype': 'Sales Invoice',
 			'customer': member,
 			'posting_date': date,
+			'year': year,
 			'custom_service_group': service,
 			'custom_invoice_type': 'Members',
 			'custom_customer_outstanding_balance': member_outstanding,
