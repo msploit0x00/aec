@@ -177,7 +177,50 @@ frappe.ui.form.on('Service Request', {
 				}
 			});
 		}
-	}
+	},
+
+
+	member(frm){
+		frappe.call({
+			method: "erpnext.accounts.utils.get_balance_on",
+			args: {date: frm.doc.posting_date, party_type: 'Customer', party: frm.doc.member},
+			callback: function(r) {
+			frm.doc.member_outstanding = r.message;
+			refresh_field('member_outstanding');
+			}
+			});
+	},
+
+
+
+
+	get_outstanding_invoices(frm){
+		// frm.events.get_member_history(frm);
+		
+		frm.call('get_member_history');
+
+
+	},
+
+
+	// get_member_history: function (frm) {
+	// 	// frm.save();
+	// 	frappe.call({
+	// 	  method: "get_member_history",
+	// 	  doc: frm.doc,
+	// 	  args: {
+	// 		// show_progress: 1,
+	// 	  },
+	// 	  freeze: true,
+	// 	  callback: function () {
+	// 		// frappe.hide_progress();
+	
+	// 		// frm.refresh();
+	// 	  },
+	// 	});
+	//   },
+
+
 	
 
 

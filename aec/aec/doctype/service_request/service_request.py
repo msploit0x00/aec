@@ -38,8 +38,8 @@ class ServiceRequest(Document):
 		# self.get_service_items()
 
 		# self.apply_price_list_rate()
-		self.get_member_history()
-		self.prepare_new_membership()
+		# self.get_member_history()
+		# self.prepare_new_membership()
 		# self.perpare_new_membership2()
 
 
@@ -163,7 +163,7 @@ class ServiceRequest(Document):
 					# 'amount': 1.0 * row.pricing
 				})
 			self.apply_price_list_rate()
-		# self.calc_total()
+		self.calc_total()
 
 	
 	def allow_repeated(self):
@@ -284,12 +284,12 @@ class ServiceRequest(Document):
 
 
 
-
+	@frappe.whitelist()
 	def get_member_history(self):
 		service = self.select_service
 		if service == 'تجديد العضوية':
 			history = frappe.get_all("Sales Invoice",
-							filters={'custom_service_group':'تجديد العضوية','status': 'Paid'},
+							filters={'custom_service_group':'تجديد العضوية','status': ['in',['Unpaid','Overdue','Partly Paid']]},
 							order_by="creation desc",
 							fields=['year','paid_amount','name','custom_volume_of_exports','custom_customer_group','outstanding_amount'])
 
@@ -847,5 +847,8 @@ def get_member_exportss(tax_id):
         # print(f"  Quantity in Tons: {totals['quantity_in_tons']}\n")
     
     return yearly_totals
+
+
+
 
 
