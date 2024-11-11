@@ -199,7 +199,7 @@ frappe.ui.form.on('Service Request', {
 		
 		frm.call('get_member_history');
 
-
+		frm.save();
 	},
 
 
