@@ -181,7 +181,7 @@ class ServiceRequest(Document):
 		all_invoices = frappe.get_all('Sales Invoice', 
 								filters={'posting_date': str(current_year),'customer': member,'custom_service_group': service, 'docstatus': 1})
 
-		if(service_data.repeated_service):
+		if(service_data.repeated_service == 1):
 			if len(all_invoices) != service_data.repeated_how_many:
 				print("Allowed")
 			else:
@@ -298,7 +298,7 @@ class ServiceRequest(Document):
 			history = frappe.get_all("Sales Invoice",
 							filters={'custom_service_group':'تجديد العضوية','customer': self.member,'status': ['in',['Unpaid','Overdue','Partly Paid','Paid']]},
 							order_by="creation desc",
-							fields=['year','paid_amount','name','custom_volume_of_exports','custom_customer_group','outstanding_amount','custom_service_group'])
+							fields=['year','paid_amount','name','custom_volume_of_exports','custom_customer_group','outstanding_amount','custom_service_group','status'])
 
 
 			if len(history) > 0:
@@ -312,6 +312,7 @@ class ServiceRequest(Document):
 						'member_categories': row.custom_customer_group,
 						'volume_of_exports': row.custom_volume_of_exports,
 						'outstanding_amount': row.outstanding_amount,
+						'status': row.status
 						# 'season_name': self.member_export_volume[0].season_name
 					})
 			
@@ -703,7 +704,8 @@ def create_sales_invoice(doc_name):
 					'member_categories': his['member_categories'],
 					'paid_amount': his['paid_amount'],
 					'outstanding_amount': his['outstanding_amount'],
-					'sales_invoice_ref': his['sales_invoice_ref']
+					'sales_invoice_ref': his['sales_invoice_ref'],
+					'status': his['status']
 				})
 		
 		if len(items) > 0:
