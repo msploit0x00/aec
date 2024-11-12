@@ -640,8 +640,8 @@ class ServiceRequest(Document):
 				'parent': invoice[0]['name']
 			},
 			fields=['custom_khetab_print_serial'])
-
-				return items_last_print
+				print(items_last_print)
+				self.last_central_lab_serial_printed = items_last_print[0]['custom_khetab_print_serial']
 
 			else:
 				frappe.throw(_("This Member Doesn't have Central laboratory letter this year"))
@@ -680,6 +680,7 @@ def create_sales_invoice(doc_name):
 		payment_status = request_doc.payment_status
 		member_outstanding = request_doc.member_outstanding
 		member = request_doc.member
+		central_print = request_doc.last_central_lab_serial_printed
 
 		committees = frappe.get_all("Committees customer join", 
 							  filters={'parent': doc_name},
@@ -713,6 +714,7 @@ def create_sales_invoice(doc_name):
 			'custom_volume_of_exports': volume_of_exports,
 			'custom_customer_membership_status': membership_status,
 			'custom_membership_status': payment_status,
+			'custom_last_print_serial_for_reprint_khetab': central_print,
 			'is_pos': 1,
 
 		})
@@ -755,6 +757,7 @@ def create_sales_invoice(doc_name):
 					'qty': item['qty'],
 					'rate': item['rate'],
 					'amount': item['amount'],
+					# 'custom_khetab_print_serial': central_print if central_print > 0 else print('mina is here')
 				})
 
 		new_invoice.append('payments',{
