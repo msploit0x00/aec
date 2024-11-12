@@ -44,12 +44,14 @@ class ServiceRequest(Document):
 		self.prepare_new_membership()
 		# self.custom_prod_past_year()
 		# self.perpare_new_membership2()
+		self.get_income_account()
 
 
 	def after_save(self):
-		# self.calc_total()
 		pass
-
+		# self.calc_total()
+		# pass
+		# self.get_income_account()
 		# self.apply_price_list_rate()
 
 		# self.calc_total()
@@ -618,10 +620,21 @@ class ServiceRequest(Document):
 			# self.apply_price_list_rate()
 
 
-
+	def get_last_serial_khetab(self):
+		pass
 	
 
+	def get_income_account(self):
 
+		items = self.items
+
+		for row in self.get('items'):
+			all_data = frappe.get_all("Item Default", 
+		filters={'parenttype':'Item','parent':row.item_code},
+		fields=['income_account'])
+			print(f"alldata {all_data}")
+			if all_data:
+				row.income_account = all_data[0]['income_account']
 
 
 
