@@ -46,6 +46,7 @@ class ServiceRequest(Document):
 		# self.perpare_new_membership2()
 		self.get_income_account()
 		self.get_last_serial_khetab()
+		self.get_mosanda_serial()
 
 
 	def after_save(self):
@@ -661,6 +662,53 @@ class ServiceRequest(Document):
 			print(f"alldata {all_data}")
 			if all_data:
 				row.income_account = all_data[0]['income_account']
+
+
+
+
+	def get_mosanda_serial(self):
+		if self.select_service == 'إعادة طباعة إستمارة المساندة':
+			
+
+			request_items = self.items
+
+
+			invoice = frappe.get_all("Sales Invoice", 
+							filters={'custom_service_group': 'إستمارة المساندة','customer': self.member,'status':'Paid'},
+							fields=['name'])
+			
+			print(f"invoices mosanda {invoice}")
+			
+			for row in invoice:
+				items = frappe.get_all('Sales Invoice Item',
+						   filters={'parenttype':'Sales Invoice','parent': row.name},
+						   fields=['parent','item_code','custom_last_printed_serial_','custom_ended_serial','custom_mosanda_reprint_item'])
+
+
+				for item_row in items:
+					from_serial = item_request.from_serial
+					to_serial = item_request.to_serial
+
+					for item_request in request_items:
+						if item_request.item_code == item_row.custom_mosanda_reprint_item:
+							
+							last_printed_serial = item_row.custom_last_printed_serial_
+							ended_serial = item_row.custom_ended_serial
+
+							if (last_printed_serial <= from_serial <= ended_serial) or (last_printed_serial <= to_serial <= ended_serial):
+								frappe.msgprint(f"Serial range match found for item {item_request.item_code} in invoice {invoice.name}")
+							else:
+								frappe.throw("No Serial Number found for this item in any invoice")
+
+
+				
+				# print(items)
+
+
+			# print(f"items ")
+
+
+
 
 
 
