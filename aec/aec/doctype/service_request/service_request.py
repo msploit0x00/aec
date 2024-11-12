@@ -45,6 +45,7 @@ class ServiceRequest(Document):
 		# self.custom_prod_past_year()
 		# self.perpare_new_membership2()
 		self.get_income_account()
+		self.get_last_serial_khetab()
 
 
 	def after_save(self):
@@ -621,8 +622,33 @@ class ServiceRequest(Document):
 
 
 	def get_last_serial_khetab(self):
-		pass
-	
+		if self.select_service == 'إعادة طباعة خطاب المعمل المركزي':
+			
+			current_year = datetime.now().year
+			from_date = f"{current_year}-01-01"
+			to_date = f"{current_year}-12-31"
+			invoice = frappe.get_all("Sales Invoice", 
+									filters={'custom_service_group':'خطاب المعمل المركزي','status':'Paid','customer': self.member, 'posting_date': ['between',[from_date,to_date]],},
+									fields=['name'],
+									order_by='posting_date desc',
+									limit=1)
+			
+
+			if len(invoice) > 0:
+				items_last_print = frappe.get_all("Sales Invoice Item", filters={
+				'parenttype': 'Sales Invoice',
+				'parent': invoice[0]['name']
+			},
+			fields=['custom_khetab_print_serial'])
+
+				return items_last_print
+
+			else:
+				frappe.throw(_("This Member Doesn't have Central laboratory letter this year"))
+
+
+
+
 
 	def get_income_account(self):
 
