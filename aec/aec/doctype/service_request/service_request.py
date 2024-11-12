@@ -147,7 +147,7 @@ class ServiceRequest(Document):
 		
 	
 	def get_service_items(self):
-		if self.select_service != 'تجديد العضوية':
+		if self.select_service != 'تجديد العضوية' and self.is_new():
 			service = self.select_service
 
 			service_data = frappe.get_doc("Service Generator", service)
