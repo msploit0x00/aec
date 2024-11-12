@@ -686,17 +686,17 @@ class ServiceRequest(Document):
 
 
 				for item_row in items:
-					from_serial = item_request.from_serial
-					to_serial = item_request.to_serial
 
 					for item_request in request_items:
 						if item_request.item_code == item_row.custom_mosanda_reprint_item:
-							
+							from_serial = item_request.from_serial
+							to_serial = item_request.to_serial
 							last_printed_serial = item_row.custom_last_printed_serial_
 							ended_serial = item_row.custom_ended_serial
 
-							if (last_printed_serial <= from_serial <= ended_serial) or (last_printed_serial <= to_serial <= ended_serial):
-								frappe.msgprint(f"Serial range match found for item {item_request.item_code} in invoice {invoice.name}")
+							if (last_printed_serial <= from_serial <= ended_serial) or (last_printed_serial <= to_serial <= ended_serial):								
+								frappe.msgprint(f"Serial range match found for item in invoice {item_row['parent']}")
+								print("here")
 							else:
 								frappe.throw("No Serial Number found for this item in any invoice")
 
@@ -805,6 +805,8 @@ def create_sales_invoice(doc_name):
 					'qty': item['qty'],
 					'rate': item['rate'],
 					'amount': item['amount'],
+					'custom_from_mosnada_print_serial_to_print': item['from_serial'] if item['from_serial'] > 0 else 0,
+					'custom_to_mosnada_print_serial_to_print': item['to_serial'] if item['to_serial'] > 0 else 0
 					# 'custom_khetab_print_serial': central_print if central_print > 0 else print('mina is here')
 				})
 
