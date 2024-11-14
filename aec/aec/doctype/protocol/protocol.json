@@ -76,7 +76,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 09:37:01.020115",
+ "modified": "2024-11-10 16:55:55.100366",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Protocol",
@@ -92,6 +92,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

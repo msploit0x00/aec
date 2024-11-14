@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:arabic_name",
  "creation": "2024-06-24 08:40:15.515594",
  "default_view": "List",
  "doctype": "DocType",
@@ -15,7 +16,8 @@
   {
    "fieldname": "arabic_name",
    "fieldtype": "Data",
-   "label": "Arabic Name"
+   "label": "Arabic Name",
+   "unique": 1
   },
   {
    "fieldname": "english_name",
@@ -35,10 +37,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-26 08:49:43.115886",
+ "modified": "2024-11-11 09:45:29.540568",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Channel",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

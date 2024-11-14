@@ -1,0 +1,200 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-14 13:04:06.416910",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "appraisal_1_tab",
+  "date",
+  "employee",
+  "appraisal_template",
+  "total_weightage",
+  "column_break_domkv",
+  "full_name",
+  "department",
+  "designation",
+  "date_of_joining",
+  "user_manger",
+  "manger",
+  "section_break_x3ets",
+  "employee_evaluation_table",
+  "total",
+  "employee_score",
+  "tab_break_rz9ck",
+  "appraisal_template2",
+  "total_weightage_2",
+  "employee_goals_evaluation2",
+  "total_2",
+  "employee_score_2",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "appraisal_1_tab",
+   "fieldtype": "Tab Break",
+   "label": "Appraisal 1"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "appraisal_template",
+   "fieldtype": "Link",
+   "label": "Appraisal Template",
+   "options": "Appraisal Template Goals"
+  },
+  {
+   "fetch_from": "appraisal_template.total_weightage",
+   "fieldname": "total_weightage",
+   "fieldtype": "Percent",
+   "label": "Total Weightage",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_domkv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.date_of_joining",
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "department.custom_manger",
+   "fieldname": "user_manger",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "User Manger",
+   "options": "User"
+  },
+  {
+   "fetch_from": "user_manger.full_name",
+   "fieldname": "manger",
+   "fieldtype": "Data",
+   "label": "Manger",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_x3ets",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "employee_evaluation_table",
+   "fieldtype": "Table",
+   "label": "Employee Evaluation Table",
+   "options": "Employee Evaluation Table"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Percent",
+   "label": "Total Score"
+  },
+  {
+   "fieldname": "employee_score",
+   "fieldtype": "Percent",
+   "label": "Employee Score"
+  },
+  {
+   "fieldname": "tab_break_rz9ck",
+   "fieldtype": "Tab Break",
+   "label": "Appraisal 2"
+  },
+  {
+   "fieldname": "appraisal_template2",
+   "fieldtype": "Link",
+   "label": "Appraisal Template2",
+   "options": "Appraisal Template Goals"
+  },
+  {
+   "fetch_from": "appraisal_template2.total_weightage",
+   "fieldname": "total_weightage_2",
+   "fieldtype": "Percent",
+   "label": "Total Weightage 2"
+  },
+  {
+   "fieldname": "employee_goals_evaluation2",
+   "fieldtype": "Table",
+   "label": "Employee Goals Evaluation2",
+   "options": "Employee Goals Evaluation"
+  },
+  {
+   "fieldname": "total_2",
+   "fieldtype": "Percent",
+   "label": "Total Score 2"
+  },
+  {
+   "fieldname": "employee_score_2",
+   "fieldtype": "Percent",
+   "label": "Employee Score 2"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Employee Evaluation",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-14 13:19:40.511382",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Employee Evaluation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

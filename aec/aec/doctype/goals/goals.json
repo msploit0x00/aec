@@ -1,47 +1,42 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:arabic_name",
- "creation": "2024-06-20 18:12:47.095056",
+ "autoname": "field:name1",
+ "creation": "2024-11-14 13:01:32.443698",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "arabic_name",
-  "english_name",
-  "amended_from"
+  "name1",
+  "rating_criteria",
+  "description"
  ],
  "fields": [
   {
-   "allow_in_quick_entry": 1,
-   "fieldname": "arabic_name",
+   "fieldname": "name1",
    "fieldtype": "Data",
-   "label": "Arabic Name",
+   "label": "Name",
    "unique": 1
   },
   {
-   "allow_in_quick_entry": 1,
-   "fieldname": "english_name",
-   "fieldtype": "Data",
-   "label": "English Name"
+   "fieldname": "rating_criteria",
+   "fieldtype": "Table",
+   "label": "Rating Criteria",
+   "options": "Appraisal Template Goal"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Exhibition Type",
-   "print_hide": 1,
-   "read_only": 1
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-06 13:57:30.856483",
+ "modified": "2024-11-14 13:20:24.370768",
  "modified_by": "Administrator",
  "module": "Aec",
- "name": "Exhibition Type",
+ "name": "Goals",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
@@ -58,7 +53,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

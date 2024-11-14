@@ -1,0 +1,148 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-31 09:00:08.643775",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "arabic_name",
+  "english_name",
+  "exhibition_specialty",
+  "date_from",
+  "date_to",
+  "country",
+  "exhibition_type",
+  "column_break_1mowe",
+  "remainder_date",
+  "companies_expected_to_participate",
+  "area",
+  "total_area",
+  "number_of_exhibitors",
+  "number_of_visitors",
+  "subscription_times",
+  "reference"
+ ],
+ "fields": [
+  {
+   "fieldname": "arabic_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Arabic Name"
+  },
+  {
+   "fieldname": "english_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "English Name"
+  },
+  {
+   "fieldname": "exhibition_specialty",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Exhibition specialty",
+   "options": "Exhibition specialty"
+  },
+  {
+   "fieldname": "date_from",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Date From"
+  },
+  {
+   "fieldname": "date_to",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Date to"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Country",
+   "options": "Countries"
+  },
+  {
+   "fieldname": "exhibition_type",
+   "fieldtype": "Link",
+   "label": "Exhibition Type",
+   "options": "Exhibition Type"
+  },
+  {
+   "fieldname": "column_break_1mowe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remainder_date",
+   "fieldtype": "Date",
+   "label": "Remainder Date"
+  },
+  {
+   "fieldname": "companies_expected_to_participate",
+   "fieldtype": "Data",
+   "label": "Companies Expected to Participate"
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Data",
+   "label": "Area"
+  },
+  {
+   "fieldname": "total_area",
+   "fieldtype": "Data",
+   "label": "Total Area"
+  },
+  {
+   "fieldname": "number_of_exhibitors",
+   "fieldtype": "Data",
+   "label": "Number of Exhibitors"
+  },
+  {
+   "fieldname": "number_of_visitors",
+   "fieldtype": "Data",
+   "label": "Number of visitors"
+  },
+  {
+   "fieldname": "subscription_times",
+   "fieldtype": "Data",
+   "label": "Subscription Times"
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Link",
+   "label": "Reference",
+   "options": "Exhibitions Annual Plan"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-14 13:20:42.387690",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Exhibition Remainders",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

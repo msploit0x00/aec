@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:arabic_name",
  "creation": "2024-06-20 18:10:34.128269",
  "default_view": "List",
  "doctype": "DocType",
@@ -16,7 +17,8 @@
    "allow_in_quick_entry": 1,
    "fieldname": "arabic_name",
    "fieldtype": "Data",
-   "label": "Arabic Name"
+   "label": "Arabic Name",
+   "unique": 1
   },
   {
    "allow_in_quick_entry": 1,
@@ -35,12 +37,12 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2024-06-23 09:04:19.171214",
+ "modified": "2024-11-06 13:54:59.008264",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Exhibition specialty",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

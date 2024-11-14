@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"M50xk9URSs\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Training and Technical Support </span>\",\"col\":12}},{\"id\":\"1cVeusAp13\",\"type\":\"card\",\"data\":{\"card_name\":\"Plans\",\"col\":4}}]",
+ "content": "[{\"id\":\"M50xk9URSs\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Training and Technical Support </span>\",\"col\":12}},{\"id\":\"1cVeusAp13\",\"type\":\"card\",\"data\":{\"card_name\":\"Plans\",\"col\":4}},{\"id\":\"AMQc5PNeBg\",\"type\":\"card\",\"data\":{\"card_name\":\"Appraisal\",\"col\":4}}]",
  "creation": "2024-08-27 09:36:29.321116",
  "custom_blocks": [],
  "docstatus": 0,
@@ -89,10 +89,58 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Appraisal",
+   "link_count": 4,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "KRA",
+   "link_count": 0,
+   "link_to": "KRA",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Goals",
+   "link_count": 0,
+   "link_to": "Goals",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Appraisal Template Goals",
+   "link_count": 0,
+   "link_to": "Appraisal Template Goals",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Employee Evaluation",
+   "link_count": 0,
+   "link_to": "Employee Evaluation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-09-19 11:44:08.690718",
- "modified_by": "ebram@datasofteg.com",
+ "modified": "2024-11-11 21:44:19.115428",
+ "modified_by": "ahmed.radwan@datasofteg.com",
  "module": "Aec",
  "name": "Training and Technical Support",
  "number_cards": [],

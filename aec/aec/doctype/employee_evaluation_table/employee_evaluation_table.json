@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-14 13:02:32.223523",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "kra",
+  "goals",
+  "kra_weightage",
+  "rate",
+  "goal_weightage",
+  "score",
+  "employee_rate",
+  "employee_score"
+ ],
+ "fields": [
+  {
+   "fieldname": "kra",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "KRA",
+   "options": "KRA"
+  },
+  {
+   "fieldname": "goals",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Goals",
+   "options": "Goals"
+  },
+  {
+   "fieldname": "kra_weightage",
+   "fieldtype": "Percent",
+   "label": "KRA Weightage"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Rate"
+  },
+  {
+   "fieldname": "goal_weightage",
+   "fieldtype": "Percent",
+   "label": "Goal Weightage"
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Percent",
+   "label": "Score"
+  },
+  {
+   "fieldname": "employee_rate",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "employee Rate"
+  },
+  {
+   "fieldname": "employee_score",
+   "fieldtype": "Percent",
+   "label": "employee Score"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-14 13:20:03.052307",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Employee Evaluation Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:name1",
  "creation": "2024-06-11 12:24:25.946217",
  "default_view": "List",
  "doctype": "DocType",
@@ -26,7 +27,8 @@
   {
    "fieldname": "name1",
    "fieldtype": "Data",
-   "label": "Name"
+   "label": "Name",
+   "unique": 1
   },
   {
    "fieldname": "start_date",
@@ -105,10 +107,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 09:33:18.836528",
+ "modified": "2024-11-11 10:11:10.487486",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Cooperation Agreements",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -121,6 +124,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
