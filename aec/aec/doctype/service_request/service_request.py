@@ -194,8 +194,11 @@ class ServiceRequest(Document):
 
 
 	def calc_total(self):
+		service = self.select_service
+		service_data = frappe.get_doc("Service Generator", service)
+		is_free = service_data.is_free_service
 		total = 0.0
-		if len(self.items) > 0:
+		if len(self.items) > 0 and service_data.is_free_service == 0:
 			for item in self.items:
 				total += item.amount
 		
