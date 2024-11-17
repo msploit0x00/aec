@@ -144,7 +144,8 @@
    "fetch_from": "appraisal_template2.total_weightage",
    "fieldname": "total_weightage_2",
    "fieldtype": "Percent",
-   "label": "Total Weightage 2"
+   "label": "Total Weightage 2",
+   "read_only": 1
   },
   {
    "fieldname": "employee_goals_evaluation2",
@@ -175,7 +176,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-14 13:19:40.511382",
+ "modified": "2024-11-14 14:06:26.076682",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Employee Evaluation",
