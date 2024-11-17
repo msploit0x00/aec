@@ -47,6 +47,7 @@ class ServiceRequest(Document):
 		self.get_income_account()
 		self.get_last_serial_khetab()
 		self.get_mosanda_serial()
+		self.diff_membership()
 
 
 	def after_save(self):
@@ -708,7 +709,24 @@ class ServiceRequest(Document):
 			# print(f"items ")
 
 
+	def diff_membership(self):
+		if self.select_service == 'تجديد العضوية':
 
+			current_year = datetime.now().year
+			
+			request_year = int(self.year)
+
+
+
+			print(f"current_year {type(current_year)}")
+
+			last_paid_invoice = frappe.get_all("Sales Invoice", 
+			filters={'customer': self.member,'custom_service_group': 'تجديد العضوية','status':'Paid'},
+			order_by='year desc',
+			fields=['year','custom_customer_group','custom_volume_of_exports'],
+			limit=1)
+
+			print(f"last invoice {last_paid_invoice}")
 
 
 
