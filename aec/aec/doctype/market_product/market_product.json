@@ -13,7 +13,10 @@
   "targeted_country",
   "country_name",
   "status",
+  "date_of_suspend",
   "reason_of_suspend",
+  "date_of_inactive",
+  "reason_of_inactive",
   "column_break_dvkn3",
   "market",
   "arabic_name",
@@ -48,6 +51,8 @@
    "label": "Date"
   },
   {
+   "fetch_from": "market.country",
+   "fetch_if_empty": 1,
    "fieldname": "targeted_country",
    "fieldtype": "Link",
    "label": "Targeted Country",
@@ -113,18 +118,21 @@
    "options": "\nPotential\nIn Progress\nActive\nActive With Terms\nInactive\nSuspended"
   },
   {
+   "allow_on_submit": 1,
    "depends_on": "eval:doc.status == 'Suspended'",
    "fieldname": "reason_of_suspend",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Reason Of Suspend"
   },
   {
    "fieldname": "section_break_m7n19",
    "fieldtype": "Section Break",
-   "hide_border": 1
+   "hide_border": 1,
+   "label": "Select Products"
   },
   {
    "default": "0",
+   "depends_on": "eval:doc.international_product_hs_code == 0",
    "fieldname": "international_subcode",
    "fieldtype": "Check",
    "label": "International Subcode"
@@ -142,6 +150,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval:doc.international_subcode == 0",
    "fieldname": "international_product_hs_code",
    "fieldtype": "Check",
    "label": "International Product HS Code"
@@ -172,21 +181,45 @@
    "label": "Country Name"
   },
   {
+   "allow_on_submit": 1,
    "collapsible": 1,
    "fieldname": "section_break_whsdz",
    "fieldtype": "Section Break",
    "label": "Conditions and Terms"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "attach_terms",
    "fieldtype": "Attach",
    "label": "Attach Terms"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "terms",
    "fieldtype": "Table",
    "label": "Terms",
    "options": "Protocol Terms"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.status == 'Suspended'",
+   "fieldname": "date_of_suspend",
+   "fieldtype": "Date",
+   "label": "Date Of Suspend"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.status == 'Inactive'",
+   "fieldname": "date_of_inactive",
+   "fieldtype": "Date",
+   "label": "Date Of Inactive"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.status == 'Inactive'",
+   "fieldname": "reason_of_inactive",
+   "fieldtype": "Small Text",
+   "label": "Reason Of Inactive"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -213,7 +246,7 @@
    "link_fieldname": "custom_market"
   }
  ],
- "modified": "2024-10-19 14:26:10.714836",
+ "modified": "2024-11-20 18:19:39.415327",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market Product",

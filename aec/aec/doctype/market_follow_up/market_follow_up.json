@@ -35,7 +35,7 @@
   },
   {
    "fieldname": "employee",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Employee",
    "options": "Employee"
   },
@@ -98,7 +98,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 09:31:04.668779",
+ "modified": "2024-11-18 14:13:54.254911",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market Follow Up",

@@ -19,7 +19,7 @@
   },
   {
    "fieldname": "replay",
-   "fieldtype": "Text Editor",
+   "fieldtype": "Text",
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Replay"
@@ -28,7 +28,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-18 15:52:20.714533",
+ "modified": "2024-11-19 00:37:34.705449",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Replies",
