@@ -3,7 +3,7 @@ from frappe import _
 
 
 @frappe.whitelist()
-def create_matrial_request(material_request_type, transaction_date, items):
+def create_matrial_request(material_request_type, transaction_date, items,source,source_name):
     # Ensure items are passed correctly and in the expected format (list of dicts)
     if items:
         # return {"error": "Items should be a list of dictionaries",}
@@ -18,6 +18,8 @@ def create_matrial_request(material_request_type, transaction_date, items):
                 "material_request_type": material_request_type,
                 "transaction_date": transaction_date,
                 "items": items,
+                "custom_source": source,
+                "custom_source_record": source_name
             }
         )
 
