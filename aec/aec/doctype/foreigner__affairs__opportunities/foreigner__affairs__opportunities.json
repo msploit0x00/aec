@@ -1,12 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:[naming_series]",
  "creation": "2024-06-12 12:58:36.575707",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "due_date",
+  "naming_series",
   "member_code",
   "company_code",
   "column_break_hgzke",
@@ -17,6 +20,7 @@
   "customer_status",
   "section_break_9hdtb",
   "member_info",
+  "company_profile_web_link",
   "amended_from"
  ],
  "fields": [
@@ -24,33 +28,39 @@
    "fieldname": "member_code",
    "fieldtype": "Link",
    "label": "Member Code",
-   "options": "Customer"
+   "options": "Customer",
+   "read_only": 1
   },
   {
    "fieldname": "company_code",
    "fieldtype": "Data",
-   "label": "Company Code"
+   "label": "Company Code",
+   "read_only": 1
   },
   {
    "fieldname": "ceo_name",
    "fieldtype": "Data",
-   "label": "CEO Name"
+   "label": "CEO Name",
+   "read_only": 1
   },
   {
    "fieldname": "committee",
    "fieldtype": "Data",
-   "label": "Committee"
+   "label": "Committee",
+   "read_only": 1
   },
   {
    "fieldname": "governorate",
    "fieldtype": "Link",
    "label": "Governorate",
-   "options": "Territory"
+   "options": "Territory",
+   "read_only": 1
   },
   {
    "fieldname": "customer_status",
    "fieldtype": "Data",
-   "label": "Customer Status"
+   "label": "Customer Status",
+   "read_only": 1
   },
   {
    "fieldname": "member_info",
@@ -78,14 +88,36 @@
   {
    "fieldname": "section_break_9hdtb",
    "fieldtype": "Section Break"
+  },
+  {
+   "default": "Opportunity-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "\nOpportunity-"
+  },
+  {
+   "default": "Today",
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "default": "http://85.195.99.171/company-profile/new",
+   "fieldname": "company_profile_web_link",
+   "fieldtype": "Data",
+   "label": "Company profile Web link",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-25 10:11:33.777458",
+ "modified": "2024-11-26 23:52:52.619375",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Foreigner  Affairs  Opportunities",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

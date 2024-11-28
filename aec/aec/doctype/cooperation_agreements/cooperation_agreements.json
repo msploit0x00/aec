@@ -10,17 +10,17 @@
  "field_order": [
   "name1",
   "start_date",
-  "description",
+  "entities",
+  "market_product",
+  "market",
   "column_break_3t7yu",
   "end_date",
   "agreement_attach",
   "status",
   "section_break_od28k",
+  "description",
   "council_cost",
   "entity_cost",
-  "entities",
-  "market",
-  "market_product",
   "amended_from"
  ],
  "fields": [
@@ -58,7 +58,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "\nOpen\nIn Progress\nClosed"
+   "options": "\nActive\nInactive"
   },
   {
    "fieldname": "section_break_od28k",
@@ -67,11 +67,13 @@
   {
    "fieldname": "council_cost",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "Council Cost"
   },
   {
    "fieldname": "entity_cost",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "Entity Cost"
   },
   {
@@ -107,7 +109,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-11 10:11:10.487486",
+ "modified": "2024-11-24 12:16:46.461660",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Cooperation Agreements",

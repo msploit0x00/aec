@@ -17,6 +17,8 @@
   "reason_of_suspend",
   "date_of_inactive",
   "reason_of_inactive",
+  "attach_inactive_reason",
+  "attach_suspend_reason",
   "column_break_dvkn3",
   "market",
   "arabic_name",
@@ -24,9 +26,15 @@
   "section_break_m7n19",
   "international_subcode",
   "select_international_subcode",
+  "international_subcode_arabic_name",
+  "international_subcode_english_name",
+  "international_subcode_common_name",
   "column_break_67sj3",
   "international_product_hs_code",
   "select_international_product_hs_code",
+  "international_product_hs_code_arabic_name",
+  "international_product_hs_code_english_name",
+  "international_product_hs_code_common_name",
   "section_break_lobvq",
   "targeted_products",
   "attachments_section",
@@ -71,11 +79,13 @@
   {
    "fieldname": "arabic_name",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Arabic Name"
   },
   {
    "fieldname": "english_name",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "English Name"
   },
   {
@@ -220,6 +230,60 @@
    "fieldname": "reason_of_inactive",
    "fieldtype": "Small Text",
    "label": "Reason Of Inactive"
+  },
+  {
+   "fetch_from": "select_international_subcode.arabic_name",
+   "fieldname": "international_subcode_arabic_name",
+   "fieldtype": "Data",
+   "label": "International Subcode Arabic Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "select_international_subcode.english_name",
+   "fieldname": "international_subcode_english_name",
+   "fieldtype": "Data",
+   "label": "International Subcode English Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "select_international_subcode.common_name",
+   "fieldname": "international_subcode_common_name",
+   "fieldtype": "Small Text",
+   "label": "International Subcode Common Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "select_international_product_hs_code.arabic_name",
+   "fieldname": "international_product_hs_code_arabic_name",
+   "fieldtype": "Data",
+   "label": "International Product HS Code Arabic Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "select_international_product_hs_code.english_name",
+   "fieldname": "international_product_hs_code_english_name",
+   "fieldtype": "Data",
+   "label": "International Product HS Code English Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "select_international_product_hs_code.common_name",
+   "fieldname": "international_product_hs_code_common_name",
+   "fieldtype": "Small Text",
+   "label": "International Product HS Code Common Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.status == 'Inactive'",
+   "fieldname": "attach_inactive_reason",
+   "fieldtype": "Attach",
+   "label": "Attach Inactive Reason"
+  },
+  {
+   "depends_on": "eval:doc.status == 'Suspended'",
+   "fieldname": "attach_suspend_reason",
+   "fieldtype": "Attach",
+   "label": "Attach Suspend Reason"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -238,15 +302,15 @@
    "link_fieldname": "market_product"
   },
   {
-   "link_doctype": "Protocol",
-   "link_fieldname": "market_product"
-  },
-  {
    "link_doctype": "Issue",
    "link_fieldname": "custom_market"
+  },
+  {
+   "link_doctype": "Protocols and Conditions",
+   "link_fieldname": "market_product"
   }
  ],
- "modified": "2024-11-20 18:19:39.415327",
+ "modified": "2024-11-26 22:28:53.740420",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market Product",

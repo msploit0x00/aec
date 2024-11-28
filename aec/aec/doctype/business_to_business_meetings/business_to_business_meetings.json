@@ -223,13 +223,14 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-29 14:36:45.819929",
+ "modified": "2024-11-27 01:47:52.997275",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Business to Business Meetings",
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -239,6 +240,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

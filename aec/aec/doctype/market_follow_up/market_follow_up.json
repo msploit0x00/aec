@@ -52,12 +52,14 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "\nOpen\nIn Progress\nCompleted"
+   "options": "\nOpen\nCompleted"
   },
   {
+   "depends_on": "eval:doc.status == 'Completed'",
    "fieldname": "date_of_completion",
    "fieldtype": "Date",
-   "label": "Date of completion"
+   "label": "Date of completion",
+   "mandatory_depends_on": "eval:doc.status == 'Completed'"
   },
   {
    "fieldname": "section_break_eepon",
@@ -98,7 +100,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-18 14:13:54.254911",
+ "modified": "2024-11-24 12:01:14.874404",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market Follow Up",

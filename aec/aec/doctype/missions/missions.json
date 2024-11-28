@@ -151,7 +151,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-20 15:50:09.834622",
+ "modified": "2024-11-27 00:49:50.596002",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Missions",
@@ -167,6 +167,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

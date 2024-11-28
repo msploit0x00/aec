@@ -203,15 +203,11 @@
    "link_fieldname": "market"
   },
   {
-   "link_doctype": "Protocol",
+   "link_doctype": "Protocols and Conditions",
    "link_fieldname": "market"
-  },
-  {
-   "link_doctype": "Issue",
-   "link_fieldname": "custom_market"
   }
  ],
- "modified": "2024-10-20 16:56:48.112049",
+ "modified": "2024-11-26 22:30:55.375526",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market",

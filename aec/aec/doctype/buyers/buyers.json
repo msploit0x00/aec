@@ -12,6 +12,22 @@
   "job_title",
   "country",
   "company_name",
+  "website",
+  "company_profile",
+  "column_break_58mrc",
+  "annual_value_of_imports_in_usd",
+  "annual_value_of_importers_in_usd",
+  "type_of_activity",
+  "did_you_work_with_egyptian_companies_before",
+  "please_indicate_your_product_range_section",
+  "fresh_convenience_fruits",
+  "fresh_organic_fruits",
+  "fresh_convenience_vegetables",
+  "column_break_btvuu",
+  "pules_and_grains",
+  "fresh_herbs_spices",
+  "section_break_yec0p",
+  "in_which_marketscountries_are_you_active",
   "amended_from"
  ],
  "fields": [
@@ -45,17 +61,100 @@
    "options": "Buyers",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "company_profile",
+   "fieldtype": "Attach",
+   "label": "Company Profile"
+  },
+  {
+   "fieldname": "annual_value_of_imports_in_usd",
+   "fieldtype": "Float",
+   "label": "Annual Value of imports in USD"
+  },
+  {
+   "fieldname": "annual_value_of_importers_in_usd",
+   "fieldtype": "Float",
+   "label": "Annual Value of importers in USD"
+  },
+  {
+   "fieldname": "type_of_activity",
+   "fieldtype": "Select",
+   "label": "Type of Activity",
+   "options": "\nImporter\nHypermarket\nWholesaler\nRetailer\nAgent\nOther"
+  },
+  {
+   "fieldname": "did_you_work_with_egyptian_companies_before",
+   "fieldtype": "Select",
+   "label": "Did you work with Egyptian Companies before?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "default": "0",
+   "fieldname": "fresh_convenience_fruits",
+   "fieldtype": "Check",
+   "label": "Fresh Convenience fruits"
+  },
+  {
+   "default": "0",
+   "fieldname": "fresh_organic_fruits",
+   "fieldtype": "Check",
+   "label": "Fresh Organic fruits"
+  },
+  {
+   "default": "0",
+   "fieldname": "fresh_convenience_vegetables",
+   "fieldtype": "Check",
+   "label": "Fresh Convenience Vegetables"
+  },
+  {
+   "default": "0",
+   "fieldname": "pules_and_grains",
+   "fieldtype": "Check",
+   "label": "Pules and Grains"
+  },
+  {
+   "default": "0",
+   "fieldname": "fresh_herbs_spices",
+   "fieldtype": "Check",
+   "label": "Fresh Herbs, spices"
+  },
+  {
+   "fieldname": "column_break_58mrc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "please_indicate_your_product_range_section",
+   "fieldtype": "Section Break",
+   "label": "Please Indicate your product range "
+  },
+  {
+   "fieldname": "column_break_btvuu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_yec0p",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "in_which_marketscountries_are_you_active",
+   "fieldtype": "Text",
+   "label": "In which markets/countries are you active?"
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [
   {
    "link_doctype": "Contact",
    "link_fieldname": "custom_buyers"
   }
  ],
- "modified": "2024-10-19 17:57:53.170879",
+ "modified": "2024-11-27 01:37:25.452838",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Buyers",

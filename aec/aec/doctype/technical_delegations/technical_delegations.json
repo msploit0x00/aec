@@ -14,6 +14,7 @@
   "market_product",
   "visit_date",
   "end_date_of_visit",
+  "technical_delegation_program",
   "purpose",
   "responsible_for_the_delegation",
   "number_of_arrivals",
@@ -82,7 +83,7 @@
    "fieldname": "requirement_items",
    "fieldtype": "Table",
    "label": "Requirement items",
-   "options": "required items"
+   "options": "Material Request Item"
   },
   {
    "fieldname": "amended_from",
@@ -99,12 +100,18 @@
    "label": "Market Product",
    "options": "Market Product",
    "read_only": 1
+  },
+  {
+   "fieldname": "technical_delegation_program",
+   "fieldtype": "Table",
+   "label": "Technical Delegation Program",
+   "options": "Technical Delegation Program"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-20 14:20:04.175400",
+ "modified": "2024-11-27 00:49:10.911415",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Technical Delegations",
