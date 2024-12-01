@@ -165,7 +165,8 @@ frappe.ui.form.on('Service Request', {
 									frm.doctype,            
 									frm.docname,            
 									row.print_format,
-									"العربية",      
+									"No Letterhead",
+									"العربية",     
 									// frm.doc.letter_head
 								);
 								__("Create")
@@ -269,112 +270,122 @@ frappe.ui.form.on('Service Request', {
 	// 	// // }
 	// 	// frm.save();
 
-	// 	let d = new frappe.ui.Dialog({
-	// 		title: 'Member Outstanding Invoices',
-	// 		fields: [
-	// 			{
-	// 				fieldname: "outstanding_sales_invoices",
-	// 				fieldtype: "Table",
-	// 				label: __("Sales Invoices"),
-	// 				in_place_edit: true,
-	// 				reqd: 1,
-	// 				fields: [
-	// 					{
-	// 						fieldname: "sales_invoice",
-	// 						label: __("Sales Invoice"),
-	// 						fieldtype: "Link",
-	// 						options:"Sales Invoice",
-	// 						in_list_view: 1,
-	// 						// reqd: 1,
-	// 					}
-	// 				],
-	// 		size: 'large',
-	// 		primary_action_label: 'Submit',
-	// 		primary_action(values) {
-	// 			if (!values.first_name || !values.last_name) {
-	// 				frappe.msgprint('Please enter both first and last names.');
-	// 				return;
-	// 			}
-		
-	// 			// Fetch outstanding invoices
-	// 			frappe.call({
-	// 				method: "aec.aec.doctype.service_request.service_request.get_member_outstanding_invoices",
-	// 				args: {
-						
-	// 				},
-	// 				callback: function(r) {
-	// 					if (r.message && r.message.length > 0) {
-	// 						let invoices = r.message;
-	// 						let html_content = invoices.map(invoice => 
-	// 							`<tr>
-	// 								<td>${invoice.name}</td>
-	// 								<td>${invoice.posting_date}</td>
-	// 								<td>${invoice.outstanding_amount}</td>
-	// 							</tr>`
-	// 						).join("");
-		
-	// 						let invoice_dialog = new frappe.ui.Dialog({
-	// 							title: `Outstanding Invoices for ${values.first_name} ${values.last_name}`,
-	// 							fields: [
-	// 								{
-	// 									fieldtype: "HTML",
-	// 									options: `
-	// 										<table class="table table-bordered">
-	// 											<thead>
-	// 												<tr>
-	// 													<th>Invoice</th>
-	// 													<th>Date</th>
-	// 													<th>Outstanding Amount</th>
-	// 												</tr>
-	// 											</thead>
-	// 											<tbody>
-	// 												${html_content}
-	// 											</tbody>
-	// 										</table>
-	// 									`
-	// 								}
-	// 							],
-	// 							primary_action_label: "Close",
-	// 							primary_action: function() {
-	// 								invoice_dialog.hide();
-	// 							}
-	// 						});
-	// 						invoice_dialog.show();
-	// 					} else {
-	// 						frappe.msgprint('No outstanding invoices found.');
-	// 					}
+	// 	let d = new frappe.ui.form.MultiSelectDialog({
+	// 		doctype: "Sales Invoice", // Target doctype for outstanding invoices
+	// 		target: this.cur_frm,     // Current form as the target
+	// 		setters: {                // Pre-fill fields in the dialog
+	// 			customer: null,
+	// 			posting_date: null
+	// 		},
+	// 		add_filters_group: 1,     // Allows users to add custom filters in the dialog
+	// 		date_field: "posting_date", // Adds a date range filter for this field
+	// 		get_query() {             // Client-side query method
+	// 			return {
+	// 				filters: {
+	// 					docstatus: 1,          // Only submitted invoices
+	// 					outstanding_amount: [">", 0] // Only invoices with outstanding amounts
 	// 				}
-	// 			});
-		
-	// 			d.hide();
+	// 			};
+	// 		},
+	// 		action(selections) {      // Action to perform on selections
+	// 			console.log(selections); // Outputs selected records to the console
+	// 			// You can add further processing logic here based on selections
 	// 		}
 	// 	});
 		
-	// 	d.show();
 		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	// 	d.show();
 
 
 	// },
+
+
+	// get_outstanding_invoices(frm) {
+	// 	let d = new frappe.ui.form.MultiSelectDialog({
+	// 		doctype: "Sales Invoice", // Target doctype for outstanding invoices
+	// 		target: frm,              // Current form as the target
+	// 		setters: {                // Pre-fill fields in the dialog
+	// 			customer: cur_frm.doc.member,
+	// 			posting_date: null
+	// 		},
+	// 		add_filters_group: 1,     // Allows users to add custom filters in the dialog
+	// 		date_field: "posting_date", // Adds a date range filter for this field
+	// 		coulmns: ['name','status','custom_service_group','outstanding_amount','year'],
+	// 		get_query() {             // Client-side query method
+	// 			return {
+	// 				filters: {
+	// 					status: ['in',['Unpaid','Overdue','Partly Paid']],          // Only submitted invoices
+	// 					outstanding_amount: [">", 0] // Only invoices with outstanding amounts
+	// 				}
+	// 			};
+	// 		},
+	// 		action(selections) {      // Action to perform on selections
+	// 			console.log(selections); // Outputs selected records to the console
+	// 			// Additional processing can go here, such as saving or updating values
+	// 		}
+	// 	});
+		
+	// 	d.show(); // Show the dialog
+	// }
+	
+	get_outstanding_invoices(frm) {
+		let d = new frappe.ui.form.MultiSelectDialog({
+			doctype: "Sales Invoice", // Target doctype for outstanding invoices
+			target: frm,              // Current form as the target
+			setters: {                // Pre-fill fields in the dialog
+				customer: cur_frm.doc.member,
+				posting_date: null,
+				status: '',
+				custom_service_group:null,
+				outstanding_amount:null
+			},
+			
+			add_filters_group: 1,     // Allows users to add custom filters in the dialog
+			date_field: "posting_date", // Adds a date range filter for this field
+			fields: ['name', 'status', 'custom_service_group', 'outstanding_amount', 'year', 'customer_name', 'invoice_type'], // Added extra columns
+			get_query() {             // Client-side query method
+				return {
+					filters: {
+						status: ['in', ['Unpaid', 'Overdue', 'Partly Paid']],          // Only submitted invoices
+						outstanding_amount: [">", 0.00] // Only invoices with outstanding amounts
+					}
+				};
+			},
+			// hide_actions: true,
+			// primary_action_label: [],
+			// secondary_action_label: [],
+			action(selections) {      // Action to perform on selections
+				console.log(selections); // Outputs selected records to the console
+				// Additional processing can go here, such as saving or updating values
+			},
+			size: 'large'
+		});
+		// d.primary_action_label.hide();
+		// d.show(); // Show the dialog
+		// $(d.wrapper).find('.modal-footer').remove();
+		// $(d.wrapper).find('.modal-footer .btn-secondary').hide(); // Hides the Cancel button
+// $(d.wrapper).find('.modal-footer .btn-primary').hide();   // Hides the Select button
+
+
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	// get_member_history: function (frm) {

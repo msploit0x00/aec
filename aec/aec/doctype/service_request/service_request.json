@@ -213,6 +213,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "eval:doc.select_service === \"\u062a\u062c\u062f\u064a\u062f \u0627\u0644\u0639\u0636\u0648\u064a\u0629\"",
    "fieldname": "recommendations_section",
    "fieldtype": "Section Break",
    "label": "Recommendations"
@@ -248,7 +249,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-01 11:50:28.307670",
+ "modified": "2024-12-01 14:28:48.756293",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",
