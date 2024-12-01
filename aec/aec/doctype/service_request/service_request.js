@@ -178,6 +178,66 @@ frappe.ui.form.on('Service Request', {
 				}
 			});
 		}
+
+
+
+		/////show comittess ot not
+		frappe.db.get_value('Service Generator', cur_frm.doc.select_service,'show_committees')
+		.then(value => {
+			console.log(value.message.show_committees);
+			
+
+			if(value.message.show_committees == 1){
+
+				frm.set_df_property('committees_member_join', 'hidden', 0);
+
+
+
+
+			}else{
+				frm.set_df_property('committees_member_join', 'hidden', 1);
+
+			}
+			
+			console.log("committtttttttt");
+			
+			
+		});
+
+
+
+		/////show export volumes or not based on settings
+		frappe.db.get_value('Service Generator', cur_frm.doc.select_service,'show_export_volume')
+		.then(value => {
+			console.log(value.message.show_committees);
+			
+
+			if(value.message.show_export_volume == 1){
+
+				frm.set_df_property('member_export_volume', 'hidden', 0);
+
+
+
+
+			}else{
+				frm.set_df_property('member_export_volume', 'hidden', 1);
+
+			}
+			
+			console.log("committtttttttt");
+			
+			
+		});
+
+
+
+
+
+
+
+
+
+
 	},
 
 
@@ -195,20 +255,126 @@ frappe.ui.form.on('Service Request', {
 
 
 
-	get_outstanding_invoices(frm){
-		// frm.events.get_member_history(frm);
+	// get_outstanding_invoices(frm){
+	// 	// // frm.events.get_member_history(frm);
 		
-		// frm.call('get_member_history');
+	// 	// frm.call('get_member_history');
 
-		if(frm.doc.select_service == 'تجديد العضوية'){
-			frm.call('get_member_history');
+	// 	// // if(frm.doc.select_service == 'تجديد العضوية'){
+	// 	// // 	frm.call('get_member_history');
 
-		}else{
+	// 	// // }else{
 
-		frm.call('get_member_outstanding_invoices');
-		}
-		frm.save();
-	},
+	// 	// // frm.call('get_member_outstanding_invoices');
+	// 	// // }
+	// 	// frm.save();
+
+	// 	let d = new frappe.ui.Dialog({
+	// 		title: 'Member Outstanding Invoices',
+	// 		fields: [
+	// 			{
+	// 				fieldname: "outstanding_sales_invoices",
+	// 				fieldtype: "Table",
+	// 				label: __("Sales Invoices"),
+	// 				in_place_edit: true,
+	// 				reqd: 1,
+	// 				fields: [
+	// 					{
+	// 						fieldname: "sales_invoice",
+	// 						label: __("Sales Invoice"),
+	// 						fieldtype: "Link",
+	// 						options:"Sales Invoice",
+	// 						in_list_view: 1,
+	// 						// reqd: 1,
+	// 					}
+	// 				],
+	// 		size: 'large',
+	// 		primary_action_label: 'Submit',
+	// 		primary_action(values) {
+	// 			if (!values.first_name || !values.last_name) {
+	// 				frappe.msgprint('Please enter both first and last names.');
+	// 				return;
+	// 			}
+		
+	// 			// Fetch outstanding invoices
+	// 			frappe.call({
+	// 				method: "aec.aec.doctype.service_request.service_request.get_member_outstanding_invoices",
+	// 				args: {
+						
+	// 				},
+	// 				callback: function(r) {
+	// 					if (r.message && r.message.length > 0) {
+	// 						let invoices = r.message;
+	// 						let html_content = invoices.map(invoice => 
+	// 							`<tr>
+	// 								<td>${invoice.name}</td>
+	// 								<td>${invoice.posting_date}</td>
+	// 								<td>${invoice.outstanding_amount}</td>
+	// 							</tr>`
+	// 						).join("");
+		
+	// 						let invoice_dialog = new frappe.ui.Dialog({
+	// 							title: `Outstanding Invoices for ${values.first_name} ${values.last_name}`,
+	// 							fields: [
+	// 								{
+	// 									fieldtype: "HTML",
+	// 									options: `
+	// 										<table class="table table-bordered">
+	// 											<thead>
+	// 												<tr>
+	// 													<th>Invoice</th>
+	// 													<th>Date</th>
+	// 													<th>Outstanding Amount</th>
+	// 												</tr>
+	// 											</thead>
+	// 											<tbody>
+	// 												${html_content}
+	// 											</tbody>
+	// 										</table>
+	// 									`
+	// 								}
+	// 							],
+	// 							primary_action_label: "Close",
+	// 							primary_action: function() {
+	// 								invoice_dialog.hide();
+	// 							}
+	// 						});
+	// 						invoice_dialog.show();
+	// 					} else {
+	// 						frappe.msgprint('No outstanding invoices found.');
+	// 					}
+	// 				}
+	// 			});
+		
+	// 			d.hide();
+	// 		}
+	// 	});
+		
+	// 	d.show();
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// },
 
 
 	// get_member_history: function (frm) {
