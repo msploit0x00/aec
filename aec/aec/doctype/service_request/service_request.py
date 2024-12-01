@@ -327,7 +327,7 @@ class ServiceRequest(Document):
 				
 
 	def prepare_new_membership(self):
-		if self.select_service == 'تجديد العضوية' and self.year == datetime.now().year:
+		if (self.select_service == 'تجديد العضوية' and self.year == datetime.now().year) or self.select_service == 'طلب عضوية جديدة':
 			# Fetch list of dictionaries with 'salutation' for each committee
 			member_comm = frappe.get_all(
 				"Committees you would like to join",
