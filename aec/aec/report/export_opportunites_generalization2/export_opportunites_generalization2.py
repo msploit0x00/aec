@@ -108,7 +108,7 @@ def get_data(filters):
         conditions.append("`tabCustomer`.`name` IS NOT NULL")
     if country:
         conditions.append(
-            "`tabVolume Of Member Exports`.`country_in_arabic` IN %(country_in_arabic)s"
+            "`tabVolume Of Member Exports`.`country_in_arabic` IN %(country)s"
         )
     if clusters:
         conditions.append("`tabCountries`.`geographical_clusters_name` IN %(clusters)s")
@@ -127,7 +127,7 @@ def get_data(filters):
             "`tabCustomer`.`custom_customer_status` = %(custom_customer_status)s"
         )
 
-    # Convert conditions list to a string for SQL query
+    # Convert conditions list to a string for SQL query 
     conditions_str = " AND ".join(conditions)
     if conditions_str:
         conditions_str = "WHERE " + conditions_str
@@ -165,7 +165,7 @@ def get_data(filters):
         sql,
         {
             "member": member,
-            "country_in_arabic": country,
+            "country": country,
             "clusters": clusters,  # Pass clusters as a list
             "custom_name_of_the_cioowner_of_the_company": custom_name_of_the_cioowner_of_the_company,
             "committee_name": committee_name,

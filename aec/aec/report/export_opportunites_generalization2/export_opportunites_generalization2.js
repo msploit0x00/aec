@@ -11,7 +11,6 @@ frappe.query_reports["Export Opportunites Generalization2"] = {
 		options: "Customer",
 		width: "200px",
 	  },
-  
 	  {
 		fieldname: "committee_name",
 		label: __("Please insert Committee"),
@@ -46,6 +45,13 @@ frappe.query_reports["Export Opportunites Generalization2"] = {
 		fieldname: "name_of_the_cioowner_of_the_company",
 		label: __("Please write CIO arabic"),
 		fieldtype: "Data",
+		width: "200px",
+	  },
+	  {
+		fieldname: "country",
+		label: __("Country"),
+		fieldtype: "Link",
+		options: "Country",
 		width: "200px",
 	  },
 	  {
