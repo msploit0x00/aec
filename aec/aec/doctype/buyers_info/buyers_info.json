@@ -10,7 +10,8 @@
   "job_title",
   "country",
   "buyer_company",
-  "contact"
+  "contact",
+  "primary_email"
  ],
  "fields": [
   {
@@ -52,12 +53,17 @@
    "in_preview": 1,
    "label": "Contact",
    "options": "Contact"
+  },
+  {
+   "fieldname": "primary_email",
+   "fieldtype": "Data",
+   "label": "Primary Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-23 09:03:55.140255",
+ "modified": "2024-12-01 14:23:53.613178",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Buyers Info",
