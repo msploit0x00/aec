@@ -164,7 +164,8 @@ frappe.ui.form.on('Service Request', {
 								frappe.utils.print(
 									frm.doctype,            
 									frm.docname,            
-									row.print_format,      
+									row.print_format,
+									"العربية",      
 									// frm.doc.letter_head
 								);
 								__("Create")
@@ -197,8 +198,15 @@ frappe.ui.form.on('Service Request', {
 	get_outstanding_invoices(frm){
 		// frm.events.get_member_history(frm);
 		
-		frm.call('get_member_history');
+		// frm.call('get_member_history');
 
+		if(frm.doc.select_service == 'تجديد العضوية'){
+			frm.call('get_member_history');
+
+		}else{
+
+		frm.call('get_member_outstanding_invoices');
+		}
 		frm.save();
 	},
 

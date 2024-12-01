@@ -116,7 +116,7 @@ class ServiceRequest(Document):
 		service_data = frappe.get_doc("Service Generator", service)
 
 		# if(outstanding != 0.00):
-		if(service_data.allow_outstanding == 1 ):
+		if service_data.allow_outstanding == 1:
 			print("Allowed")
 		
 		else:
@@ -323,8 +323,36 @@ class ServiceRequest(Document):
 						'status': row.status
 						# 'season_name': self.member_export_volume[0].season_name
 					})
-			
-				
+
+	@frappe.whitelist()
+	def get_member_outstanding_invoices(self):
+		service = self.select_service
+		if service:
+			history = frappe.get_all("Sales Invoice",
+							filters={'customer': self.member,'status': ['in',['Unpaid','Overdue','Partly Paid']]},
+							order_by="creation desc",
+							fields=['year','paid_amount','name','custom_volume_of_exports','custom_customer_group','outstanding_amount','custom_service_group','status'])
+
+
+			if len(history) > 0:
+				self.set('member_history',[])
+
+				for row in history:
+					self.append("member_history",{
+						'year': row.year,
+						'paid_amount': row.paid_amount,
+						'sales_invoice_ref': row.name,
+						'member_categories': row.custom_customer_group,
+						'volume_of_exports': row.custom_volume_of_exports,
+						'outstanding_amount': row.outstanding_amount,
+						'status': row.status
+						# 'season_name': self.member_export_volume[0].season_name
+					})
+
+
+
+
+		
 
 	def prepare_new_membership(self):
 		if (self.select_service == 'تجديد العضوية' and self.year == datetime.now().year) or self.select_service == 'طلب عضوية جديدة':

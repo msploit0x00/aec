@@ -1,12 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2024-09-18 20:02:27.619677",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "date",
   "select_service",
   "column_break_f7sum",
@@ -229,7 +231,6 @@
   {
    "fieldname": "get_outstanding_invoices",
    "fieldtype": "Button",
-   "hidden": 1,
    "label": "Get Outstanding Invoices"
   },
   {
@@ -237,14 +238,21 @@
    "fieldname": "last_central_lab_serial_printed",
    "fieldtype": "Int",
    "label": "Last Central Lab Serial Printed"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-12 13:11:23.764109",
+ "modified": "2024-12-01 11:33:20.345487",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
