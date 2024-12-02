@@ -41,6 +41,36 @@ frappe.ui.form.on('Service Generator', {
                 };
             });
         }
+    },
+
+
+
+
+
+    refresh: function (frm) {
+        frm.fields_dict['sales_invoice_print_formats'].grid.get_field('print_format').get_query = function () {
+            return {
+                filters: {
+                    "doc_type": 'Sales Invoice',
+                }
+            };
+        };
+
+
+
+        frm.fields_dict['service_request_print_formats'].grid.get_field('print_format').get_query = function () {
+            return {
+                filters: {
+                    "doc_type": 'Service Request',
+                }
+            };
+        };
+
+
+
+
+
+
     }
 
 
