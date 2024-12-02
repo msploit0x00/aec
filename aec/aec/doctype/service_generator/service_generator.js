@@ -23,7 +23,32 @@ frappe.ui.form.on('Service Generator', {
         } else {
             console.log("Done");
         }
+    },
+
+
+
+
+
+
+
+    depend_on: function (frm) {
+        if (frm.doc.depend_on == 1) {
+            frm.set_query('depend_on_doc', function () {
+                return {
+                    filters: {
+                        name: ['in', ['Agriculture Certificate Data', 'Production requirements card']]
+                    }
+                };
+            });
+        }
     }
+
+
+
+
+
+
+
 });
 
 frappe.ui.form.on('Service Price List', {
