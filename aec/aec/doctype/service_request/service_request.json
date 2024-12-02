@@ -243,13 +243,14 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Naming Series",
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-01 14:28:48.756293",
+ "modified": "2024-12-02 10:19:54.068144",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",
