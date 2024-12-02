@@ -477,7 +477,7 @@ class ServiceRequest(Document):
 
 
 	def perpare_new_membership_prod(self):
-		if self.select_service == 'تجديد العضوية':
+		if self.select_service == 'تجديد العضوية' or self.select_service == 'طلب عضوية جديدة':
 			# Retrieve the relevant committee memberships for the member
 			member_comm = frappe.get_all(
 				"Committees you would like to join",
@@ -509,6 +509,7 @@ class ServiceRequest(Document):
 								item_code = row.item
 								rate = item_price[0].price_list_rate if item_price else 0
 
+								print(f"ROW ITEM {row.item}")
 								# Append the specific item and exit both loops immediately
 								self.append('items', {
 									'item_code': row.item,
