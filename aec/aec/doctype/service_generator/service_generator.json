@@ -33,7 +33,11 @@
   "service_print_formats_section",
   "service_request_print_formats",
   "column_break_kanwg",
-  "sales_invoice_print_formats"
+  "sales_invoice_print_formats",
+  "preamble_section",
+  "payment_request_print",
+  "payment_receipt_print",
+  "normal_print"
  ],
  "fields": [
   {
@@ -196,11 +200,31 @@
    "fieldtype": "Link",
    "label": "Depend On Doc",
    "options": "DocType"
+  },
+  {
+   "fieldname": "preamble_section",
+   "fieldtype": "Section Break",
+   "label": "Preamble"
+  },
+  {
+   "fieldname": "payment_request_print",
+   "fieldtype": "Small Text",
+   "label": "Payment Request Print"
+  },
+  {
+   "fieldname": "payment_receipt_print",
+   "fieldtype": "Small Text",
+   "label": "Payment Receipt Print"
+  },
+  {
+   "fieldname": "normal_print",
+   "fieldtype": "Small Text",
+   "label": "Normal Print"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-02 13:41:50.288125",
+ "modified": "2024-12-02 16:06:47.708156",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Generator",

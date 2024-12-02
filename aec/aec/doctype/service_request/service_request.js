@@ -438,8 +438,22 @@ frappe.ui.form.on('Service Request Item', {
 })
 
 
+frappe.ui.form.on('Service Request Item', {
+	to_serial(frm,cdt,cdn) {
+		
+		var row = locals[cdt][cdn];
+
+		// if(qty){
+
+		frm.call("get_mosanda_serial")
 
 
+		// }
+
+
+
+	}
+})
 
 
 

@@ -46,7 +46,7 @@ class ServiceRequest(Document):
 		# self.perpare_new_membership2()
 		self.get_income_account()
 		self.get_last_serial_khetab()
-		self.get_mosanda_serial()
+		# self.get_mosanda_serial()
 		self.diff_membership()
 
 
@@ -700,7 +700,7 @@ class ServiceRequest(Document):
 
 
 
-
+	@frappe.whitelist(allow_guest=True)
 	def get_mosanda_serial(self):
 		if self.select_service == 'إعادة طباعة إستمارة المساندة':
 			
