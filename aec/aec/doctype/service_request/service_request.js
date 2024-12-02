@@ -335,12 +335,14 @@ frappe.ui.form.on('Service Request', {
 			setters: {                
 				customer: cur_frm.doc.member,
 				posting_date: null,
-				status: null,
+				status: 'Overdue',
 				custom_service_group:null,
 				outstanding_amount:null
 			},
-			
-			add_filters_group: 1,     
+			primary_action_label: " ",
+			secondary_action_label:".",
+			secondary_action:"",
+			// add_filters_group: 1,     
 			date_field: "posting_date",
 			fields: ['name', 'status', 'custom_service_group', 'outstanding_amount', 'year', 'customer_name', 'invoice_type'], // Added extra columns
 			get_query() {             

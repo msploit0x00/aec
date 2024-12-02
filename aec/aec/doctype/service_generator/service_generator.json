@@ -29,6 +29,7 @@
   "is_free_service",
   "service_price_list",
   "depend_on",
+  "depend_on_doc",
   "service_print_formats_section",
   "service_request_print_formats",
   "column_break_kanwg",
@@ -188,11 +189,18 @@
    "fieldname": "depend_on",
    "fieldtype": "Check",
    "label": "Depend On"
+  },
+  {
+   "depends_on": "eval:doc.depend_on == 1",
+   "fieldname": "depend_on_doc",
+   "fieldtype": "Link",
+   "label": "Depend On Doc",
+   "options": "DocType"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-02 13:09:12.265582",
+ "modified": "2024-12-02 13:41:50.288125",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Generator",

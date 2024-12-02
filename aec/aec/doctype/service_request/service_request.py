@@ -119,9 +119,11 @@ class ServiceRequest(Document):
 		if service_data.allow_outstanding == 1:
 			print("Allowed")
 		
-		else:
+		elif service_data.allow_outstanding == 0 and outstanding > 0:
 			frappe.throw("This Service Not Allowed Members Outstanding")
 
+		elif service_data.allow_outstanding == 0 and outstanding <= 0:
+			pass
 
 
 	def show_export_volumes(self):
