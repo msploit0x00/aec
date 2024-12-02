@@ -330,23 +330,24 @@ frappe.ui.form.on('Service Request', {
 	
 	get_outstanding_invoices(frm) {
 		let d = new frappe.ui.form.MultiSelectDialog({
-			doctype: "Sales Invoice", // Target doctype for outstanding invoices
-			target: frm,              // Current form as the target
-			setters: {                // Pre-fill fields in the dialog
+			doctype: "Sales Invoice", 
+			target: frm,              
+			setters: {                
 				customer: cur_frm.doc.member,
 				posting_date: null,
-				status: '',
+				status: null,
 				custom_service_group:null,
 				outstanding_amount:null
 			},
 			
-			add_filters_group: 1,     // Allows users to add custom filters in the dialog
-			date_field: "posting_date", // Adds a date range filter for this field
+			add_filters_group: 1,     
+			date_field: "posting_date",
 			fields: ['name', 'status', 'custom_service_group', 'outstanding_amount', 'year', 'customer_name', 'invoice_type'], // Added extra columns
-			get_query() {             // Client-side query method
+			get_query() {             
 				return {
 					filters: {
-						status: ['in', ['Unpaid', 'Overdue', 'Partly Paid']],          // Only submitted invoices
+						status: ['in', ['Unpaid', 'Overdue', 'Partly Paid']],
+						docstatus: 1,          // Only submitted invoices
 						outstanding_amount: [">", 0.00] // Only invoices with outstanding amounts
 					}
 				};

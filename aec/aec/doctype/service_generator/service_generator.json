@@ -28,6 +28,7 @@
   "column_break_qvxol",
   "is_free_service",
   "service_price_list",
+  "depend_on",
   "service_print_formats_section",
   "service_request_print_formats",
   "column_break_kanwg",
@@ -181,11 +182,17 @@
    "fieldtype": "Table",
    "label": "Sales Invoice Print Formats",
    "options": "Sales Invoice Print Formats"
+  },
+  {
+   "default": "0",
+   "fieldname": "depend_on",
+   "fieldtype": "Check",
+   "label": "Depend On"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-24 08:55:15.827347",
+ "modified": "2024-12-02 13:09:12.265582",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Generator",
