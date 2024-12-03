@@ -16,6 +16,7 @@
   "customer_item_code",
   "from_serial",
   "to_serial",
+  "matched",
   "description_section",
   "description",
   "item_group",
@@ -894,11 +895,17 @@
    "fieldname": "to_serial",
    "fieldtype": "Int",
    "label": "To Serial"
+  },
+  {
+   "default": "0",
+   "fieldname": "matched",
+   "fieldtype": "Check",
+   "label": "Matched"
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2024-11-12 14:41:36.056823",
+ "modified": "2024-12-03 15:07:45.322010",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request Item",
