@@ -65,7 +65,18 @@ frappe.ui.form.on('Service Generator', {
                 }
             };
         };
+        
 
+
+
+        frm.fields_dict['service_price_list'].grid.get_field('price_list').get_query = function () {
+            return {
+                filters: {
+                    "selling": 1,
+                    "enabled": 1,
+                }
+            };
+        };
 
 
 

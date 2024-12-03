@@ -32,7 +32,9 @@ class ServiceRequest(Document):
 		# self.get_service_items() ##
 		self.prod_member()
 		self.get_service_default_price_list()
-		# self.get_service_print_format() 
+		# self.get_service_print_format()
+		self.depend_on_validation_agri()
+		self.depend_on_validation_production() 
 
 	def before_save(self):
 		# self.calc_total()
@@ -761,6 +763,53 @@ class ServiceRequest(Document):
 			limit=1)
 
 			print(f"last invoice {last_paid_invoice}")
+
+
+	def depend_on_validation_agri(self):
+		if self.select_service == 'الشهادة الزراعية':
+			service_data = frappe.get_doc("Service Generator", self.select_service)
+			
+			if service_data.depend_on == 1:
+				doctype_ref = service_data.depend_on_doc
+				if doctype_ref:
+					
+					data = frappe.get_all(doctype=doctype_ref,
+					filters={'customer': self.member,'docstatus': 1},
+					order_by='creation desc',
+					limit=1)
+
+					if len(data) > 0:
+						pass
+					else:
+						frappe.throw(_(f"This Customer Must Have record in {doctype_ref} to complete this service request "))
+
+
+	def depend_on_validation_production(self):
+		if self.select_service == 'بطاقة مستلزمات انتاج':
+			service_data = frappe.get_doc("Service Generator", self.select_service)
+			
+			if service_data.depend_on == 1:
+				doctype_ref = service_data.depend_on_doc
+				if doctype_ref:
+					
+					data = frappe.get_all(doctype=doctype_ref,
+					filters={'customer': self.member,'docstatus': 1},
+					order_by='creation desc',
+					limit=1)
+
+					if len(data) > 0:
+						pass
+					else:
+						frappe.throw(_(f"This Customer Must Have record in {doctype_ref} to complete this service request "))
+
+
+
+
+
+
+
+
+
 
 
 
