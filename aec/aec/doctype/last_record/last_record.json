@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-12-03 13:49:46.034169",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ref_doc",
+  "last_record",
+  "date"
+ ],
+ "fields": [
+  {
+   "fieldname": "ref_doc",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Ref Doc",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_record",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Last Record",
+   "options": "ref_doc"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-12-03 14:20:32.103734",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Last Record",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

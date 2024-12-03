@@ -776,10 +776,21 @@ class ServiceRequest(Document):
 					data = frappe.get_all(doctype=doctype_ref,
 					filters={'customer': self.member,'docstatus': 1},
 					order_by='creation desc',
+					fields=['name','date'],
 					limit=1)
 
+
+					print(data)
 					if len(data) > 0:
-						pass
+						self.append('last_record',{
+							'ref_doc': doctype_ref,
+							'last_record': data[0].name,
+							'date':data[0].date
+						})
+
+
+
+
 					else:
 						frappe.throw(_(f"This Customer Must Have record in {doctype_ref} to complete this service request "))
 
@@ -795,10 +806,15 @@ class ServiceRequest(Document):
 					data = frappe.get_all(doctype=doctype_ref,
 					filters={'customer': self.member,'docstatus': 1},
 					order_by='creation desc',
+					fields=['name','posting_date'],
 					limit=1)
 
 					if len(data) > 0:
-						pass
+						self.append('last_record',{
+							'ref_doc': doctype_ref,
+							'last_record': data[0].name,
+							'date':data[0].posting_date
+						})
 					else:
 						frappe.throw(_(f"This Customer Must Have record in {doctype_ref} to complete this service request "))
 
