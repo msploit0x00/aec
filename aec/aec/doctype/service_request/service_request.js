@@ -200,7 +200,7 @@ frappe.ui.form.on('Service Request', {
 
 			}
 			
-			console.log("committtttttttt");
+			// console.log("committtttttttt");
 			
 			
 		});
@@ -225,12 +225,33 @@ frappe.ui.form.on('Service Request', {
 
 			}
 			
-			console.log("committtttttttt");
+			// console.log("committtttttttt");
 			
 			
 		});
 
 
+		frappe.db.get_value('Service Generator', cur_frm.doc.select_service,'depend_on')
+		.then(value => {
+			console.log(value.message.show_committees);
+			
+
+			if(value.message.depend_on == 1){
+
+				frm.set_df_property('last_record', 'hidden', 0);
+
+
+
+
+			}else{
+				frm.set_df_property('last_record', 'hidden', 1);
+
+			}
+			
+			// console.log("committtttttttt");
+			
+			
+		});
 
 
 
