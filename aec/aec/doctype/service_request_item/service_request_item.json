@@ -900,12 +900,13 @@
    "default": "0",
    "fieldname": "matched",
    "fieldtype": "Check",
-   "label": "Matched"
+   "label": "Matched",
+   "read_only": 1
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2024-12-03 15:07:45.322010",
+ "modified": "2024-12-03 15:13:12.546747",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request Item",
