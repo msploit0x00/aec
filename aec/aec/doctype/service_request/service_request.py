@@ -732,7 +732,7 @@ class ServiceRequest(Document):
 							ended_serial = item_row.custom_ended_serial
 							matched = item_request.matched
 
-							if not matched:
+							if matched == 0:
 								frappe.throw(_(f"You Must set from serial or to serial in row {item_request.idx} "))
 
 
