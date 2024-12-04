@@ -179,6 +179,39 @@ frappe.ui.form.on('Service Request', {
 
 	refresh(frm) {
 		if (frm.doc.select_service) {
+
+			// ///////
+			// frappe.db.get_value('Service Generator', cur_frm.doc.select_service,'show_committees')
+			// .then(value => {
+			// 	console.log(value.message.show_committees);
+				
+	
+			// 	if(value.message.show_committees == 1){
+	
+			// 		frm.set_df_property('committees_member_join', 'hidden', 0);
+	
+	
+	
+	
+			// 	}else{
+			// 		frm.set_df_property('committees_member_join', 'hidden', 1);
+	
+			// 	}
+				
+			// 	// console.log("committtttttttt");
+				
+				
+			// });
+
+
+
+			////
+
+
+
+
+
+
 			frm.call({
 				method: "get_service_print_format",
 				args: {
@@ -286,6 +319,115 @@ frappe.ui.form.on('Service Request', {
 			
 			
 		});
+
+
+
+		// frappe.db.get_value('Service Generator', cur_frm.doc.select_service,'is_free_service')
+		// .then(value => {
+		// 	console.log(value.message.is_free_service);
+
+
+		// 	if(cur_frm.doc.doctstatus == 1){
+
+		// 		frm.add_custom_button(__('Create Sales Invoice'), function() {
+            
+		// 			//   if(met === 0){ 
+		// 				frappe.call({
+		// 					method: 'aec.aec.doctype.service_request.service_request.create_sales_invoice',
+		// 					args: {
+		// 						doc_name: cur_frm.doc.name 
+		// 					},
+		// 					callback: function(response) {
+		// 						if (response.message) {
+		// 							frappe.msgprint('Sales Invoice created successfully: ' + response.message);
+		// 							console.log(response.message);
+		// 							// frm.remove_custom_button('Meeting Minutes');
+		// 							frappe.set_route('Form', 'Sales Invoice', response.message);
+		// 						} else {
+		// 							frappe.msgprint('Error Creating Sales Invoice');
+		// 						}
+		// 					}
+		// 				});
+		// 			//   }else{
+						   
+		// 			//       frappe.throw("There is Minutes Of Meeting has been created before for this Meeting");
+						   
+		// 			//   } 
+		// 			});
+
+
+
+
+
+		// 	}
+			
+
+			
+			
+		// });
+
+		// frappe.model.get_doc('Service Generator', cur_frm.doc.select_service).then(doc => {
+		// 	console.log(doc.is_free_service);
+		// });
+		
+
+
+		if(!frm.is_new()){
+		frappe.call({
+			method: 'frappe.client.get',
+			args: {
+				doctype: 'Service Generator',
+				name: cur_frm.doc.select_service
+			},
+			callback: function(response) {
+				if(frm.doc.docstatus == 1 && response.message.is_free_service == 0){
+
+
+					frm.add_custom_button(__('Create Sales Invoice'), function() {
+            
+						//   if(met === 0){ 
+							frappe.call({
+								method: 'aec.aec.doctype.service_request.service_request.create_sales_invoice',
+								args: {
+									doc_name: cur_frm.doc.name 
+								},
+								callback: function(response) {
+									if (response.message) {
+										frappe.msgprint('Sales Invoice created successfully: ' + response.message);
+										console.log(response.message);
+										// frm.remove_custom_button('Meeting Minutes');
+										frappe.set_route('Form', 'Sales Invoice', response.message);
+									} else {
+										frappe.msgprint('Error Creating Sales Invoice');
+									}
+								}
+							});
+						//   }else{
+							   
+						//       frappe.throw("There is Minutes Of Meeting has been created before for this Meeting");
+							   
+						//   } 
+						});
+				
+
+
+
+
+
+
+
+				}
+
+
+
+			}
+		});
+		
+
+	}
+
+
+
 
 
 
