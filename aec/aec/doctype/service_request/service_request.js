@@ -148,12 +148,18 @@ frappe.ui.form.on('Service Request', {
 
 		if (!frm.is_new()) {
             return frm.call('get_mosanda_serial2')
-                .fail(() => {
-                    frappe.validated = false; // Prevent save/submit if validation fails
+                .then((response) => {
+                    if (response.message && response.message.includes('No serial')) {
+                        frappe.msgprint({
+                            title: __('Validation Error'),
+                            message: __('No serial number found for some rows. Please correct them before saving.'),
+                            indicator: 'red'
+                        });
+                        frappe.validated = false; // Prevent save/submit
+                    }
                 });
         }
-
-	},
+    },
 
 
 	refresh(frm) {

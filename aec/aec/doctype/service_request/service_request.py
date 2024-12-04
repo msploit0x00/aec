@@ -803,7 +803,8 @@ class ServiceRequest(Document):
 
 			# Show all messages at the end
 			if messages:
-				frappe.msgprint("<br>".join(messages))
+				# frappe.msgprint("<br>".join(messages))
+				return "<br>".join(messages)
 
 
 
