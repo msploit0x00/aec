@@ -756,6 +756,76 @@ class ServiceRequest(Document):
 
 
 			# print(f"items ")
+	# def validate_matched(self):
+	# 	if self.select_service == "إعادة طباعة إستمارة المساندة":
+	# 		items_request = self.items
+
+	# 		for row in items_request:
+	# 			if(row.matched == 1):
+	# 				frappe.msgprint("")
+
+
+	@frappe.whitelist(allow_guest=True)
+	def get_mosanda_serial2(self):
+		if self.select_service == 'إعادة طباعة إستمارة المساندة':
+			request_items = self.items
+			invoice = frappe.get_all(
+				"Sales Invoice",
+				filters={'custom_service_group': 'إستمارة المساندة', 'customer': self.member, 'status': 'Paid'},
+				fields=['name']
+			)
+			
+			messages = []  # To collect messages for each item
+			for row in invoice:
+				items = frappe.get_all(
+					'Sales Invoice Item',
+					filters={'parenttype': 'Sales Invoice', 'parent': row.name},
+					fields=['parent', 'item_code', 'custom_last_printed_serial_', 'custom_ended_serial', 'custom_mosanda_reprint_item']
+				)
+
+				for item_request in request_items:
+					matched = False  # Default matched status for the current row
+					for item_row in items:
+						if item_request.item_code == item_row.custom_mosanda_reprint_item:
+							from_serial = item_request.from_serial
+							to_serial = item_request.to_serial
+							last_printed_serial = item_row.custom_last_printed_serial_
+							ended_serial = item_row.custom_ended_serial
+
+							if (last_printed_serial <= from_serial <= ended_serial) or (last_printed_serial <= to_serial <= ended_serial):
+								item_request.matched = 1
+								matched = True
+								messages.append(f"Serial range match found for item {item_request.item_code} in invoice {item_row['parent']}")
+								break  # Stop checking further items once matched
+
+					if not matched:
+						messages.append(f"No serial range match found for item {item_request.item_code} in any invoice.")
+
+			# Show all messages at the end
+			if messages:
+				frappe.msgprint("<br>".join(messages))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	def diff_membership(self):
