@@ -741,13 +741,13 @@ class ServiceRequest(Document):
 								print("here")
 								item_request.matched = 1
 
-							elif not (last_printed_serial <= from_serial <= ended_serial) or (last_printed_serial <= to_serial <= ended_serial):
+							else:
 								frappe.throw("No Serial Number found for this item in any invoice")
 
-							elif matched == 0:
-								frappe.throw(_(f"You Must set from serial or to serial in row {item_request.idx} "))
-							else:
-								pass
+							# elif matched == 0:
+							# 	frappe.throw(_(f"You Must set from serial or to serial in row {item_request.idx} "))
+							# else:
+							# 	pass
 				
 				# print(items)
 

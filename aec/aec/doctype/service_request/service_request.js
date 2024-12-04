@@ -147,6 +147,15 @@ frappe.ui.form.on('Service Request', {
 	validate:function(frm){
 		frm.call("get_mosanda_serial");
 
+
+		var items = frm.doc.items
+
+		for(let row of items){
+			if (row.matched == 0){
+				frappe.throw(__("This Row doesn't have a match sales invoice in row " + row.idx));
+			}
+		}
+
 	},
 
 
