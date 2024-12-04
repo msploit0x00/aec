@@ -525,7 +525,7 @@ frappe.ui.form.on('Service Request', {
 	// 	d.show(); // Show the dialog
 	// }
 	
-	get_outstanding_invoices(frm) {
+	get_member_outstanding_invoices(frm) {
 		let d = new frappe.ui.form.MultiSelectDialog({
 			doctype: "Sales Invoice", 
 			target: frm,              
