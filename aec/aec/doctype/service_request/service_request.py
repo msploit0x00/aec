@@ -911,7 +911,8 @@ class ServiceRequest(Document):
 
 											print(f"item price diff {item_price}")
 
-
+										else:
+											frappe.throw(_(f"There is no item price for {serv_items['item']} for price list {last_invoice_price_list}"))
 
 
 
