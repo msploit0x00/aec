@@ -146,6 +146,7 @@ frappe.ui.form.on('Service Request', {
 
 	validate:function(frm){
 
+		if(frm.doc.__islocal == 0){
 
 
 		var items = frm.doc.items
@@ -175,7 +176,8 @@ frappe.ui.form.on('Service Request', {
 				frappe.msgprint("No serial received.");
 			}
 		})
-
+	
+	}
 
 	},
 
