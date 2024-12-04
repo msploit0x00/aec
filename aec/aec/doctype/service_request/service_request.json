@@ -44,7 +44,8 @@
   "member_history",
   "recommendations_section",
   "get_recommendation",
-  "recommendation_invoice"
+  "recommendation_invoice",
+  "amended_from"
  ],
  "fields": [
   {
@@ -260,11 +261,22 @@
    "fieldtype": "Table",
    "label": "Last Record",
    "options": "Last Record"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Service Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-12-03 13:54:03.500221",
+ "modified": "2024-12-04 12:24:24.275772",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",
