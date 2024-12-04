@@ -147,24 +147,9 @@ frappe.ui.form.on('Service Request', {
 	validate:function(frm){
 
 		if(!frm.is_new()){
-
-
-		var items = frm.doc.items
-
-		for(let row of items){
-			if (row.matched == 0){
-				frappe.msgprint(__("This Row doesn't have a match sales invoice in row " + row.idx));
-
-				frappe.validated = false
-
-			}
-		}
-
-
-
-
-
-		frm.call("get_mosanda_serial").then(response => {
+			
+			
+			frm.call("get_mosanda_serial").then(response => {
 			// Handle the response
 			if (response.message) {
 				// console.log("Mosanda Serial: ", response.message);
@@ -176,6 +161,22 @@ frappe.ui.form.on('Service Request', {
 				frappe.msgprint("No serial received.");
 			}
 		})
+
+
+
+		var items = frm.doc.items
+
+		setTimeout(() => {
+			for (let row of items) {
+				if (row.matched == 0) {
+					frappe.msgprint(__("This Row doesn't have a match sales invoice in row " + row.idx));
+					frappe.validated = false;
+				}
+			}
+		}, 5000);
+
+
+
 	
 	}
 
