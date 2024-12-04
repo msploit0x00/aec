@@ -146,7 +146,7 @@ frappe.ui.form.on('Service Request', {
 
 	validate:function(frm){
 
-		if(frm.doc.__islocal == 0){
+		if(!frm.is_new()){
 
 
 		var items = frm.doc.items
