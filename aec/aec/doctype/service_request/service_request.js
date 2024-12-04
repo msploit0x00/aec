@@ -150,11 +150,26 @@ frappe.ui.form.on('Service Request', {
             return frm.call('get_mosanda_serial2')
                 .then((response) => {
                     if (response.message && response.message.includes('No serial')) {
+						console.log(response);
+						var items =frm.doc.items
                         frappe.msgprint({
                             title: __('Validation Error'),
                             message: __('No serial number found for some rows. Please correct them before saving.'),
                             indicator: 'red'
                         });
+
+
+						for(let row of items){
+							if(row.matched == 0){
+								frappe.msgprint({
+									title: __('Validation Error'),
+									message: __('No serial number found in ' + row.idx),
+									indicator: 'red'
+								});
+							}
+						}
+
+
                         frappe.validated = false; // Prevent save/submit
                     }
                 });
