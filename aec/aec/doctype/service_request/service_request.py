@@ -281,7 +281,7 @@ class ServiceRequest(Document):
 
 	@frappe.whitelist()
 	def apply_price_list_rate(self):
-		if self.price_list:
+		if self.price_list and self.is_new():
 			items = self.items
 
 			if len(items) > 0:
@@ -908,7 +908,7 @@ class ServiceRequest(Document):
 												'rate': difference,
 												'amount': difference
 											})
-
+											self.calc_total()
 											print(f"item price diff {item_price}")
 
 										else:
