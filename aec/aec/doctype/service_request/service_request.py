@@ -868,7 +868,7 @@ class ServiceRequest(Document):
 													 fields=['year','total_amount_in_egp'],
 													 )
 
-			service_items = frappe.get_all("Service Items", filters={'parent': self.select_service},
+			service_items = frappe.get_all("Service Items", filters={'parent': 'تجديد العضوية'},
 								  fields=['item','category'])
 
 
