@@ -532,7 +532,7 @@ frappe.ui.form.on('Service Request', {
 			setters: {                
 				customer: cur_frm.doc.member,
 				posting_date: null,
-				status: 'Overdue',
+				status: 'Unpaid',
 				custom_service_group:null,
 				outstanding_amount:null
 			},
