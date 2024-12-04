@@ -731,6 +731,10 @@ class ServiceRequest(Document):
 							last_printed_serial = item_row.custom_last_printed_serial_
 							ended_serial = item_row.custom_ended_serial
 
+							if not from_serial or not to_serial:
+								frappe.throw(_(f"You Must set from serial or to serial in row {item_request.idx} "))
+
+
 							if (last_printed_serial <= from_serial <= ended_serial) or (last_printed_serial <= to_serial <= ended_serial):								
 								frappe.msgprint(f"Serial range match found for item in invoice {item_row['parent']}")
 								print("here")
@@ -747,7 +751,7 @@ class ServiceRequest(Document):
 
 
 	def diff_membership(self):
-		if self.select_service == 'تجديد العضوية':
+		if self.select_service == 'تجديد العضوية' or self.select_service == "فروق العضوية":
 
 			current_year = datetime.now().year
 			
@@ -762,6 +766,11 @@ class ServiceRequest(Document):
 			order_by='year desc',
 			fields=['year','custom_customer_group','custom_volume_of_exports'],
 			limit=1)
+
+			current_volume_of_exports = self.volume_of_exports
+			last_invoice_volume_of_exports = last_paid_invoice[0].custom_volume_of_exports
+
+			
 
 			print(f"last invoice {last_paid_invoice}")
 

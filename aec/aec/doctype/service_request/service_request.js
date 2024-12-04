@@ -143,6 +143,13 @@ frappe.ui.form.on('Service Request', {
 	},
 
 
+
+	validate:function(frm){
+		frm.call("get_mosanda_serial");
+
+	},
+
+
 	refresh(frm) {
 		if (frm.doc.select_service) {
 			frm.call({
@@ -459,22 +466,22 @@ frappe.ui.form.on('Service Request Item', {
 })
 
 
-frappe.ui.form.on('Service Request Item', {
-	to_serial(frm,cdt,cdn) {
+// frappe.ui.form.on('Service Request Item', {
+// 	to_serial(frm,cdt,cdn) {
 		
-		var row = locals[cdt][cdn];
+// 		var row = locals[cdt][cdn];
 
-		// if(qty){
+// 		// if(qty){
 
-		frm.call("get_mosanda_serial")
-
-
-		// }
+// 		frm.call("get_mosanda_serial")
 
 
+// 		// }
 
-	}
-})
+
+
+// 	}
+// })
 
 
 
