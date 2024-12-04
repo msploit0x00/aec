@@ -737,9 +737,12 @@ class ServiceRequest(Document):
 
 
 							if (last_printed_serial <= from_serial <= ended_serial) or (last_printed_serial <= to_serial <= ended_serial):								
-								frappe.msgprint(f"Serial range match found for item in invoice {item_row['parent']}")
+								# frappe.msgprint(f"Serial range match found for item {item_request.item_code} in invoice {item_row['parent']}")
 								print("here")
 								item_request.matched = 1
+
+								return f"Serial range match found for item {item_request.item_code} in invoice {item_row['parent']}"
+							
 
 							else:
 								frappe.throw("No Serial Number found for this item in any invoice")

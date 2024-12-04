@@ -163,7 +163,18 @@ frappe.ui.form.on('Service Request', {
 
 
 
-		frm.call("get_mosanda_serial");
+		frm.call("get_mosanda_serial").then(response => {
+			// Handle the response
+			if (response.message) {
+				// console.log("Mosanda Serial: ", response.message);
+				// You can update a field in the form with the response
+				// frm.set_value("mosanda_serial", response.message);
+
+				frappe.msgprint(response.message);
+			} else {
+				frappe.msgprint("No serial received.");
+			}
+		})
 
 
 	},
