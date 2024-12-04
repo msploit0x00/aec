@@ -836,18 +836,87 @@ class ServiceRequest(Document):
 			
 			request_year = int(self.year)
 
+			member = self.member
 
+			# service_items = self.get_service_items()
 
 			print(f"current_year {type(current_year)}")
 
 			last_paid_invoice = frappe.get_all("Sales Invoice", 
 			filters={'customer': self.member,'custom_service_group': 'تجديد العضوية','status':'Paid'},
 			order_by='year desc',
-			fields=['year','custom_customer_group','custom_volume_of_exports'],
+			fields=['year','custom_customer_group','custom_volume_of_exports','selling_price_list','name'],
 			limit=1)
 
-			current_volume_of_exports = self.volume_of_exports
+			# current_volume_of_exports = self.volume_of_exports
 			last_invoice_volume_of_exports = last_paid_invoice[0].custom_volume_of_exports
+			last_invoice_price_list = last_paid_invoice[0].selling_price_list
+			last_invoice_ref_name = last_paid_invoice[0].name
+			last_invoice_year = last_paid_invoice[0].year
+			last_invoice_category = last_paid_invoice[0].custom_customer_group
+
+
+
+			last_sales_invoice_items = frappe.get_all("Sales Invoice Item",
+											 filters={'parent': last_invoice_ref_name,'parenttype':'Sales Invoice'},
+											 fields=['item_code','rate','amount','qty'])
+			
+
+
+			member_volume_of_exports_in_year = frappe.get_all("Volume of Exports In Years",
+													 filters={'parent': member,'parenttype':'Customer'},
+													 fields=['year','total_amount_in_egp'],
+													 )
+
+			service_items = frappe.get_all("Service Items", filters={'parent': self.select_service},
+								  fields=['item','category'])
+
+
+			for exports in member_volume_of_exports_in_year:
+				if last_invoice_year == exports['year']:
+					member_last_category = get_customer_group(exports['total_amount_in_egp'])
+					member_last_category_name = member_last_category[0].name
+
+					print(member_last_category[0].name)
+					print("mina is here")
+
+					if member_last_category_name == last_invoice_category:
+						frappe.msgprint(_("NO Membership difference"))
+					
+					else:
+						for sales_items in last_sales_invoice_items:
+							if "سلعية" in sales_items['item_code']:
+								print(f"sel3eya {sales_items['item_code']}")
+								last_invoice_item_amount = sales_items['amount']
+
+								for serv_items in service_items:
+									if serv_items['category'] == member_last_category_name:
+										item_price = frappe.get_all("Item Price", 
+									  	filters={'price_list':last_invoice_price_list,'item_code': serv_items['item']},
+										fields=['price_list_rate'],
+										limit=1)
+
+
+
+										if len(item_price) > 0:
+											difference = item_price[0].price_list_rate - last_invoice_item_amount
+
+											self.append('items',{
+												'item_code': 'فروق العضوية',
+												'item_name': 'فروق العضوية',
+												'qty': 1,
+												'rate': difference,
+												'amount': difference
+											})
+
+											print(f"item price diff {item_price}")
+
+
+
+
+
+			print(f"last_sales_invoice_items {last_sales_invoice_items}")
+
 
 			
 
