@@ -266,7 +266,7 @@ class ServiceRequest(Document):
 	def get_service_default_price_list(self):
 		service = self.select_service
 		current_year = datetime.now().year
-		if service and current_year == self.year and self.is_new():
+		if service and current_year == self.year:
 			service_data = frappe.get_doc("Service Generator", service)
 			if service_data:
 				price_list = service_data.service_price_list
