@@ -848,29 +848,34 @@ class ServiceRequest(Document):
 			fields=['year','custom_customer_group','custom_volume_of_exports','selling_price_list','name'],
 			limit=1)
 
+
+
+
+			if len(last_paid_invoice) > 0:
 			# current_volume_of_exports = self.volume_of_exports
-			last_invoice_volume_of_exports = last_paid_invoice[0].custom_volume_of_exports
-			last_invoice_price_list = last_paid_invoice[0].selling_price_list
-			last_invoice_ref_name = last_paid_invoice[0].name
-			last_invoice_year = last_paid_invoice[0].year
-			last_invoice_category = last_paid_invoice[0].custom_customer_group
+				last_invoice_volume_of_exports = last_paid_invoice[0].custom_volume_of_exports
+				last_invoice_price_list = last_paid_invoice[0].selling_price_list
+				last_invoice_ref_name = last_paid_invoice[0].name
+				last_invoice_year = last_paid_invoice[0].year
+				last_invoice_category = last_paid_invoice[0].custom_customer_group
 
 
 
-			last_sales_invoice_items = frappe.get_all("Sales Invoice Item",
-											 filters={'parent': last_invoice_ref_name,'parenttype':'Sales Invoice'},
-											 fields=['item_code','rate','amount','qty'])
-			
+				last_sales_invoice_items = frappe.get_all("Sales Invoice Item",
+												filters={'parent': last_invoice_ref_name,'parenttype':'Sales Invoice'},
+												fields=['item_code','rate','amount','qty'])
+				
 
 
-			member_volume_of_exports_in_year = frappe.get_all("Volume of Exports In Years",
-													 filters={'parent': member,'parenttype':'Customer'},
-													 fields=['year','total_amount_in_egp'],
-													 )
+				member_volume_of_exports_in_year = frappe.get_all("Volume of Exports In Years",
+														filters={'parent': member,'parenttype':'Customer'},
+														fields=['year','total_amount_in_egp'],
+														)
 
-			service_items = frappe.get_all("Service Items", filters={'parent': 'تجديد العضوية'},
-								  fields=['item','category'])
-
+				service_items = frappe.get_all("Service Items", filters={'parent': 'تجديد العضوية'},
+									fields=['item','category'])
+			else:
+				frappe.throw(_("This Member Doesn't Have any Renew Membership invoice in past years"))
 
 			for exports in member_volume_of_exports_in_year:
 				if last_invoice_year == exports['year']:
