@@ -328,6 +328,12 @@ class ServiceRequest(Document):
 						# 'season_name': self.member_export_volume[0].season_name
 					})
 
+			else:
+				frappe.throw(_("This Member Doesn't Have Renew Membership Invoice In The Past Years"))
+
+
+
+
 	@frappe.whitelist()
 	def get_member_outstanding_invoices(self):
 		service = self.select_service
