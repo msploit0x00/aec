@@ -306,9 +306,9 @@ class ServiceRequest(Document):
 	@frappe.whitelist()
 	def get_member_history(self):
 		service = self.select_service
-		if service == 'تجديد العضوية':
+		if service == 'تجديد العضوية' or service == "طلب عضوية جديدة":
 			history = frappe.get_all("Sales Invoice",
-							filters={'custom_service_group':'تجديد العضوية','customer': self.member,'status': ['in',['Unpaid','Overdue','Partly Paid','Paid']]},
+							filters={'custom_service_group': service,'customer': self.member,'status': ['in',['Unpaid','Overdue','Partly Paid','Paid']]},
 							order_by="creation desc",
 							fields=['year','paid_amount','name','custom_volume_of_exports','custom_customer_group','outstanding_amount','custom_service_group','status'])
 
