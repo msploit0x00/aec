@@ -150,10 +150,10 @@ frappe.ui.form.on('Service Request', {
 	    
 	    if(year < '2021'){
 	        frm.set_value('price_list', price_list1);
-	        refresh_field('price_list');
+	        // refresh_field('price_list');
 	    }else{
 	         frm.set_value('price_list', price_list2);
-	        refresh_field('price_list'); 
+	        // refresh_field('price_list'); 
 	    }
 	   
 	    
