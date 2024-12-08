@@ -281,7 +281,7 @@ class ServiceRequest(Document):
 
 	@frappe.whitelist()
 	def apply_price_list_rate(self):
-		if self.price_list and self.is_new():
+		if self.price_list:
 			items = self.items
 
 			if len(items) > 0:
