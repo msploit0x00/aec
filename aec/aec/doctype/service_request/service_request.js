@@ -142,6 +142,27 @@ frappe.ui.form.on('Service Request', {
 
 	},
 
+	year:function(frm){
+	    
+	    var year = frm.doc.year;
+	    var price_list1 = 'قائمة اسعار الخدمات قبل 2021';
+	    var price_list2 = 'قائمة اسعار الخدمات من 2021 الى 2023';
+	    
+	    if(year < '2021'){
+	        frm.set_value('price_list', price_list1);
+	        refresh_field('price_list');
+	    }else{
+	         frm.set_value('price_list', price_list2);
+	        refresh_field('price_list'); 
+	    }
+	   
+	    
+	    
+	    
+	    
+	},
+
+
 
 
 	validate:function(frm){
