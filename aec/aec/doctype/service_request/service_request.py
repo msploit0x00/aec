@@ -306,7 +306,7 @@ class ServiceRequest(Document):
 	@frappe.whitelist()
 	def get_member_history(self):
 		service = self.select_service
-		if service == 'تجديد العضوية' or service == "طلب عضوية جديدة":
+		if service == 'تجديد العضوية':
 			history = frappe.get_all("Sales Invoice",
 							filters={'custom_service_group': service,'customer': self.member,'status': ['in',['Unpaid','Overdue','Partly Paid','Paid']]},
 							order_by="creation desc",
@@ -328,9 +328,28 @@ class ServiceRequest(Document):
 						# 'season_name': self.member_export_volume[0].season_name
 					})
 
-			else:
-				frappe.throw(_("This Member Doesn't Have Renew Membership Invoice In The Past Years"))
+			elif len(history) == 0:
+				history2 = frappe.get_all("Sales Invoice",
+							filters={'custom_service_group': 'طلب عضوية جديدة','customer': self.member,'status': ['in',['Unpaid','Overdue','Partly Paid','Paid']]},
+							order_by="creation desc",
+							fields=['year','paid_amount','name','custom_volume_of_exports','custom_customer_group','outstanding_amount','custom_service_group','status'])
 
+				if len(history2) > 0:
+					self.set('member_history',[])
+
+					for row in history2:
+						self.append("member_history",{
+							'year': row.year,
+							'paid_amount': row.paid_amount,
+							'sales_invoice_ref': row.name,
+							'member_categories': row.custom_customer_group,
+							'volume_of_exports': row.custom_volume_of_exports,
+							'outstanding_amount': row.outstanding_amount,
+							'status': row.status
+							# 'season_name': self.member_export_volume[0].season_name
+						})					
+			else:
+				frappe.throw(_("This Member Doesn't Have Renew Membership Invoices In The Past Years"))
 
 
 
