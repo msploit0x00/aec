@@ -191,10 +191,10 @@
    "label": "Country Name"
   },
   {
-   "allow_on_submit": 1,
    "collapsible": 1,
    "fieldname": "section_break_whsdz",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Conditions and Terms"
   },
   {
@@ -310,7 +310,7 @@
    "link_fieldname": "market_product"
   }
  ],
- "modified": "2024-11-26 22:28:53.740420",
+ "modified": "2024-12-07 22:16:13.574894",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market Product",

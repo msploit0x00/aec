@@ -22,6 +22,8 @@
   "requirements_tab",
   "required_by",
   "requirement_items",
+  "section_break_oljay",
+  "requirements_table",
   "amended_from"
  ],
  "fields": [
@@ -106,12 +108,23 @@
    "fieldtype": "Table",
    "label": "Technical Delegation Program",
    "options": "Technical Delegation Program"
+  },
+  {
+   "fieldname": "section_break_oljay",
+   "fieldtype": "Section Break",
+   "label": "Council Requirement"
+  },
+  {
+   "fieldname": "requirements_table",
+   "fieldtype": "Table",
+   "label": "Requirements Table",
+   "options": "Requirements Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-27 00:49:10.911415",
+ "modified": "2024-12-07 23:34:35.085605",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Technical Delegations",

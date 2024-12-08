@@ -100,10 +100,12 @@
    "options": "Market Attachment"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "section_break_hfjtn",
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "linked_issues",
    "fieldtype": "Table",
    "label": "linked issues",
@@ -207,7 +209,7 @@
    "link_fieldname": "market"
   }
  ],
- "modified": "2024-11-26 22:30:55.375526",
+ "modified": "2024-12-07 22:00:55.152460",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market",
@@ -215,6 +217,7 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,

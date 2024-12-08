@@ -100,13 +100,14 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-24 12:01:14.874404",
+ "modified": "2024-12-07 21:12:42.950388",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Market Follow Up",
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,

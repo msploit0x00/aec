@@ -261,13 +261,14 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-12 10:50:15.293866",
+ "modified": "2024-12-07 21:25:47.679798",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Exhibitions",
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
