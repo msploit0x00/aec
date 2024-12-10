@@ -170,6 +170,7 @@ frappe.ui.form.on('Service Request', {
 		if (!frm.is_new()) {
             return frm.call('get_mosanda_serial2')
                 .then((response) => {
+					console.log(response);
                     if (response.message && response.message.includes('No serial')) {
 						console.log(response);
 						var items =frm.doc.items
@@ -192,7 +193,9 @@ frappe.ui.form.on('Service Request', {
 
 
                         frappe.validated = false; // Prevent save/submit
-                    }
+                    }else{
+						console.log("passed");
+					}
                 });
         }
     },
