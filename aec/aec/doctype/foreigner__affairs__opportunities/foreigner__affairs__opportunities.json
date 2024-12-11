@@ -9,6 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "due_date",
+  "opportunity_name",
   "naming_series",
   "member_code",
   "company_code",
@@ -20,6 +21,9 @@
   "customer_status",
   "section_break_9hdtb",
   "member_info",
+  "section_break_5kbc1",
+  "buyers_of_opportunity",
+  "status",
   "company_profile_web_link",
   "amended_from"
  ],
@@ -109,11 +113,32 @@
    "fieldtype": "Data",
    "label": "Company profile Web link",
    "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nInitial\nApproved\nRejected"
+  },
+  {
+   "fieldname": "opportunity_name",
+   "fieldtype": "Data",
+   "label": "Opportunity Name"
+  },
+  {
+   "fieldname": "section_break_5kbc1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "buyers_of_opportunity",
+   "fieldtype": "Table",
+   "label": "Buyers of Opportunity",
+   "options": "Buyers Info"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-26 23:52:52.619375",
+ "modified": "2024-12-10 14:57:20.212317",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Foreigner  Affairs  Opportunities",
