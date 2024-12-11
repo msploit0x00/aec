@@ -165,7 +165,7 @@ frappe.ui.form.on('Service Request', {
 
 
 
-	on_submit:function(frm){
+	validate:function(frm){
 
 		if (!frm.is_new()) {
             return frm.call('get_mosanda_serial2')
