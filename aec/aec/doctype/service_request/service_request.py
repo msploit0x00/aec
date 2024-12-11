@@ -1035,6 +1035,7 @@ def create_sales_invoice(doc_name):
 		member_outstanding = request_doc.member_outstanding
 		member = request_doc.member
 		central_print = request_doc.last_central_lab_serial_printed
+		request_name = request_doc.name
 
 		committees = frappe.get_all("Committees customer join", 
 							  filters={'parent': doc_name},
@@ -1068,6 +1069,7 @@ def create_sales_invoice(doc_name):
 			'custom_volume_of_exports': volume_of_exports,
 			'custom_customer_membership_status': membership_status,
 			'custom_membership_status': payment_status,
+			'custom_service_request_reference': request_name,
 			'custom_last_print_serial_for_reprint_khetab': central_print,
 			'is_pos': 1,
 
