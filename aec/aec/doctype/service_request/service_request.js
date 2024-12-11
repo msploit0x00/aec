@@ -171,7 +171,7 @@ frappe.ui.form.on('Service Request', {
             return frm.call('get_mosanda_serial2')
                 .then((response) => {
 					console.log(response);
-                    if (response.message && response.message.includes('No serial')) {
+                    if (response.message && response.message.includes('No')) {
 						console.log(response);
 						var items =frm.doc.items
                         frappe.msgprint({
