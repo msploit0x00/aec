@@ -165,15 +165,15 @@ frappe.ui.form.on('Service Request', {
 
 
 
-	before_save:function(frm){
+	before_submit:function(frm){
 
 		if (!frm.is_new()) {
             return frm.call('get_mosanda_serial2')
                 .then((response) => {
 					console.log(response);
 					
-
-					for(let row of items){
+					var items2 = frm.doc.items
+					for(let row of items2){
 
                     if (response.message &&  row.matched == 0) {
 						console.log(response);
