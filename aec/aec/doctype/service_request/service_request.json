@@ -276,7 +276,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-04 18:06:39.160665",
+ "modified": "2024-12-11 16:09:02.591055",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",
@@ -284,6 +284,7 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,

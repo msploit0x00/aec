@@ -17,15 +17,22 @@
   "column_break_58mrc",
   "annual_value_of_imports_in_usd",
   "annual_value_of_importers_in_usd",
-  "type_of_activity",
   "did_you_work_with_egyptian_companies_before",
+  "egyptian_companies_names",
+  "types_of_activity_section",
+  "importer",
+  "column_break_5zxyv",
+  "hypermarket",
+  "column_break_tad5q",
+  "wholesaler",
+  "column_break_vxz55",
+  "retailer",
+  "column_break_xbmf9",
+  "agent",
+  "column_break_ikuge",
+  "other",
   "please_indicate_your_product_range_section",
-  "fresh_convenience_fruits",
-  "fresh_organic_fruits",
-  "fresh_convenience_vegetables",
-  "column_break_btvuu",
-  "pules_and_grains",
-  "fresh_herbs_spices",
+  "product_range",
   "section_break_yec0p",
   "in_which_marketscountries_are_you_active",
   "amended_from"
@@ -80,13 +87,7 @@
   {
    "fieldname": "annual_value_of_importers_in_usd",
    "fieldtype": "Float",
-   "label": "Annual Value of importers in USD"
-  },
-  {
-   "fieldname": "type_of_activity",
-   "fieldtype": "Select",
-   "label": "Type of Activity",
-   "options": "\nImporter\nHypermarket\nWholesaler\nRetailer\nAgent\nOther"
+   "label": "Annual Value of Turnover in USD"
   },
   {
    "fieldname": "did_you_work_with_egyptian_companies_before",
@@ -95,47 +96,13 @@
    "options": "\nYes\nNo"
   },
   {
-   "default": "0",
-   "fieldname": "fresh_convenience_fruits",
-   "fieldtype": "Check",
-   "label": "Fresh Convenience fruits"
-  },
-  {
-   "default": "0",
-   "fieldname": "fresh_organic_fruits",
-   "fieldtype": "Check",
-   "label": "Fresh Organic fruits"
-  },
-  {
-   "default": "0",
-   "fieldname": "fresh_convenience_vegetables",
-   "fieldtype": "Check",
-   "label": "Fresh Convenience Vegetables"
-  },
-  {
-   "default": "0",
-   "fieldname": "pules_and_grains",
-   "fieldtype": "Check",
-   "label": "Pules and Grains"
-  },
-  {
-   "default": "0",
-   "fieldname": "fresh_herbs_spices",
-   "fieldtype": "Check",
-   "label": "Fresh Herbs, spices"
-  },
-  {
    "fieldname": "column_break_58mrc",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "please_indicate_your_product_range_section",
    "fieldtype": "Section Break",
-   "label": "Please Indicate your product range "
-  },
-  {
-   "fieldname": "column_break_btvuu",
-   "fieldtype": "Column Break"
+   "label": "Please Indicate your product range"
   },
   {
    "fieldname": "section_break_yec0p",
@@ -145,6 +112,79 @@
    "fieldname": "in_which_marketscountries_are_you_active",
    "fieldtype": "Text",
    "label": "In which markets/countries are you active?"
+  },
+  {
+   "depends_on": "eval:doc.did_you_work_with_egyptian_companies_before =='Yes'",
+   "fieldname": "egyptian_companies_names",
+   "fieldtype": "Small Text",
+   "label": "Egyptian Companies Names"
+  },
+  {
+   "fieldname": "types_of_activity_section",
+   "fieldtype": "Section Break",
+   "label": "Types of Activity"
+  },
+  {
+   "default": "0",
+   "fieldname": "importer",
+   "fieldtype": "Check",
+   "label": "Importer"
+  },
+  {
+   "fieldname": "column_break_5zxyv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "hypermarket",
+   "fieldtype": "Check",
+   "label": "Hypermarket"
+  },
+  {
+   "fieldname": "column_break_tad5q",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "wholesaler",
+   "fieldtype": "Check",
+   "label": "Wholesaler"
+  },
+  {
+   "fieldname": "column_break_vxz55",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "retailer",
+   "fieldtype": "Check",
+   "label": "Retailer"
+  },
+  {
+   "fieldname": "column_break_xbmf9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "agent",
+   "fieldtype": "Check",
+   "label": "Agent"
+  },
+  {
+   "fieldname": "column_break_ikuge",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "other",
+   "fieldtype": "Check",
+   "label": "Other"
+  },
+  {
+   "fieldname": "product_range",
+   "fieldtype": "Table",
+   "label": "Product range",
+   "options": "Buyer Products"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -154,7 +194,7 @@
    "link_fieldname": "custom_buyers"
   }
  ],
- "modified": "2024-11-27 01:37:25.452838",
+ "modified": "2024-12-13 00:02:41.922727",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Buyers",
