@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-12-12 23:18:09.055050",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "product_familyrange",
+  "range_english_name",
+  "hs_code_family_name",
+  "producths_code",
+  "arabic_name",
+  "english_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "product_familyrange",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Product Family(Range)",
+   "options": "HS CODE FAMILES"
+  },
+  {
+   "fetch_from": "product_familyrange.english_name",
+   "fieldname": "range_english_name",
+   "fieldtype": "Data",
+   "label": "Range English Name"
+  },
+  {
+   "fetch_from": "product_familyrange.arabic_name",
+   "fieldname": "hs_code_family_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Range Arabic Name"
+  },
+  {
+   "fieldname": "producths_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Product(HS Code)",
+   "options": "Product"
+  },
+  {
+   "fetch_from": "producths_code.scientific_arabic_name",
+   "fieldname": "arabic_name",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Arabic Name"
+  },
+  {
+   "fetch_from": "producths_code.scientific_english_name",
+   "fieldname": "english_name",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "English Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-12-19 15:04:58.194914",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Buyer Products",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

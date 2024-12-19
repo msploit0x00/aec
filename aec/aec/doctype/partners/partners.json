@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:name1",
  "creation": "2024-08-28 12:24:31.405553",
  "default_view": "List",
  "doctype": "DocType",
@@ -11,6 +12,8 @@
   "registration_date",
   "end_date",
   "ended",
+  "coordinator",
+  "email",
   "column_break_wx9sc",
   "attach",
   "image",
@@ -26,7 +29,8 @@
   {
    "fieldname": "name1",
    "fieldtype": "Data",
-   "label": "Name"
+   "label": "Name",
+   "unique": 1
   },
   {
    "fieldname": "registration_date",
@@ -96,15 +100,26 @@
    "fieldtype": "Button",
    "hidden": 1,
    "label": "Send Email to Company"
+  },
+  {
+   "fieldname": "coordinator",
+   "fieldtype": "Data",
+   "label": "Coordinator"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2024-10-02 08:29:09.788899",
+ "modified": "2024-12-19 13:14:40.646994",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Partners",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

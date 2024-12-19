@@ -9,12 +9,7 @@
  "field_order": [
   "naming_series",
   "training_name",
-  "training_type",
-  "column_break_4a8ut",
   "date",
-  "section_break_vqmnd",
-  "column_break_7a2ei",
-  "location",
   "annual_training_plan_section",
   "training_plan",
   "amended_from"
@@ -30,36 +25,12 @@
   {
    "fieldname": "training_name",
    "fieldtype": "Data",
-   "label": "Training Name"
-  },
-  {
-   "fieldname": "training_type",
-   "fieldtype": "Select",
-   "label": "Training Type",
-   "options": "\nFree\nPaid"
-  },
-  {
-   "fieldname": "column_break_4a8ut",
-   "fieldtype": "Column Break"
+   "label": "Training Plan Name"
   },
   {
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Date"
-  },
-  {
-   "fieldname": "section_break_vqmnd",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_7a2ei",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "location",
-   "fieldtype": "Link",
-   "label": "Location",
-   "options": "Location"
   },
   {
    "fieldname": "annual_training_plan_section",
@@ -86,7 +57,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-02 08:23:49.169629",
+ "modified": "2024-12-18 11:16:53.377938",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Annual Training plan",
@@ -94,6 +65,7 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,

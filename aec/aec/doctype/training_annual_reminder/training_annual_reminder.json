@@ -13,6 +13,14 @@
   "training_date",
   "month",
   "year",
+  "make_training",
+  "column_break_4gwb0",
+  "training_days",
+  "number_of_instructor",
+  "expected_trainees",
+  "location",
+  "bear_of_cost",
+  "hospitality_costs",
   "training_plan_reference",
   "amended_from"
  ],
@@ -36,8 +44,7 @@
    "fieldname": "month",
    "fieldtype": "Select",
    "label": "Month",
-   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
-   "read_only": 1
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
   },
   {
    "fieldname": "year",
@@ -49,7 +56,7 @@
    "fieldname": "training_plan_reference",
    "fieldtype": "Link",
    "label": "Training Plan Reference",
-   "options": "Annual Meeting Plan"
+   "options": "Annual Training plan"
   },
   {
    "fieldname": "amended_from",
@@ -59,12 +66,54 @@
    "options": "Training Annual Reminder",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4gwb0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "training_days",
+   "fieldtype": "Int",
+   "label": "Training Days"
+  },
+  {
+   "fieldname": "number_of_instructor",
+   "fieldtype": "Int",
+   "label": "Number of Instructor"
+  },
+  {
+   "fieldname": "expected_trainees",
+   "fieldtype": "Int",
+   "label": "Expected Trainees"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Select",
+   "label": "Location",
+   "options": "\nCouncil\nZoom"
+  },
+  {
+   "fieldname": "bear_of_cost",
+   "fieldtype": "Select",
+   "label": "Bear of Cost",
+   "options": "\nFull Cost\nCouncil Partner\nTrainer Fees"
+  },
+  {
+   "fieldname": "hospitality_costs",
+   "fieldtype": "Select",
+   "label": "Hospitality Costs",
+   "options": "\nFull Hospitality\nHot Drinks & Water"
+  },
+  {
+   "fieldname": "make_training",
+   "fieldtype": "Button",
+   "label": "Make Training"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
  "links": [],
- "modified": "2024-10-02 08:23:49.617988",
+ "modified": "2024-12-18 11:33:32.911737",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Training Annual Reminder",

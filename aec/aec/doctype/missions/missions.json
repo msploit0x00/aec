@@ -19,12 +19,16 @@
   "section_break_g0eya",
   "mission_program",
   "section_break_si2rl",
+  "send_email_to_buyers",
   "buyers_info",
+  "send_email_to_members",
   "mission_members",
   "employee_mission",
   "requirements_tab",
   "required_by",
   "required_for_mission",
+  "council__requirements_section",
+  "internal_requirements",
   "amended_from"
  ],
  "fields": [
@@ -146,12 +150,33 @@
    "fieldtype": "Link",
    "label": "Market Product",
    "options": "Market Product"
+  },
+  {
+   "fieldname": "council__requirements_section",
+   "fieldtype": "Section Break",
+   "label": "Council  Requirements"
+  },
+  {
+   "fieldname": "internal_requirements",
+   "fieldtype": "Table",
+   "label": "Internal Requirements",
+   "options": "Requirements Table"
+  },
+  {
+   "fieldname": "send_email_to_buyers",
+   "fieldtype": "Button",
+   "label": "Send Email To Buyers"
+  },
+  {
+   "fieldname": "send_email_to_members",
+   "fieldtype": "Button",
+   "label": "Send Email To Members"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-08 15:24:49.834881",
+ "modified": "2024-12-18 09:42:46.078671",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Missions",
