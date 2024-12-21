@@ -958,6 +958,10 @@ class ServiceRequest(Document):
 		if self.select_service == 'الشهادة الزراعية':
 			service_data = frappe.get_doc("Service Generator", self.select_service)
 			
+			today = datetime.strptime(str(self.date),"%Y-%m-%d")
+
+			print(f"today {today}")
+
 			if service_data.depend_on == 1:
 				doctype_ref = service_data.depend_on_doc
 				if doctype_ref:
@@ -967,21 +971,35 @@ class ServiceRequest(Document):
 					order_by='creation desc',
 					fields=['name','date'],
 					limit=1)
+					
+					print(f"agri date {data[0].date}")
+
+					agri_date = datetime.strptime(str(data[0].date),"%Y-%m-%d")
 
 
-					print(data)
-					if len(data) > 0:
-						self.append('last_record',{
-							'ref_doc': doctype_ref,
-							'last_record': data[0].name,
-							'date':data[0].date
-						})
-
-
-
+					if today != agri_date:
+						frappe.throw(_("The date of agriculture certificate is not today you must create new certificate data today"))
 
 					else:
-						frappe.throw(_(f"This Customer Must Have record in {doctype_ref} to complete this service request "))
+						print(data)
+						if len(data) > 0:
+							self.append('last_record',{
+								'ref_doc': doctype_ref,
+								'last_record': data[0].name,
+								'date':data[0].date
+							})
+
+
+
+
+					# else:
+					# 	frappe.throw(_(f"This Customer Must Have record in {doctype_ref} to complete this service request "))
+
+
+
+
+
+
 
 
 	def depend_on_validation_production(self):
