@@ -500,6 +500,26 @@ frappe.ui.form.on('Service Request', {
 	},
 
 
+	calculate_membership_difference:function(frm){
+		console.log("aaaaaa");
+
+		if(frm.doc.calculated === 0){
+		frm.call("diff_membership");
+
+		frm.set_value("calculated", 1);
+		// frm.save();
+
+		}else{
+			console.log("passed");
+		}
+
+
+
+
+
+	},
+
+
 	member(frm){
 		frappe.call({
 			method: "erpnext.accounts.utils.get_balance_on",

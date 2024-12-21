@@ -49,7 +49,7 @@ class ServiceRequest(Document):
 		self.get_income_account()
 		self.get_last_serial_khetab()
 		# self.get_mosanda_serial()
-		self.diff_membership()
+		# self.diff_membership()
 
 
 	def after_save(self):
@@ -853,7 +853,7 @@ class ServiceRequest(Document):
 
 
 
-
+	@frappe.whitelist(allow_guest=True)
 	def diff_membership(self):
 		if self.select_service == 'تجديد العضوية' or self.select_service == "فروق العضوية":
 
@@ -939,6 +939,8 @@ class ServiceRequest(Document):
 												'amount': difference
 											})
 											self.calc_total()
+											self.calculated = 1
+											# self.save()
 											print(f"item price diff {item_price}")
 
 										else:

@@ -46,7 +46,8 @@
   "recommendations_section",
   "get_recommendation",
   "recommendation_invoice",
-  "amended_from"
+  "amended_from",
+  "calculated"
  ],
  "fields": [
   {
@@ -277,12 +278,19 @@
    "fieldname": "calculate_membership_difference",
    "fieldtype": "Button",
    "label": "Calculate Membership Difference"
+  },
+  {
+   "default": "0",
+   "fieldname": "calculated",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Calculated"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-21 16:47:44.874732",
+ "modified": "2024-12-21 17:10:40.311214",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Request",
