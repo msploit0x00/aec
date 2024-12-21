@@ -24,6 +24,7 @@
   "show_export_volume",
   "repeated",
   "repeated_service",
+  "calculate_membership_difference",
   "repeated_how_many",
   "service_print_format",
   "column_break_qvxol",
@@ -230,11 +231,17 @@
    "fieldname": "repeated",
    "fieldtype": "Check",
    "label": "Repeated"
+  },
+  {
+   "default": "0",
+   "fieldname": "calculate_membership_difference",
+   "fieldtype": "Check",
+   "label": "Calculate Membership Difference"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-10 13:26:30.228720",
+ "modified": "2024-12-21 16:44:03.884481",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Generator",
