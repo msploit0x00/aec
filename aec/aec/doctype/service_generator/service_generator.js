@@ -44,6 +44,18 @@ frappe.ui.form.on('Service Generator', {
     },
 
 
+    repeated_service:function(frm){
+        if(frm.doc.repeated_service === 1){
+
+            frm.set_value("repeated_how_many", 1);
+
+
+        }
+
+
+    },
+
+
 
 
 

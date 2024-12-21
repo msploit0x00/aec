@@ -24,6 +24,8 @@
   "show_export_volume",
   "repeated",
   "repeated_service",
+  "repeated_with_limitation",
+  "limitation",
   "repeated_how_many",
   "calculate_membership_difference",
   "service_print_format",
@@ -153,7 +155,8 @@
    "fieldname": "repeated_how_many",
    "fieldtype": "Int",
    "label": "Service Usage Times",
-   "mandatory_depends_on": "eval:doc.repeated_service == 1"
+   "mandatory_depends_on": "eval:doc.repeated_service == 1",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_qvxol",
@@ -238,11 +241,23 @@
    "fieldname": "calculate_membership_difference",
    "fieldtype": "Check",
    "label": "Calculate Membership Difference"
+  },
+  {
+   "default": "0",
+   "fieldname": "repeated_with_limitation",
+   "fieldtype": "Check",
+   "label": "Repeated With Limitation"
+  },
+  {
+   "depends_on": "eval:doc.repeated_with_limitation == 1",
+   "fieldname": "limitation",
+   "fieldtype": "Int",
+   "label": "Limitation"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-21 17:33:50.742805",
+ "modified": "2024-12-21 17:41:19.722105",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Generator",
