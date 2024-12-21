@@ -24,8 +24,8 @@
   "show_export_volume",
   "repeated",
   "repeated_service",
-  "calculate_membership_difference",
   "repeated_how_many",
+  "calculate_membership_difference",
   "service_print_format",
   "column_break_qvxol",
   "is_free_service",
@@ -148,6 +148,7 @@
    "options": "Price List"
   },
   {
+   "default": "1",
    "depends_on": "eval:doc.repeated_service == 1",
    "fieldname": "repeated_how_many",
    "fieldtype": "Int",
@@ -241,7 +242,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-21 16:44:03.884481",
+ "modified": "2024-12-21 17:33:50.742805",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Generator",
