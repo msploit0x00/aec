@@ -972,9 +972,10 @@ class ServiceRequest(Document):
 					fields=['name','date'],
 					limit=1)
 					
-					print(f"agri date {data[0].date}")
-
-					agri_date = datetime.strptime(str(data[0].date),"%Y-%m-%d")
+					# print(f"agri date {data[0].date}")
+					agri_date =""
+					if len(data) > 0:
+						agri_date = datetime.strptime(str(data[0].date),"%Y-%m-%d")
 
 
 					if today != agri_date:
@@ -992,8 +993,8 @@ class ServiceRequest(Document):
 
 
 
-					# else:
-					# 	frappe.throw(_(f"This Customer Must Have record in {doctype_ref} to complete this service request "))
+						# else:
+						# 	frappe.throw(_(f"This Customer Must Have record in {doctype_ref} to complete this service request "))
 
 
 
