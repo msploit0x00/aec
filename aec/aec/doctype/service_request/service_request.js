@@ -352,6 +352,35 @@ frappe.ui.form.on('Service Request', {
 			
 		});
 
+		
+
+		/////membership diff button
+		frappe.db.get_value('Service Generator', cur_frm.doc.select_service,'calculate_membership_difference')
+		.then(value => {
+			console.log(value.message.calculate_membership_difference);
+			
+
+			if(value.message.calculate_membership_difference == 1){
+
+				frm.set_df_property('calculate_membership_difference', 'hidden', 0);
+
+
+
+
+			}else{
+				frm.set_df_property('calculate_membership_difference', 'hidden', 1);
+
+			}
+			
+			// console.log("committtttttttt");
+			
+			
+		});
+
+
+
+
+
 
 
 		// frappe.db.get_value('Service Generator', cur_frm.doc.select_service,'is_free_service')
