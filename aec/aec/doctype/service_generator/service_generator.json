@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:service_name",
  "creation": "2024-09-18 16:18:11.789831",
@@ -257,7 +258,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-21 17:41:19.722105",
+ "modified": "2024-12-22 14:08:22.174527",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Service Generator",
