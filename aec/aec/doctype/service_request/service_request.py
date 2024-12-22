@@ -974,6 +974,10 @@ class ServiceRequest(Document):
 					fields=['name','date'],
 					limit=1)
 					
+					if len(data) == 0:
+						frappe.throw(_("There is no agriculture certificate for this member"))
+
+
 					# print(f"agri date {data[0].date}")
 					agri_date =""
 					if len(data) > 0:
