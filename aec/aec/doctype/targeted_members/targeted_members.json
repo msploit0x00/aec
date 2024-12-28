@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-12-11 11:20:09.724361",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "member_code",
+  "tax_id",
+  "email",
+  "committees",
+  "governorate",
+  "shipping_port",
+  "customer_status",
+  "cluster",
+  "season",
+  "export_value_in_egp",
+  "export_value_in_usd",
+  "quantity_in_tons"
+ ],
+ "fields": [
+  {
+   "fieldname": "member_code",
+   "fieldtype": "Link",
+   "label": "Member Code",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "tax_id",
+   "fieldtype": "Int",
+   "label": "tax id"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "committees",
+   "fieldtype": "Data",
+   "label": "Committees"
+  },
+  {
+   "fieldname": "governorate",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "shipping_port",
+   "fieldtype": "Data",
+   "label": "Shipping Port"
+  },
+  {
+   "fieldname": "customer_status",
+   "fieldtype": "Data",
+   "label": "Customer Status"
+  },
+  {
+   "fieldname": "cluster",
+   "fieldtype": "Data",
+   "label": "Cluster"
+  },
+  {
+   "fieldname": "season",
+   "fieldtype": "Data",
+   "label": "Season"
+  },
+  {
+   "fieldname": "export_value_in_egp",
+   "fieldtype": "Data",
+   "label": "Export Value in EGP"
+  },
+  {
+   "fieldname": "export_value_in_usd",
+   "fieldtype": "Data",
+   "label": "Export Value in USD"
+  },
+  {
+   "fieldname": "quantity_in_tons",
+   "fieldtype": "Data",
+   "label": "Quantity In Tons"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-12-11 11:20:09.724361",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Targeted Members",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
