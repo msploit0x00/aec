@@ -190,11 +190,19 @@ class ServiceRequest(Document):
 		all_invoices = frappe.get_all('Sales Invoice', 
 								filters={'posting_date': str(current_year),'customer': member,'custom_service_group': service, 'docstatus': 1})
 
-		if(service_data.repeated_service == 1 or service_data.repeated_with_limitation == 1):
-			if len(all_invoices) != service_data.repeated_how_many or len(all_invoices) != service_data.limitation:
+		if(service_data.repeated_service == 1):
+			if len(all_invoices) != service_data.repeated_how_many:
 				print("Allowed")
 			else:
 				frappe.throw("This Member is Not Allowed To take this service Again")
+
+		if service_data.repeated_with_limitation == 1:
+			if len(all_invoices) != service_data.limitation:
+				print("allowed 2")
+			else:
+				frappe.throw("This Member is Not Allowed To take this service Again.")
+
+
 
 
 	def calc_total(self):
@@ -975,7 +983,7 @@ class ServiceRequest(Document):
 					limit=1)
 					
 					if len(data) == 0:
-						frappe.throw(_("There is no agriculture certificate for this member"))
+						frappe.throw(_("There is no agriculture certificate for the "))
 
 
 					# print(f"agri date {data[0].date}")
