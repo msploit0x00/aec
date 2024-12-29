@@ -27,35 +27,28 @@ def send_email(name, body, docname):
         "send_priority": 0,
         "args": args,
     }
-
     frappe.sendmail(**email_args)
     frappe.msgprint(
-        _("Your Email sent successfully")
+        _("Email have sent successfully")
     )
 
 
 def get_message(doc, body):
-    # Create a list of dictionaries containing date and member
-    date_member = [{"date": member.date, "member": member.member} for member in doc.targeted_companies]
-    
-    content = body  # Start with the body content
-
-    # Safely concatenate meeting_link and meeting_location if they are not None
-    if doc.meeting_link:
+    date_member = [{"date": member.date, "email": member.email} for member in doc.targeted_companies]  
+    messages = []
+    for recipient in date_member:
+      content = body
+      if doc.meeting_link:
         content += f"<p>{doc.meeting_link}</p>"
-    if doc.meeting_location:
+      if doc.meeting_location:
         content += f"<p>{doc.meeting_location}</p>"
+      content += f"<p>Date is : {recipient['date']}</p>"
+      render_template = frappe.render_template(content, {"doc": doc.as_dict()})
+      messages.append(render_template)
+      print("render_template is ======= ",render_template)
+    return messages
+    
 
-    # Append the date and member values
-    for d in date_member:
-        # Ensure you're accessing the dictionary keys correctly
-        content += f"<p>Date: {d['date']}, Member: {d['member']}</p>"
-
-    # Render the template with the updated content
-    content = frappe.render_template(content, {"doc": doc.as_dict()})
-
-    return content
-
-
+  
 def get_attachments(doc):
     return [{"file_url": row.attachment} for row in doc.attachments]
