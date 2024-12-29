@@ -29,7 +29,7 @@
   "attachments",
   "members_section",
   "send_to_members",
-  "members_info",
+  "targeted_companies",
   "sender_mail_for_members_section",
   "sender_mail_for_members",
   "members_subject",
@@ -129,12 +129,6 @@
    "label": "Send To Members"
   },
   {
-   "fieldname": "members_info",
-   "fieldtype": "Table",
-   "label": "Members Info",
-   "options": "Members Info"
-  },
-  {
    "fieldname": "tab_break_pxktu",
    "fieldtype": "Tab Break",
    "label": "Requirements"
@@ -231,12 +225,18 @@
    "fieldtype": "Table",
    "label": "Internal Requirements",
    "options": "Requirements Table"
+  },
+  {
+   "fieldname": "targeted_companies",
+   "fieldtype": "Table",
+   "label": "Targeted Companies",
+   "options": "Targeted Companies"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-13 01:05:18.535885",
+ "modified": "2024-12-29 10:40:52.502651",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Business to Business Meetings",
