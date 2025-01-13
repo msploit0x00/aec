@@ -14,6 +14,7 @@
   "company_name",
   "website",
   "company_profile",
+  "status",
   "column_break_58mrc",
   "annual_value_of_imports_in_usd",
   "annual_value_of_importers_in_usd",
@@ -185,6 +186,12 @@
    "fieldtype": "Table",
    "label": "Product range",
    "options": "Buyer Products"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nRequested\nActive\nInactive"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -194,7 +201,7 @@
    "link_fieldname": "custom_buyers"
   }
  ],
- "modified": "2024-12-13 00:02:41.922727",
+ "modified": "2025-01-10 23:55:07.052552",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Buyers",

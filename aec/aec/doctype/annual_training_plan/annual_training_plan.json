@@ -57,7 +57,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-18 11:16:53.377938",
+ "modified": "2025-01-03 00:07:15.771061",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Annual Training plan",
@@ -80,10 +80,8 @@
    "write": 1
   }
  ],
- "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "naming_series",
  "track_changes": 1
 }

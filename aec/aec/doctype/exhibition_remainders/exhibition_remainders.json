@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{english_name}-{MM}-{YYYY}",
  "creation": "2024-10-31 09:00:08.643775",
  "default_view": "List",
  "doctype": "DocType",
@@ -123,10 +124,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-14 13:20:42.387690",
+ "modified": "2025-01-04 02:38:19.615788",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Exhibition Remainders",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

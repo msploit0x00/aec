@@ -1,6 +1,9 @@
 {
+ "_comments": "[]",
+ "_liked_by": "[]",
  "actions": [],
  "allow_rename": 1,
+ "autoname": "prompt",
  "creation": "2024-10-20 11:24:20.391463",
  "default_view": "List",
  "doctype": "DocType",
@@ -8,9 +11,10 @@
  "engine": "InnoDB",
  "field_order": [
   "mission_type",
-  "country",
+  "countre",
   "number_of_arrivals",
   "market",
+  "countries",
   "column_break_7ttac",
   "mission_start_date",
   "mission_end_date",
@@ -21,8 +25,18 @@
   "section_break_si2rl",
   "send_email_to_buyers",
   "buyers_info",
+  "buyer_email_info_section",
+  "buyer_subject",
+  "body_mail_buyer",
+  "attachments",
+  "section_break_xhn1x",
   "send_email_to_members",
   "mission_members",
+  "member_email_info_section",
+  "member_subject",
+  "body_mail_members",
+  "attachment",
+  "section_break_tmc0b",
   "employee_mission",
   "requirements_tab",
   "required_by",
@@ -39,12 +53,6 @@
    "in_standard_filter": 1,
    "label": "Mission Type",
    "options": "\nTrade Mission\nBuyer Mission"
-  },
-  {
-   "fieldname": "country",
-   "fieldtype": "Link",
-   "label": "Country",
-   "options": "Countries"
   },
   {
    "fieldname": "mission_start_date",
@@ -171,15 +179,81 @@
    "fieldname": "send_email_to_members",
    "fieldtype": "Button",
    "label": "Send Email To Members"
+  },
+  {
+   "fieldname": "countries",
+   "fieldtype": "Table",
+   "label": "Countries",
+   "options": "Geographcal Clusters"
+  },
+  {
+   "fieldname": "countre",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Country",
+   "options": "Countries"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "buyer_email_info_section",
+   "fieldtype": "Section Break",
+   "label": "Buyer Email Info"
+  },
+  {
+   "fieldname": "buyer_subject",
+   "fieldtype": "Data",
+   "label": "Buyer Subject"
+  },
+  {
+   "fieldname": "body_mail_buyer",
+   "fieldtype": "Text Editor",
+   "label": "body mail (Buyer)"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Newsletter Attachment"
+  },
+  {
+   "fieldname": "section_break_xhn1x",
+   "fieldtype": "Section Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "member_email_info_section",
+   "fieldtype": "Section Break",
+   "label": "Member Email Info"
+  },
+  {
+   "fieldname": "member_subject",
+   "fieldtype": "Data",
+   "label": "Member Subject"
+  },
+  {
+   "fieldname": "body_mail_members",
+   "fieldtype": "Text Editor",
+   "label": "Body mail (members)"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Table",
+   "label": "Attachment",
+   "options": "Newsletter Attachment"
+  },
+  {
+   "fieldname": "section_break_tmc0b",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-18 09:42:46.078671",
+ "modified": "2025-01-11 21:03:44.209571",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Missions",
+ "naming_rule": "Set by user",
  "owner": "Administrator",
  "permissions": [
   {

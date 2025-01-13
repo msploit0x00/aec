@@ -8,6 +8,8 @@
  "engine": "InnoDB",
  "field_order": [
   "member",
+  "ceo_name",
+  "company_name",
   "number_of_exhibitions",
   "area",
   "area_for_each_exhibitors",
@@ -15,6 +17,14 @@
   "exhibitions",
   "approved_company_name",
   "status",
+  "notify_by_email_section",
+  "sender_email",
+  "email_templates",
+  "column_break_osbja",
+  "send_email",
+  "section_break_vvhix",
+  "subject",
+  "body_mail",
   "section_break_hipwh",
   "targeted_products",
   "company_brief",
@@ -23,6 +33,7 @@
   "job_title",
   "email_ids",
   "contact_numbers",
+  "create_contact",
   "amended_from"
  ],
  "fields": [
@@ -125,12 +136,74 @@
    "options": "Exhibitors",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fetch_from": "member.custom_name_of_the_cioowner_of_the_company",
+   "fieldname": "ceo_name",
+   "fieldtype": "Data",
+   "label": "CEO Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "member.customer_name",
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notify_by_email_section",
+   "fieldtype": "Section Break",
+   "label": "Notify By Email"
+  },
+  {
+   "fieldname": "sender_email",
+   "fieldtype": "Link",
+   "label": "Sender Email",
+   "options": "Email Account"
+  },
+  {
+   "fieldname": "email_templates",
+   "fieldtype": "Link",
+   "label": "Email Templates",
+   "options": "Email Templates"
+  },
+  {
+   "fieldname": "column_break_osbja",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "send_email",
+   "fieldtype": "Button",
+   "label": "Send Email"
+  },
+  {
+   "fieldname": "create_contact",
+   "fieldtype": "Button",
+   "label": "Create Contact"
+  },
+  {
+   "fieldname": "section_break_vvhix",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "email_templates.subject",
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject"
+  },
+  {
+   "fetch_from": "email_templates.body_email",
+   "fieldname": "body_mail",
+   "fieldtype": "Text Editor",
+   "label": "Body Mail"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-18 15:52:14.675519",
+ "modified": "2025-01-13 13:11:07.509433",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Exhibitors",

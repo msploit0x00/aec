@@ -8,7 +8,8 @@
  "field_order": [
   "employee",
   "designation",
-  "department"
+  "department",
+  "notes"
  ],
  "fields": [
   {
@@ -34,12 +35,18 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Department"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Notes"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-10-21 14:13:20.938470",
+ "modified": "2024-12-29 12:27:24.319330",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Employee Mission",

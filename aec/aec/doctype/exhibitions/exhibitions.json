@@ -1,299 +1,299 @@
 {
-  "actions": [],
-  "allow_rename": 1,
-  "creation": "2024-12-25 15:50:57.511746",
-  "default_view": "List",
-  "doctype": "DocType",
-  "editable_grid": 1,
-  "engine": "InnoDB",
-  "field_order": [
-   "section_break_rt6nb",
-   "name1",
-   "english_name",
-   "registration_date",
-   "valid_to",
-   "status",
-   "column_break_qlbgd",
-   "exhibition_image",
-   "image",
-   "section_break_mej8o",
-   "exhibition_type",
-   "market",
-   "column_break_cheht",
-   "exhibition_specialty",
-   "market_product",
-   "section_break_spyye",
-   "countries",
-   "section_break_nuj8m",
-   "estimated_cost_for_exhibition",
-   "number_of_exhibitors",
-   "number_of_visitors",
-   "website_status",
-   "registration_link",
-   "column_break_q5jvb",
-   "area",
-   "area_of_the_egyptian_pavilion",
-   "area_for_each_exhibitors",
-   "section_break_bhoqa",
-   "exhibitions_terms",
-   "exhibition__images",
-   "exhibition__gallery",
-   "details",
-   "amended_from",
-   "inventions_tab",
-   "get_committees",
-   "committees",
-   "active",
-   "in_active",
-   "suspended",
-   "amended_from"
-  ],
-  "fields": [
-   {
-    "fieldname": "section_break_rt6nb",
-    "fieldtype": "Section Break"
-   },
-   {
-    "fieldname": "name1",
-    "fieldtype": "Data",
-    "label": "Arabic Name"
-   },
-   {
-    "fieldname": "english_name",
-    "fieldtype": "Data",
-    "label": "English Name"
-   },
-   {
-    "fieldname": "registration_date",
-    "fieldtype": "Date",
-    "label": "Registration Date"
-   },
-   {
-    "fieldname": "valid_to",
-    "fieldtype": "Date",
-    "label": "Valid To"
-   },
-   {
-    "fieldname": "status",
-    "fieldtype": "Select",
-    "label": "Status",
-    "options": "\nAccepted\nRejected\nCancelled"
-   },
-   {
-    "fieldname": "column_break_qlbgd",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "exhibition_image",
-    "fieldtype": "Attach Image",
-    "label": "Exhibition Image"
-   },
-   {
-    "fieldname": "image",
-    "fieldtype": "Image",
-    "label": "Image",
-    "max_height": "20px",
-    "options": "exhibition_image",
-    "width": "20px"
-   },
-   {
-    "fieldname": "section_break_mej8o",
-    "fieldtype": "Section Break"
-   },
-   {
-    "fieldname": "exhibition_type",
-    "fieldtype": "Link",
-    "label": "Exhibition Type",
-    "options": "Exhibition Type"
-   },
-   {
-    "fieldname": "market",
-    "fieldtype": "Link",
-    "label": "Market",
-    "options": "Market"
-   },
-   {
-    "fieldname": "column_break_cheht",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "exhibition_specialty",
-    "fieldtype": "Link",
-    "label": "Exhibition specialty",
-    "options": "Exhibition specialty"
-   },
-   {
-    "fieldname": "market_product",
-    "fieldtype": "Link",
-    "label": "Market Product",
-    "options": "Market Product"
-   },
-   {
-    "fieldname": "section_break_spyye",
-    "fieldtype": "Section Break"
-   },
-   {
-    "fieldname": "countries",
-    "fieldtype": "Table",
-    "label": "Countries",
-    "options": "Geographcal Clusters"
-   },
-   {
-    "fieldname": "section_break_nuj8m",
-    "fieldtype": "Section Break"
-   },
-   {
-    "fieldname": "estimated_cost_for_exhibition",
-    "fieldtype": "Currency",
-    "label": "Estimated Cost for Exhibition"
-   },
-   {
-    "fieldname": "number_of_exhibitors",
-    "fieldtype": "Int",
-    "label": "Number of Exhibitors"
-   },
-   {
-    "fieldname": "number_of_visitors",
-    "fieldtype": "Int",
-    "label": "Number of Visitors"
-   },
-   {
-    "fieldname": "website_status",
-    "fieldtype": "Select",
-    "label": "Website Status",
-    "options": "\nShown\nNot Shown"
-   },
-   {
-    "fieldname": "registration_link",
-    "fieldtype": "Data",
-    "label": "Registration Link"
-   },
-   {
-    "fieldname": "column_break_q5jvb",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "area",
-    "fieldtype": "Select",
-    "label": "Area",
-    "options": "\nSpecific area\nNo Specific area"
-   },
-   {
-    "fieldname": "area_of_the_egyptian_pavilion",
-    "fieldtype": "Float",
-    "label": "Area of the Egyptian Pavilion"
-   },
-   {
-    "depends_on": "eval:doc.area == 'Specific area'",
-    "fieldname": "area_for_each_exhibitors",
-    "fieldtype": "Float",
-    "label": "Area for Each Exhibitors"
-   },
-   {
-    "fieldname": "section_break_bhoqa",
-    "fieldtype": "Section Break"
-   },
-   {
-    "fieldname": "exhibitions_terms",
-    "fieldtype": "Table",
-    "label": "Exhibitions Terms",
-    "options": "Exhibitions Terms"
-   },
-   {
-    "fieldname": "exhibition__images",
-    "fieldtype": "Table",
-    "label": "Exhibition  Images",
-    "options": "Image"
-   },
-   {
-    "fieldname": "exhibition__gallery",
-    "fieldtype": "HTML",
-    "label": "Exhibition  gallery"
-   },
-   {
-    "fieldname": "details",
-    "fieldtype": "Text",
-    "label": "Details"
-   },
-   {
-    "fieldname": "amended_from",
-    "fieldtype": "Link",
-    "label": "Amended From",
-    "no_copy": 1,
-    "options": "Exhibitions",
-    "print_hide": 1,
-    "read_only": 1
-   },
-   {
-    "fieldname": "inventions_tab",
-    "fieldtype": "Tab Break",
-    "label": "Inventions"
-   },
-   {
-    "fieldname": "get_committees",
-    "fieldtype": "Button",
-    "label": "Get Committees"
-   },
-   {
-    "fieldname": "committees",
-    "fieldtype": "Table",
-    "label": "Committees",
-    "options": "Committees"
-   },
-   {
-    "default": "0",
-    "fieldname": "active",
-    "fieldtype": "Check",
-    "label": "Active"
-   },
-   {
-    "default": "0",
-    "fieldname": "in_active",
-    "fieldtype": "Check",
-    "label": "In Active"
-   },
-   {
-    "default": "0",
-    "fieldname": "suspended",
-    "fieldtype": "Check",
-    "label": "Suspended"
-   },
-   {
-    "fieldname": "amended_from",
-    "fieldtype": "Link",
-    "label": "Amended From",
-    "no_copy": 1,
-    "options": "Exhibitions",
-    "print_hide": 1,
-    "read_only": 1,
-    "search_index": 1
-   }
-  ],
-  "index_web_pages_for_search": 1,
-  "is_submittable": 1,
-  "links": [],
-  "modified": "2024-12-25 15:50:57.511746",
-  "modified_by": "Administrator",
-  "module": "Aec",
-  "name": "Exhibitions",
-  "owner": "Administrator",
-  "permissions": [
-   {
-    "cancel": 1,
-    "create": 1,
-    "delete": 1,
-    "email": 1,
-    "export": 1,
-    "print": 1,
-    "read": 1,
-    "report": 1,
-    "role": "System Manager",
-    "share": 1,
-    "submit": 1,
-    "write": 1
-   }
-  ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "states": []
- }
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{name1}-{###}",
+ "creation": "2024-06-20 19:17:31.410170",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_rt6nb",
+  "name1",
+  "english_name",
+  "registration_date",
+  "valid_to",
+  "status",
+  "column_break_qlbgd",
+  "exhibition_image",
+  "image",
+  "section_break_mej8o",
+  "exhibition_type",
+  "market",
+  "column_break_cheht",
+  "exhibition_specialty",
+  "market_product",
+  "section_break_spyye",
+  "countries",
+  "section_break_nuj8m",
+  "estimated_cost_for_exhibition",
+  "number_of_exhibitors",
+  "number_of_visitors",
+  "website_status",
+  "registration_link",
+  "column_break_q5jvb",
+  "area",
+  "area_of_the_egyptian_pavilion",
+  "area_for_each_exhibitors",
+  "section_break_bhoqa",
+  "exhibitions_terms",
+  "exhibition__images",
+  "exhibition__gallery",
+  "details",
+  "amended_from",
+  "inventions_tab",
+  "get_committees",
+  "committees",
+  "active",
+  "in_active",
+  "suspended"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_rt6nb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Arabic Name"
+  },
+  {
+   "fieldname": "english_name",
+   "fieldtype": "Data",
+   "label": "English Name"
+  },
+  {
+   "fieldname": "registration_date",
+   "fieldtype": "Date",
+   "label": "Registration Date"
+  },
+  {
+   "fieldname": "valid_to",
+   "fieldtype": "Date",
+   "label": "Valid To"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nAccepted\nRejected\nCancelled"
+  },
+  {
+   "fieldname": "column_break_qlbgd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "exhibition_image",
+   "fieldtype": "Attach Image",
+   "label": "Exhibition Image"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Image",
+   "label": "Image",
+   "max_height": "20px",
+   "options": "exhibition_image",
+   "width": "20px"
+  },
+  {
+   "fieldname": "section_break_mej8o",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "exhibition_type",
+   "fieldtype": "Link",
+   "label": "Exhibition Type",
+   "options": "Exhibition Type"
+  },
+  {
+   "fieldname": "market",
+   "fieldtype": "Link",
+   "label": "Market",
+   "options": "Market"
+  },
+  {
+   "fieldname": "column_break_cheht",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "exhibition_specialty",
+   "fieldtype": "Link",
+   "label": "Exhibition specialty",
+   "options": "Exhibition specialty"
+  },
+  {
+   "fieldname": "market_product",
+   "fieldtype": "Link",
+   "label": "Market Product",
+   "options": "Market Product"
+  },
+  {
+   "fieldname": "section_break_spyye",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "countries",
+   "fieldtype": "Table",
+   "label": "Countries",
+   "options": "Geographcal Clusters"
+  },
+  {
+   "fieldname": "section_break_nuj8m",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "estimated_cost_for_exhibition",
+   "fieldtype": "Currency",
+   "label": "Estimated Cost for Exhibition"
+  },
+  {
+   "fieldname": "number_of_exhibitors",
+   "fieldtype": "Int",
+   "label": "Number of Exhibitors"
+  },
+  {
+   "fieldname": "number_of_visitors",
+   "fieldtype": "Int",
+   "label": "Number of Visitors"
+  },
+  {
+   "fieldname": "website_status",
+   "fieldtype": "Select",
+   "label": "Website Status",
+   "options": "\nShown\nNot Shown"
+  },
+  {
+   "fieldname": "registration_link",
+   "fieldtype": "Data",
+   "label": "Registration Link"
+  },
+  {
+   "fieldname": "column_break_q5jvb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Select",
+   "label": "Area",
+   "options": "\nSpecific area\nNo Specific area"
+  },
+  {
+   "fieldname": "area_of_the_egyptian_pavilion",
+   "fieldtype": "Float",
+   "label": "Area of the Egyptian Pavilion"
+  },
+  {
+   "depends_on": "eval:doc.area == 'Specific area'",
+   "fieldname": "area_for_each_exhibitors",
+   "fieldtype": "Float",
+   "label": "Area for Each Exhibitors"
+  },
+  {
+   "fieldname": "section_break_bhoqa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "exhibitions_terms",
+   "fieldtype": "Table",
+   "label": "Exhibitions Terms",
+   "options": "Exhibitions Terms"
+  },
+  {
+   "fieldname": "exhibition__images",
+   "fieldtype": "Table",
+   "label": "Exhibition  Images",
+   "options": "Image"
+  },
+  {
+   "fieldname": "exhibition__gallery",
+   "fieldtype": "HTML",
+   "label": "Exhibition  gallery"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Text",
+   "label": "Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Exhibitions",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "inventions_tab",
+   "fieldtype": "Tab Break",
+   "label": "Inventions"
+  },
+  {
+   "fieldname": "get_committees",
+   "fieldtype": "Button",
+   "label": "Get Committees"
+  },
+  {
+   "fieldname": "committees",
+   "fieldtype": "Table",
+   "label": "Committees",
+   "options": "Committees"
+  },
+  {
+   "default": "0",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "default": "0",
+   "fieldname": "in_active",
+   "fieldtype": "Check",
+   "label": "In Active"
+  },
+  {
+   "default": "0",
+   "fieldname": "suspended",
+   "fieldtype": "Check",
+   "label": "Suspended"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Exhibitions",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-01-04 03:14:27.401803",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Exhibitions",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

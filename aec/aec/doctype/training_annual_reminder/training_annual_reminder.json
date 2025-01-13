@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Training-{Plan}-{month}",
+ "autoname": "format:Training-{topic}-{####}",
  "creation": "2024-08-27 11:00:07.873649",
  "default_view": "List",
  "doctype": "DocType",
@@ -113,7 +113,7 @@
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
  "links": [],
- "modified": "2024-12-18 11:33:32.911737",
+ "modified": "2025-01-11 02:33:25.824934",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Training Annual Reminder",

@@ -7,7 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "partners",
-  "coordinator"
+  "coordinator",
+  "email"
  ],
  "fields": [
   {
@@ -19,17 +20,24 @@
    "options": "Partners"
   },
   {
+   "fetch_from": "partners.coordinator",
    "fieldname": "coordinator",
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Coordinator"
+  },
+  {
+   "fetch_from": "partners.email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-10-02 08:23:50.254532",
+ "modified": "2025-01-02 15:51:29.650180",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Training Partners",
