@@ -9,7 +9,7 @@ def send_email(name, body, docname):
     # Fetch the document based on 'name'
     doc = frappe.get_doc(docname, name)
 
-    recipients = [{"email":member.email} for member in doc.targeted_companies]
+    recipients = [member.email for member in doc.targeted_companies]
     
     args = doc.as_dict()
 
@@ -28,6 +28,7 @@ def send_email(name, body, docname):
         "args": args,
     }
     frappe.sendmail(**email_args)
+    print("AAAAAAAAAAAA",email_args)
     frappe.msgprint(
         _("Email have sent successfully")
     )
