@@ -83,7 +83,7 @@ ORDER BY customer_name;
     data = frappe.db.sql(sql, as_dict=True)
     letter = frappe.new_doc("Customer Newsletter")
     letter.source = docname
-    letter.generalization_id = name
+    letter.generealiztion_id = name
     for row in data:
       letter.append("customer_email",{
           "email":row['email']
