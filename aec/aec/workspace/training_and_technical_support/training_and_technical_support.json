@@ -36,7 +36,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Plans",
-   "link_count": 5,
+   "link_count": 7,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -89,9 +89,29 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Program",
+   "link_count": 0,
+   "link_to": "Program",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Chapter",
+   "link_count": 0,
+   "link_to": "Chapter",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-12-18 11:55:06.365418",
+ "modified": "2025-01-13 23:10:36.265297",
  "modified_by": "ahmed.radwan@datasofteg.com",
  "module": "Aec",
  "name": "Training and Technical Support",

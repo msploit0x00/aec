@@ -8,19 +8,23 @@
  "engine": "InnoDB",
  "field_order": [
   "training_name",
+  "from_plan",
   "start_date",
   "end_date",
   "duration",
   "column_break_rkyzh",
-  "location",
   "status",
-  "instructor",
+  "program",
+  "location",
+  "bear_of_cost",
+  "hospitality_costs",
+  "meeting_link",
   "section_break_jhf9u",
   "training_partners",
   "section_break_fwfya",
   "agenda",
   "section_break_mtgai",
-  "program",
+  "program_days",
   "section_break_beu3b",
   "get_committees",
   "committees",
@@ -53,16 +57,16 @@
   },
   {
    "fieldname": "duration",
-   "fieldtype": "Duration",
+   "fieldtype": "Int",
    "hide_seconds": 1,
    "label": "Duration"
   },
   {
    "fetch_from": "training_name.location",
    "fieldname": "location",
-   "fieldtype": "Link",
+   "fieldtype": "Select",
    "label": "Location",
-   "options": "Location"
+   "options": "\nCouncil\nZoom"
   },
   {
    "fieldname": "status",
@@ -71,20 +75,8 @@
    "options": "\nPlanning\nIn Progress\nCompleted"
   },
   {
-   "fieldname": "instructor",
-   "fieldtype": "Link",
-   "label": "Instructor",
-   "options": "Instructor"
-  },
-  {
    "fieldname": "section_break_jhf9u",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "agenda",
-   "fieldtype": "Table",
-   "label": "Agenda",
-   "options": "Quality Meeting Agenda"
   },
   {
    "fieldname": "section_break_beu3b",
@@ -196,9 +188,9 @@
   },
   {
    "fieldname": "program",
-   "fieldtype": "Table",
+   "fieldtype": "Link",
    "label": "Program",
-   "options": "Program Days"
+   "options": "Program"
   },
   {
    "fieldname": "training_partners",
@@ -212,15 +204,49 @@
   },
   {
    "fieldname": "training_name",
+   "fieldtype": "Data",
+   "label": "Training Name"
+  },
+  {
+   "fieldname": "program_days",
+   "fieldtype": "Table",
+   "label": "Program Days",
+   "options": "Program Days"
+  },
+  {
+   "fieldname": "agenda",
+   "fieldtype": "Table",
+   "label": "Agenda",
+   "options": "Training Agenda"
+  },
+  {
+   "fieldname": "from_plan",
    "fieldtype": "Link",
-   "label": "Training Name",
+   "label": "From Plan",
    "options": "Annual Training plan"
+  },
+  {
+   "fieldname": "bear_of_cost",
+   "fieldtype": "Select",
+   "label": "Bear of Cost",
+   "options": "\nFull Cost\nCouncil Partner\nTrainer Fees"
+  },
+  {
+   "fieldname": "hospitality_costs",
+   "fieldtype": "Select",
+   "label": "Hospitality Costs",
+   "options": "\nFull Hospitality\nHot Drinks & Water"
+  },
+  {
+   "fieldname": "meeting_link",
+   "fieldtype": "Data",
+   "label": "Meeting Link"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-19 14:15:23.243758",
+ "modified": "2025-01-14 01:22:18.868535",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Training",
