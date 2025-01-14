@@ -36,7 +36,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Plans",
-   "link_count": 7,
+   "link_count": 8,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -109,9 +109,19 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Training Registration Form",
+   "link_count": 0,
+   "link_to": "Training Registration Form",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-01-13 23:10:36.265297",
+ "modified": "2025-01-14 13:40:03.612721",
  "modified_by": "ahmed.radwan@datasofteg.com",
  "module": "Aec",
  "name": "Training and Technical Support",
