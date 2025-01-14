@@ -1,0 +1,181 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-14 14:24:05.313476",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company_information_section",
+  "company_name",
+  "membership_code",
+  "status",
+  "column_break_lau1i",
+  "ceo_name",
+  "company_activity",
+  "trainee_information_section",
+  "trainee_name",
+  "email",
+  "mobile_number",
+  "column_break_xrelv",
+  "job_title",
+  "for_training",
+  "notify_via_email_section",
+  "sender_email",
+  "email_sender",
+  "email_template",
+  "column_break_hi3qm",
+  "send_mail",
+  "section_break_pwlhf",
+  "subject",
+  "body_mail"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_information_section",
+   "fieldtype": "Section Break",
+   "label": "Company Information"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name"
+  },
+  {
+   "fieldname": "membership_code",
+   "fieldtype": "Data",
+   "label": "Membership Code"
+  },
+  {
+   "default": "Requested",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nRequested\nApproved\nRejected\nWaiting List"
+  },
+  {
+   "fieldname": "column_break_lau1i",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ceo_name",
+   "fieldtype": "Data",
+   "label": "CEO Name"
+  },
+  {
+   "fieldname": "company_activity",
+   "fieldtype": "Data",
+   "label": "Company Activity"
+  },
+  {
+   "fieldname": "trainee_information_section",
+   "fieldtype": "Section Break",
+   "label": "Trainee Information"
+  },
+  {
+   "fieldname": "trainee_name",
+   "fieldtype": "Data",
+   "label": "Trainee Name"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "column_break_xrelv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_title",
+   "fieldtype": "Data",
+   "label": "Job Title"
+  },
+  {
+   "fieldname": "for_training",
+   "fieldtype": "Link",
+   "label": "For Training",
+   "options": "Training"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notify_via_email_section",
+   "fieldtype": "Section Break",
+   "label": "Notify Via Email "
+  },
+  {
+   "fieldname": "sender_email",
+   "fieldtype": "Link",
+   "label": "Sender Email",
+   "options": "Email Account"
+  },
+  {
+   "fieldname": "email_template",
+   "fieldtype": "Link",
+   "label": "Email Template",
+   "options": "Email Templates"
+  },
+  {
+   "fieldname": "column_break_hi3qm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "send_mail",
+   "fieldtype": "Button",
+   "label": "Send Mail"
+  },
+  {
+   "fieldname": "section_break_pwlhf",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fetch_from": "email_template.subject",
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject"
+  },
+  {
+   "fetch_from": "email_template.body_email",
+   "fieldname": "body_mail",
+   "fieldtype": "Text Editor",
+   "label": "Body Mail"
+  },
+  {
+   "fetch_from": "sender_email.email_id",
+   "fieldname": "email_sender",
+   "fieldtype": "Data",
+   "label": "Email Sender"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-14 14:51:34.749232",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Training Registration Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
