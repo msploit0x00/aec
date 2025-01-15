@@ -175,7 +175,7 @@ frappe.ui.form.on('Service Request', {
 					var items2 = frm.doc.items
 					for(let row of items2){
 
-                    if (response.message &&  row.matched == 0) {
+                    if (row.matched == 0) {
 						console.log(response);
 						var items =frm.doc.items
                         frappe.msgprint({
@@ -189,7 +189,7 @@ frappe.ui.form.on('Service Request', {
 							if(row.matched == 0){
 								frappe.msgprint({
 									title: __('Validation Error'),
-									message: __('No serial number found in ' + row.idx),
+									message: __('No serial number found in row' + row.idx),
 									indicator: 'red'
 								});
 							}
