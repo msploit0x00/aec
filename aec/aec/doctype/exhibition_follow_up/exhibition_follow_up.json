@@ -1,0 +1,117 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-11 00:41:21.163434",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "exhibitions",
+  "column_break_bdawu",
+  "status",
+  "section_break_m6zl6",
+  "get_emails",
+  "exhibitors_emails",
+  "sender_email",
+  "subject",
+  "body_mail",
+  "attachments",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "exhibitions",
+   "fieldtype": "Link",
+   "label": "Exhibitions",
+   "options": "Exhibitions"
+  },
+  {
+   "fieldname": "column_break_bdawu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nPending\nUnder Investigation\nApproved\nNot Approved\nRequest to Edit\nWaiting list"
+  },
+  {
+   "fieldname": "section_break_m6zl6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "get_emails",
+   "fieldtype": "Button",
+   "label": "Get Emails"
+  },
+  {
+   "fieldname": "exhibitors_emails",
+   "fieldtype": "Table",
+   "label": "Exhibitors Emails",
+   "options": "Customer Email"
+  },
+  {
+   "fieldname": "sender_email",
+   "fieldtype": "Link",
+   "label": "Sender Email",
+   "options": "Email Account"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject"
+  },
+  {
+   "fieldname": "body_mail",
+   "fieldtype": "Text Editor",
+   "label": "Body mail"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Newsletter Attachment"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Exhibition Follow Up",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-01-14 16:01:04.664479",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Exhibition Follow Up",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
