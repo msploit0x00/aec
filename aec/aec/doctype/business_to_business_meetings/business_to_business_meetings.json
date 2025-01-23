@@ -12,6 +12,7 @@
   "name1",
   "meeting_type",
   "council_entity",
+  "export_opportunities",
   "column_break_qzud4",
   "date",
   "meeting_location",
@@ -231,12 +232,18 @@
    "fieldtype": "Table",
    "label": "Targeted Companies",
    "options": "Targeted Companies"
+  },
+  {
+   "fieldname": "export_opportunities",
+   "fieldtype": "Link",
+   "label": "Export Opportunities",
+   "options": "Export Opportunities"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-29 10:40:52.502651",
+ "modified": "2025-01-22 20:21:38.443834",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Business to Business Meetings",

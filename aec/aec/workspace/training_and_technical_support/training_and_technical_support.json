@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"M50xk9URSs\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Training and Technical Support </span>\",\"col\":12}},{\"id\":\"1cVeusAp13\",\"type\":\"card\",\"data\":{\"card_name\":\"Plans\",\"col\":4}}]",
+ "content": "[{\"id\":\"M50xk9URSs\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Training and Technical Support </span>\",\"col\":12}},{\"id\":\"1cVeusAp13\",\"type\":\"card\",\"data\":{\"card_name\":\"Plans\",\"col\":4}},{\"id\":\"5HpuDHGNn5\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"6voHc4Sp2n\",\"type\":\"card\",\"data\":{\"card_name\":\"Evaluation\",\"col\":4}},{\"id\":\"0BDO6GmGNn\",\"type\":\"card\",\"data\":{\"card_name\":\"Technical Support\",\"col\":4}}]",
  "creation": "2024-08-27 09:36:29.321116",
  "custom_blocks": [],
  "docstatus": 0,
@@ -36,7 +36,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Plans",
-   "link_count": 8,
+   "link_count": 5,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -73,9 +73,9 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Instructor",
+   "label": "Training Registration Form",
    "link_count": 0,
-   "link_to": "Instructor",
+   "link_to": "Training Registration Form",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -83,12 +83,20 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Partners",
+   "label": "Training Days Log",
    "link_count": 0,
-   "link_to": "Partners",
+   "link_to": "Training Days Log",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Masters",
+   "link_count": 4,
+   "onboard": 0,
+   "type": "Card Break"
   },
   {
    "hidden": 0,
@@ -113,15 +121,101 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Training Registration Form",
+   "label": "Partners",
    "link_count": 0,
-   "link_to": "Training Registration Form",
+   "link_to": "Partners",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Instructor",
+   "link_count": 0,
+   "link_to": "Instructor",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Evaluation",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Training Forms",
+   "link_count": 0,
+   "link_to": "Training Forms",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Training Evaluations",
+   "link_count": 0,
+   "link_to": "Training Evaluations",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Technical Support",
+   "link_count": 4,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Rejected Shipments",
+   "link_count": 0,
+   "link_to": "Rejected Shipments",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Active Ingredients",
+   "link_count": 0,
+   "link_to": "Active Ingredients",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reason For Rejection",
+   "link_count": 0,
+   "link_to": "Reason For Rejection",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Procedure From Importer",
+   "link_count": 0,
+   "link_to": "Procedure From Importer",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2025-01-14 13:40:03.612721",
+ "modified": "2025-01-22 15:13:39.983818",
  "modified_by": "ahmed.radwan@datasofteg.com",
  "module": "Aec",
  "name": "Training and Technical Support",

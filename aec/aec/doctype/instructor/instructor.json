@@ -44,7 +44,10 @@
   "work_history",
   "tab_break_dtlcx",
   "trainer_evaluation_section",
-  "trainer_selection_form"
+  "select_form",
+  "trainer_selection_form",
+  "evaluation_degree",
+  "total_degree"
  ],
  "fields": [
   {
@@ -270,12 +273,28 @@
    "fieldname": "overview_tab",
    "fieldtype": "Tab Break",
    "label": "Overview"
+  },
+  {
+   "fieldname": "select_form",
+   "fieldtype": "Link",
+   "label": "Select Form",
+   "options": "Training Forms"
+  },
+  {
+   "fieldname": "evaluation_degree",
+   "fieldtype": "Float",
+   "label": "Evaluation Degree"
+  },
+  {
+   "fieldname": "total_degree",
+   "fieldtype": "Float",
+   "label": "Total Degree"
   }
  ],
  "icon": "fa fa-user",
  "image_field": "image",
  "links": [],
- "modified": "2025-01-02 09:46:48.413572",
+ "modified": "2025-01-15 16:56:38.959001",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Instructor",

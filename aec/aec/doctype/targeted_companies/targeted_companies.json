@@ -14,7 +14,9 @@
   "ceo_name",
   "company_name",
   "email",
-  "status"
+  "status",
+  "customer_name",
+  "with_buyer"
  ],
  "fields": [
   {
@@ -53,7 +55,7 @@
    "label": "CEO Name"
   },
   {
-   "fetch_from": "member.customer_name",
+   "fetch_from": "member.company_name",
    "fieldname": "company_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -61,7 +63,7 @@
    "label": "Company Name"
   },
   {
-   "fetch_from": "member.custom_email",
+   "fetch_from": "member.email",
    "fieldname": "email",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -75,12 +77,24 @@
    "in_preview": 1,
    "label": "Status",
    "options": "\nAttended\nAbsent"
+  },
+  {
+   "fetch_from": "member.company_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "with_buyer",
+   "fieldtype": "Link",
+   "label": "With Buyer",
+   "options": "Buyers"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-12-19 16:34:43.908289",
+ "modified": "2025-01-23 10:21:27.539301",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Targeted Companies",

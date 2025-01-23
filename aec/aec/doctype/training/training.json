@@ -266,9 +266,13 @@
   {
    "link_doctype": "Training Days Log",
    "link_fieldname": "for_training"
+  },
+  {
+   "link_doctype": "Training Evaluations",
+   "link_fieldname": "for_training"
   }
  ],
- "modified": "2025-01-14 15:22:05.401878",
+ "modified": "2025-01-20 14:20:14.756315",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Training",
@@ -284,6 +288,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
