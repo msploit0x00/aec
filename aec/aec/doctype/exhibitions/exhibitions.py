@@ -16,6 +16,30 @@ def get_contact_exhibition(committee, status,name,docname):
         frappe.throw("Select status")
     if not committee:
         frappe.throw("Select Committee")
+
+    customer_emails_set = set()
+
+    members = frappe.get_all('Exhibitors', fields=['name','member'])
+    
+
+    for mem in members:
+        member_data = frappe.get_doc("Customer",mem.member)
+        member_dic = member_data.as_dict()
+        # frappe.msgprint(str(member_dic))
+        customer_emails_set.add(member_dic.custom_email)
+    # frappe.msgprint('from set1' + str(customer_emails_set))
+        
+    contact = frappe.get_all("Contact", filters={'custom_contact_type': 'Exhibition'},fields=['name'])
+    for con in contact:
+        all_email = frappe.get_all("Contact Email", filters={'parent': con.name }, fields=['email_id'])
+        # frappe.msgprint('contact' + str(all_email))
+        # Extract individual email addresses
+        email_ids = [email['email_id'] for email in all_email]
+        customer_emails_set.update(email_ids)
+    # frappe.msgprint('from set2' + str(customer_emails_set))
+
+
+    
     condition = []
     if isinstance(status, str):
         list_value = ast.literal_eval(status)
@@ -85,9 +109,17 @@ ORDER BY customer_name;
     letter.source = docname
     letter.generealiztion_id = name
     for row in data:
-      letter.append("customer_email",{
+      
+      if row['email'] not in customer_emails_set:
+        #    frappe.msgprint(row['email'])
+           letter.append("customer_email",{
           "email":row['email']
-      })
+          })
+    
+
     letter.save()  
     frappe.db.commit()
     return letter
+
+
+##

@@ -2,6 +2,10 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Exhibitions', {
+  after_save: function(frm) {
+    
+  },
+
 	on_submit: function(frm) {
     if (frm.doc.docstatus = 1){
       let status = []
@@ -40,3 +44,5 @@ frappe.ui.form.on('Exhibitions', {
     }
 	}
 });
+
+//
