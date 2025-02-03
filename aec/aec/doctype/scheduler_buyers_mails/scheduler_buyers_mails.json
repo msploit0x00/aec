@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-11 18:45:17.626224",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "references_section",
+  "from_doctype",
+  "column_break_hpcyb",
+  "reference",
+  "mission_info_section",
+  "mission_start_date",
+  "column_break_7ttac",
+  "mission_end_date",
+  "section_break_g0eya",
+  "countries",
+  "mission_program",
+  "b2b_info_section",
+  "meeting_type",
+  "export_opportunities",
+  "column_break_lufbd",
+  "meeting_location",
+  "meeting_link",
+  "section_break_si2rl",
+  "buyers_info",
+  "mission_members",
+  "targeted_companies",
+  "mail_info_section",
+  "subject",
+  "body_mail",
+  "attachments"
+ ],
+ "fields": [
+  {
+   "fieldname": "references_section",
+   "fieldtype": "Section Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "from_doctype",
+   "fieldtype": "Link",
+   "label": "From DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "column_break_hpcyb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference",
+   "options": "from_doctype"
+  },
+  {
+   "fieldname": "mission_info_section",
+   "fieldtype": "Section Break",
+   "label": "Mission Info"
+  },
+  {
+   "fieldname": "mission_start_date",
+   "fieldtype": "Date",
+   "label": "Mission Start Date"
+  },
+  {
+   "fieldname": "column_break_7ttac",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mission_end_date",
+   "fieldtype": "Date",
+   "label": "Mission End Date"
+  },
+  {
+   "fieldname": "section_break_g0eya",
+   "fieldtype": "Section Break",
+   "label": "Program"
+  },
+  {
+   "fieldname": "countries",
+   "fieldtype": "Table",
+   "label": "Countries",
+   "options": "Geographcal Clusters"
+  },
+  {
+   "fieldname": "mission_program",
+   "fieldtype": "Table",
+   "label": "Mission Program",
+   "options": "Mission Program"
+  },
+  {
+   "fieldname": "b2b_info_section",
+   "fieldtype": "Section Break",
+   "label": "B2B Info"
+  },
+  {
+   "fieldname": "meeting_type",
+   "fieldtype": "Select",
+   "label": "Meeting Type",
+   "options": "\nPhysical\nVirtual\nHybrid"
+  },
+  {
+   "fieldname": "export_opportunities",
+   "fieldtype": "Link",
+   "label": "Export Opportunities",
+   "options": "Export Opportunities"
+  },
+  {
+   "fieldname": "column_break_lufbd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "meeting_location",
+   "fieldtype": "Link",
+   "label": "Meeting Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "meeting_link",
+   "fieldtype": "Data",
+   "label": "Meeting Link"
+  },
+  {
+   "fieldname": "section_break_si2rl",
+   "fieldtype": "Section Break",
+   "label": "Mission Details"
+  },
+  {
+   "fieldname": "buyers_info",
+   "fieldtype": "Table",
+   "label": "Buyers Info",
+   "options": "Buyers Info"
+  },
+  {
+   "fieldname": "mission_members",
+   "fieldtype": "Table",
+   "label": "Mission Members",
+   "options": "Mission Members"
+  },
+  {
+   "fieldname": "targeted_companies",
+   "fieldtype": "Table",
+   "label": "Targeted Companies",
+   "options": "Targeted Companies"
+  },
+  {
+   "fieldname": "mail_info_section",
+   "fieldtype": "Section Break",
+   "label": "Mail Info"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject"
+  },
+  {
+   "fieldname": "body_mail",
+   "fieldtype": "Text Editor",
+   "label": "body mail"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Newsletter Attachment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-03 17:35:48.369699",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Scheduler Buyers Mails",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

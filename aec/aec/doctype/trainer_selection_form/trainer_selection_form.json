@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-02 09:34:40.521135",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "rating_component",
+  "description",
+  "rate",
+  "weightage"
+ ],
+ "fields": [
+  {
+   "fieldname": "rating_component",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Rating Component"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Rate"
+  },
+  {
+   "fieldname": "weightage",
+   "fieldtype": "Float",
+   "label": "Weightage"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-03 17:35:51.464536",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Trainer Selection Form",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

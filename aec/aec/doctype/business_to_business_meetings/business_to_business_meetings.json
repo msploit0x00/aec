@@ -111,6 +111,7 @@
   {
    "fieldname": "send_to_buyers",
    "fieldtype": "Button",
+   "hidden": 1,
    "label": "Send To Buyers"
   },
   {
@@ -127,6 +128,7 @@
   {
    "fieldname": "send_to_members",
    "fieldtype": "Button",
+   "hidden": 1,
    "label": "Send To Members"
   },
   {
@@ -243,7 +245,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-22 20:21:38.443834",
+ "modified": "2025-01-23 12:13:13.780052",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Business to Business Meetings",

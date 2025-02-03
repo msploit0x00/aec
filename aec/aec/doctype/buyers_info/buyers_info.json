@@ -57,13 +57,14 @@
   {
    "fieldname": "primary_email",
    "fieldtype": "Data",
-   "label": "Primary Email"
+   "label": "Primary Email",
+   "options": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-12-01 14:23:53.613178",
+ "modified": "2025-01-23 11:39:15.179829",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Buyers Info",

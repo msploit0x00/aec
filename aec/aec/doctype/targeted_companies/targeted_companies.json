@@ -68,7 +68,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_preview": 1,
-   "label": "Email"
+   "label": "Email",
+   "options": "Email"
   },
   {
    "fieldname": "status",
@@ -94,7 +95,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-01-23 10:21:27.539301",
+ "modified": "2025-01-23 10:37:00.747662",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Targeted Companies",

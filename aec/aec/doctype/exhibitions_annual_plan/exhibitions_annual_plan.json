@@ -13,6 +13,12 @@
   "subject",
   "expected_exhibitions",
   "remarks",
+  "inventions_section",
+  "get_committees",
+  "committees",
+  "active",
+  "inactive",
+  "suspended",
   "amended_from"
  ],
  "fields": [
@@ -62,12 +68,46 @@
    "options": "Exhibitions Annual Plan",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "inventions_section",
+   "fieldtype": "Section Break",
+   "label": "Inventions"
+  },
+  {
+   "fieldname": "get_committees",
+   "fieldtype": "Button",
+   "label": "Get Committees"
+  },
+  {
+   "fieldname": "committees",
+   "fieldtype": "Table",
+   "label": "Committees",
+   "options": "Committees"
+  },
+  {
+   "default": "0",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "default": "0",
+   "fieldname": "inactive",
+   "fieldtype": "Check",
+   "label": "Inactive"
+  },
+  {
+   "default": "0",
+   "fieldname": "suspended",
+   "fieldtype": "Check",
+   "label": "Suspended"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-04 02:30:49.864585",
+ "modified": "2025-01-30 12:02:19.947785",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Exhibitions Annual Plan",

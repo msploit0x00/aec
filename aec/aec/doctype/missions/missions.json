@@ -1,6 +1,4 @@
 {
- "_comments": "[]",
- "_liked_by": "[]",
  "actions": [],
  "allow_rename": 1,
  "autoname": "prompt",
@@ -173,11 +171,13 @@
   {
    "fieldname": "send_email_to_buyers",
    "fieldtype": "Button",
+   "hidden": 1,
    "label": "Send Email To Buyers"
   },
   {
    "fieldname": "send_email_to_members",
    "fieldtype": "Button",
+   "hidden": 1,
    "label": "Send Email To Members"
   },
   {
@@ -249,7 +249,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-11 21:03:44.209571",
+ "modified": "2025-01-23 12:10:17.406434",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Missions",

@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-22 14:31:36.099217",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "code",
+  "rejection_date",
+  "month",
+  "year",
+  "countri",
+  "geographical_clusters",
+  "column_break_sjevx",
+  "exporter_company",
+  "product",
+  "active_ingredient",
+  "reason_for_rejection",
+  "procedure_from_importer",
+  "section_break_ujsxb",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Code"
+  },
+  {
+   "fieldname": "rejection_date",
+   "fieldtype": "Date",
+   "label": "Rejection Date"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "label": "Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "Year"
+  },
+  {
+   "fieldname": "countri",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Countries"
+  },
+  {
+   "fetch_from": "countri.geographical_clusters_name",
+   "fieldname": "geographical_clusters",
+   "fieldtype": "Data",
+   "label": "Geographical Clusters"
+  },
+  {
+   "fieldname": "column_break_sjevx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "exporter_company",
+   "fieldtype": "Data",
+   "label": "Exporter Company"
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Data",
+   "label": "Product"
+  },
+  {
+   "fieldname": "active_ingredient",
+   "fieldtype": "Link",
+   "label": "Active Ingredient",
+   "options": "Active Ingredients"
+  },
+  {
+   "fieldname": "reason_for_rejection",
+   "fieldtype": "Link",
+   "label": "Reason for rejection",
+   "options": "Reason For Rejection"
+  },
+  {
+   "fieldname": "procedure_from_importer",
+   "fieldtype": "Link",
+   "label": "Procedure From Importer",
+   "options": "Procedure From Importer"
+  },
+  {
+   "fieldname": "section_break_ujsxb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-03 17:35:49.230938",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Rejected Shipments",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

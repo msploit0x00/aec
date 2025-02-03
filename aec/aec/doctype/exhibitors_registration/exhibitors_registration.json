@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-06-26 13:25:27.801683",
+ "creation": "2025-02-02 15:56:19.841381",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -16,17 +16,6 @@
   "column_break_jrlrn",
   "year",
   "exhibitions",
-  "approved_company_name",
-  "status",
-  "notify_by_email_section",
-  "sender_email",
-  "email",
-  "email_templates",
-  "column_break_osbja",
-  "send_email",
-  "section_break_vvhix",
-  "subject",
-  "body_mail",
   "section_break_hipwh",
   "targeted_products",
   "company_brief",
@@ -35,7 +24,6 @@
   "job_title",
   "email_ids",
   "contact_numbers",
-  "create_contact",
   "amended_from"
  ],
  "fields": [
@@ -44,6 +32,20 @@
    "fieldtype": "Link",
    "label": "Member",
    "options": "Customer"
+  },
+  {
+   "fetch_from": "member.custom_name_of_the_cioowner_of_the_company",
+   "fieldname": "ceo_name",
+   "fieldtype": "Data",
+   "label": "CEO Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "member.customer_name",
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name",
+   "read_only": 1
   },
   {
    "description": "Number of exhibitions previously participated in",
@@ -69,23 +71,15 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "exhibitions",
-   "fieldtype": "Link",
-   "label": "Exhibitions",
-   "options": "Exhibitions"
-  },
-  {
-   "description": "The name of the company approved by government agencies",
-   "fieldname": "approved_company_name",
+   "fieldname": "year",
    "fieldtype": "Data",
-   "label": "Approved Company Name"
+   "label": "Year"
   },
   {
-   "default": "Pending",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "\nPending\nUnder Investigation\nApproved\nNot Approved\nRequest to Edit\nWaiting list"
+   "fieldname": "exhibitions",
+   "fieldtype": "Table MultiSelect",
+   "label": "Exhibitions",
+   "options": "Select Exhibitions"
   },
   {
    "fieldname": "section_break_hipwh",
@@ -135,94 +129,22 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Exhibitors",
+   "options": "Exhibitors Registration",
    "print_hide": 1,
    "read_only": 1
-  },
-  {
-   "fetch_from": "member.custom_name_of_the_cioowner_of_the_company",
-   "fieldname": "ceo_name",
-   "fieldtype": "Data",
-   "label": "CEO Name",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "member.customer_name",
-   "fieldname": "company_name",
-   "fieldtype": "Data",
-   "label": "Company Name",
-   "read_only": 1
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "notify_by_email_section",
-   "fieldtype": "Section Break",
-   "label": "Notify By Email"
-  },
-  {
-   "fieldname": "sender_email",
-   "fieldtype": "Link",
-   "label": "Sender Email",
-   "options": "Email Account"
-  },
-  {
-   "fieldname": "email_templates",
-   "fieldtype": "Link",
-   "label": "Email Templates",
-   "options": "Email Templates"
-  },
-  {
-   "fieldname": "column_break_osbja",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "send_email",
-   "fieldtype": "Button",
-   "label": "Send Email"
-  },
-  {
-   "fieldname": "create_contact",
-   "fieldtype": "Button",
-   "label": "Create Contact"
-  },
-  {
-   "fieldname": "section_break_vvhix",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fetch_from": "email_templates.subject",
-   "fieldname": "subject",
-   "fieldtype": "Data",
-   "label": "Subject"
-  },
-  {
-   "fetch_from": "email_templates.body_email",
-   "fieldname": "body_mail",
-   "fieldtype": "Text Editor",
-   "label": "Body Mail"
-  },
-  {
-   "fetch_from": "sender_email.email_id",
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "label": "Email"
-  },
-  {
-   "fieldname": "year",
-   "fieldtype": "Data",
-   "label": "Year"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-03 00:57:55.376499",
+ "modified": "2025-02-03 17:35:46.470273",
  "modified_by": "Administrator",
  "module": "Aec",
- "name": "Exhibitors",
+ "name": "Exhibitors Registration",
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -232,6 +154,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

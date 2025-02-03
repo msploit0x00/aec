@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-14 15:13:13.232895",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "training_day_info_section",
+  "day",
+  "chapter",
+  "instructor",
+  "column_break_4jnez",
+  "for_training",
+  "time_from",
+  "time_to",
+  "training_members_attendance_section",
+  "members_attendance",
+  "amended_from",
+  "total_attended",
+  "total_absent"
+ ],
+ "fields": [
+  {
+   "fieldname": "training_day_info_section",
+   "fieldtype": "Section Break",
+   "label": "Training Day Info"
+  },
+  {
+   "fieldname": "day",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Day"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "chapter",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Chapter",
+   "options": "Chapter"
+  },
+  {
+   "fieldname": "instructor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Instructor",
+   "options": "Instructor"
+  },
+  {
+   "fieldname": "column_break_4jnez",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "for_training",
+   "fieldtype": "Link",
+   "label": "For Training",
+   "options": "Training"
+  },
+  {
+   "fieldname": "time_from",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Time From"
+  },
+  {
+   "fieldname": "time_to",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Time To"
+  },
+  {
+   "fieldname": "training_members_attendance_section",
+   "fieldtype": "Section Break",
+   "label": "Training Members Attendance"
+  },
+  {
+   "fieldname": "members_attendance",
+   "fieldtype": "Table",
+   "label": "Members Attendance",
+   "options": "Members Attendance"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Training Days Log",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_attended",
+   "fieldtype": "Data",
+   "label": "Total Attended"
+  },
+  {
+   "fieldname": "total_absent",
+   "fieldtype": "Data",
+   "label": "Total Absent"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-02-03 17:35:48.792398",
+ "modified_by": "Administrator",
+ "module": "Aec",
+ "name": "Training Days Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

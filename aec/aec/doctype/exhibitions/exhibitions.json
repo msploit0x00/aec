@@ -11,6 +11,8 @@
   "section_break_rt6nb",
   "name1",
   "english_name",
+  "from_plan",
+  "year",
   "registration_date",
   "valid_to",
   "status",
@@ -40,13 +42,13 @@
   "exhibition__images",
   "exhibition__gallery",
   "details",
-  "amended_from",
   "inventions_tab",
   "get_committees",
   "committees",
   "active",
   "in_active",
-  "suspended"
+  "suspended",
+  "amended_from"
  ],
  "fields": [
   {
@@ -266,12 +268,23 @@
    "options": "Exhibitions",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "from_plan",
+   "fieldtype": "Link",
+   "label": "From Plan",
+   "options": "Exhibitions Annual Plan"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "Year"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-04 03:14:27.401803",
+ "modified": "2025-02-02 16:06:06.450738",
  "modified_by": "Administrator",
  "module": "Aec",
  "name": "Exhibitions",
