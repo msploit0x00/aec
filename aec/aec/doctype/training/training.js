@@ -21,8 +21,8 @@ frappe.ui.form.on('Training', {
 		frm.add_custom_button(__('Send to Newsletters'),function(){
 		  status = []
 		  let active = frm.doc.active,
-		  in_active  = frm.doc.in_active,
-		  suspended = frm.doc.suspended;
+		  in_active  = frm.doc.inactive,
+		  suspended = frm.doc.suspend;
 		  active = (active === 1) ? "active" : "";
 		  in_active = (in_active === 1) ? "Inactive" : "";
 		  suspended = (suspended === 1) ? "Suspended" : "";
