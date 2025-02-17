@@ -59,7 +59,7 @@ FROM `tabCustomer` tc
 left JOIN `tabCommittees you would like to join` tcj
 
 ON tc.`name` = tcj.`parent`
-LEFT JOIN (
+LEFT JOIN (             
     SELECT 
         dl.link_name, 
         c.custom_contact_type,
