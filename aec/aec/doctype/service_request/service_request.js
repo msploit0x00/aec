@@ -167,7 +167,7 @@ frappe.ui.form.on('Service Request', {
 
 	before_submit:function(frm){
 
-		if (!frm.is_new()) {
+		if (!frm.is_new() && frm.doc.select_service == "إعادة طباعة إستمارة المساندة") {
             return frm.call('get_mosanda_serial2')
                 .then((response) => {
 					console.log(response);
